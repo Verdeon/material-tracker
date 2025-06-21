@@ -105,13 +105,13 @@
     <div class="bg-gray-100 py-3">
         <div class="container mx-auto px-4">
             <div class="flex items-center text-sm">
-                <a href="#" class="text-gray-600 hover:text-green-600">Ana Sayfa</a>
+                <a href="index.html" class="text-gray-600 hover:text-green-600">Ana Sayfa</a>
                 <span class="mx-2 text-gray-400">/</span>
-                <a href="#" class="text-gray-600 hover:text-green-600">Katalog</a>
+                <a href="products-listing.html" class="text-gray-600 hover:text-green-600">Katalog</a>
                 <span class="mx-2 text-gray-400">/</span>
-                <a href="#" class="text-gray-600 hover:text-green-600">Tuğla &amp; Bloklar</a>
+                <a href="#" id="product-category" class="text-gray-600 hover:text-green-600">Kategori</a>
                 <span class="mx-2 text-gray-400">/</span>
-                <span class="text-green-600">20'lik Tuğla</span>
+                <span id="product-name" class="text-green-600">Ürün Adı</span>
             </div>
         </div>
     </div>
@@ -161,7 +161,7 @@
                 
                 <!-- Product Info -->
                 <div class="lg:w-1/2 px-4">
-                    <h1 class="text-3xl font-bold mb-2">20'lik Tuğla</h1>
+                    <h1 id="productName" class="text-3xl font-bold mb-2">Ürün Adı</h1>
                     <div class="flex items-center mb-4">
                         <div class="flex text-yellow-400 mr-2">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -180,15 +180,14 @@
                                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
                             </svg>
                         </div>
-                        <span class="text-gray-600">(En çok önerilen)</span>
                     </div>
                     <div class="mb-4">
-                        <span class="text-green-600 text-2xl font-bold">10 g CO₂</span>
-                        <span class="bg-green-100 text-green-800 text-sm font-semibold ml-2 px-2 py-1 rounded">15% daha az karbon</span>
+                        <span class="text-green-600 text-2xl font-bold"><span id="product-carbon">0</span> g CO₂</span>
+                        <span class="bg-green-100 text-green-800 text-sm font-semibold ml-2 px-2 py-1 rounded">Çevre Dostu</span>
                     </div>
                     <div class="border-t border-b border-gray-200 py-4 mb-6">
-                        <p class="text-gray-700 mb-4">
-                             Genelde dış duvarlarda ısı izolasyonu sağlamak amacıyla kullanılır. Ebatları ve ağırlığı toleransları dâhilinde değişebilir.
+                        <p id="product-desc" class="text-gray-700 mb-4">
+                            Ürün açıklaması.
                         </p>
                         <ul class="space-y-2 text-gray-700">
                             <li class="flex items-center">
@@ -234,7 +233,7 @@
                     
                     <div class="flex flex-wrap gap-3 mb-6">
                         
-                <button id="add-to-cart-btn" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-md flex items-center transition duration-300">
+                <button data-action="add-to-cart" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-md flex items-center transition duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M20 21H22V6.6439L12 2.09845L2 6.6439V21H4V10C4 9.4477 4.44772 8.99999 5 8.99999H19C19.5523 8.99999 20 9.4477 20 10V21zM18 21V11H6V21H18zM1 23C0.447715 23 0 22.5523 0 22V6.6439C0 5.85962 0.458406 5.14771 1.17239 4.82317L11.1724 0.27772C11.6982 0.03869 12.3018 0.03869 12.8276 0.27772L22.8276 4.82317C23.5416 5.14771 24 5.85962 24 6.6439V22C24 22.5523 23.5523 23 23 23H1zM6 13H18V15H6V13zM6 17H18V19H6V17z" fill="#fff"></path>
                     </svg>
@@ -251,11 +250,11 @@
                     <div class="border-t border-gray-200 pt-4">
                         <div class="flex items-center mb-2">
                             <span class="text-gray-700 mr-2">Ürün Kodu:</span>
-                            <span class="text-gray-600">ABC-123</span>
+                            <span id="product-id" class="text-gray-600">Ürün Kodu</span>
                         </div>
                         <div class="flex items-center mb-2">
                             <span class="text-gray-700 mr-2">Kategori:</span>
-                            <a href="#" class="text-green-600 hover:underline">Tuğla &amp; Bloklar</a>
+                            <a href="#" id="productCategory" class="text-green-600 hover:underline">Kategori</a>
                         </div>
                         <div class="flex items-center">
                             <span class="text-gray-700 mr-2">Paylaş:</span>
@@ -301,7 +300,7 @@
                 <!-- Description Tab -->
                 <div id="description" class="tab-content">
                     <h3 class="text-xl font-semibold mb-4">Product Description</h3>
-                    <div class="text-gray-700 space-y-4">
+                    <div id="product-desc" class="text-gray-700 space-y-4">
                         <p>
                             Our organic apples are handpicked from sustainable orchards where farmers use traditional growing methods that work in harmony with nature. These apples are grown without synthetic pesticides, herbicides, or fertilizers, ensuring you get the purest, most natural fruit possible.
                         </p>
@@ -390,7 +389,7 @@
                     <h4 class="text-lg font-semibold mb-4">Hızlı Bağlantılar</h4>
                     <ul class="space-y-2">
                         <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Hakkımızda</a></li>
-                        <li><a href="product-page.html" class="text-gray-400 hover:text-white transition duration-300">Katalog</a></li>
+                        <li><a href="products-listing.html" class="text-gray-400 hover:text-white transition duration-300">Katalog</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">İletişim</a></li>
                         <li><a href="index.html#Newsletter" class="text-gray-400 hover:text-white transition duration-300">Abonelik</a></li>
                     </ul>
@@ -438,5 +437,6 @@
     <script src="script/script.js"></script>
     <script src="script/warehouse.js"></script>
     <script src="script/showreccomended.js"></script>
+    <script src="script/product-page.js"></script>
 </body>
 </html>

@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="flex items-center gap-4">
           <img src="${item.image || 'placeholder.jpg'}" alt="${item.name || 'Ürün Resmi'}" class="w-20 h-20 object-cover rounded">
           <div>
-            <a href="product-page.html"><h3 class="text-lg font-semibold">${item.name || 'Bilinmeyen Ürün'}</h3></a>
+            <a href="product-page.html?id=${item.id}"><h3 class="text-lg font-semibold">${item.name || 'Bilinmeyen Ürün'}</h3></a>
             <p class="text-sm text-gray-500">${item.desc || 'Açıklama Yok'}</p>
           </div>
         </div>

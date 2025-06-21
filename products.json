@@ -1,86 +1,86 @@
 {
-  "Beton": [
-    {
-      "id": "c30",
-      "name": "C30 Beton",
-      "carbon": 320,
-      "desc": "Yüksek dayanımlı genel amaçlı beton.",
-      "rating": "Çok Önerilen",
-      "image": "img/Concrate.svg"
-    },
-    {
-      "id": "c20",
-      "name": "C20 Beton",
-      "carbon": 360,
-      "desc": "Orta dayanımlı, yaygın kullanılan beton.",
-      "rating": "Önerilen",
-      "image": "img/Concrate.svg"
-    }
-  ],
-  "Çelik": [
-    {
-      "id": "s235",
-      "name": "Yapısal Çelik S235",
-      "carbon": 1700,
-      "desc": "İnşaatta yaygın kullanılan düşük karbonlu çelik.",
-      "rating": "Az Önerilen",
-      "image": "img/Steel.svg"
-    },
-    {
-      "id": "s355",
-      "name": "Yüksek Dayanımlı Çelik S355",
-      "carbon": 1850,
-      "desc": "Ağır yük taşıyan yapılarda tercih edilen çelik.",
-      "rating": "Önerilmeyen",
-      "image": "img/Steel.svg"
-    }
-  ],
-  "Yalıtım": [
-    {
-      "id": "camyunu",
-      "name": "Cam Yünü Yalıtım",
-      "carbon": 200,
-      "desc": "Isı ve ses yalıtımında kullanılır.",
-      "rating": "Önerilen",
-      "image": "img/Isolation.svg"
-    },
-    {
-      "id": "strafor",
-      "name": "Strafor Levha",
-      "carbon": 600,
-      "desc": "Ucuz ve yaygın, ancak yüksek karbon içerir.",
-      "rating": "Önerilmeyen",
-      "image": "img/Isolation.svg"
-    }
-  ],
-  "Tuğla": [
-    {
-      "id": "tugla",
-      "name": "10'luk Tuğla",
-      "carbon": 200,
-      "desc": "Ucuz ve yaygın, ayrıca düşük karbon içerir.",
-      "rating": "Çok Önerilen",
-      "image": "img/Brick.svg"
-    }
-  ],
-  "Cam": [
-    {
-      "id": "cam",
-      "name": "Düz Cam",
-      "carbon": 300,
-      "desc": "Düz camlar boyanabilir, lamine yapılabilir, temperleme işlemi yapılabilir, ayna yapımında kullanılabilir. Saydam cam düz camdır.",
-      "rating": "Çok Önerilen",
-      "image": "img/Glass.svg"
-    }
-  ],
-  "Zemin": [
-    {
-      "id": "tile",
-      "name": "Esnek Kontrplak",
-      "carbon": 1200,
-      "desc": "Esnek kontrplak; elastikiyet , esneklik ve dayanıklılık gibi fiziksel özelliklerinin yanı sıra, bu özelliklerine göre ekonomik olması ve kullanımda büyük kolaylıklar sağlaması sonucunda tercih sebebi olmaktadır.",
-      "rating": "Önerilen",
-      "image": "img/Tile.svg"
-    }
-  ]
+    "Beton": [
+        {
+            "id": "c30",
+            "name": "C30 Beton",
+            "carbon": 320,
+            "desc": "Yüksek dayanımlı genel amaçlı beton.",
+            "rating": "Çok Önerilen",
+            "image": "img/Concrate.svg"
+        },
+        {
+            "id": "c20",
+            "name": "C20 Beton",
+            "carbon": 360,
+            "desc": "Orta dayanımlı, yaygın kullanılan beton.",
+            "rating": "Önerilen",
+            "image": "img/Concrate.svg"
+        }
+    ],
+    "Çelik": [
+        {
+            "id": "s235",
+            "name": "Yapısal Çelik S235",
+            "carbon": 1700,
+            "desc": "İnşaatta yaygın kullanılan düşük karbonlu çelik.",
+            "rating": "Az Önerilen",
+            "image": "img/Steel.svg"
+        },
+        {
+            "id": "s355",
+            "name": "Yüksek Dayanımlı Çelik S355",
+            "carbon": 1850,
+            "desc": "Ağır yük taşıyan yapılarda tercih edilen çelik.",
+            "rating": "Önerilmeyen",
+            "image": "img/Steel.svg"
+        }
+    ],
+    "Yalıtım": [
+        {
+            "id": "camyunu",
+            "name": "Cam Yünü Yalıtım",
+            "carbon": 200,
+            "desc": "Isı ve ses yalıtımında kullanılır.",
+            "rating": "Önerilen",
+            "image": "img/Isolation.svg"
+        },
+        {
+            "id": "strafor",
+            "name": "Strafor Levha",
+            "carbon": 600,
+            "desc": "Ucuz ve yaygın, ancak yüksek karbon içerir.",
+            "rating": "Önerilmeyen",
+            "image": "img/Isolation.svg"
+        }
+    ],
+    "Tuğla": [
+        {
+            "id": "tugla",
+            "name": "10'luk Tuğla",
+            "carbon": 200,
+            "desc": "Ucuz ve yaygın, ayrıca düşük karbon içerir.",
+            "rating": "Çok Önerilen",
+            "image": "img/Brick.svg"
+        }
+    ],
+    "Cam": [
+        {
+            "id": "cam",
+            "name": "Düz Cam",
+            "carbon": 300,
+            "desc": "Düz camlar boyanabilir, lamine yapılabilir, temperleme işlemi yapılabilir, ayna yapımında kullanılabilir. Saydam cam düz camdır.",
+            "rating": "Çok Önerilen",
+            "image": "img/Glass.svg"
+        }
+    ],
+    "Zemin": [
+        {
+            "id": "plywood",
+            "name": "Esnek Kontrplak",
+            "carbon": 1200,
+            "desc": "Esnek kontrplak; elastikiyet , esneklik ve dayanıklılık gibi fiziksel özelliklerinin yanı sıra, bu özelliklerine göre ekonomik olması ve kullanımda büyük kolaylıklar sağlaması sonucunda tercih sebebi olmaktadır.",
+            "rating": "Önerilen",
+            "image": "img/Tile.svg"
+        }
+    ]
 }

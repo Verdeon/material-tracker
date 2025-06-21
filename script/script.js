@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     ${starsHtml}
                                 </div>
                             </div>
-                            <a href="product-page.html?id=${product.id}&category=${product.category}" ><h3 class="font-semibold mb-1 hover:text-green-700">${product.name}</h3></a>
+                            <a href="product-page.html?id=${product.id}" ><h3 class="font-semibold mb-1 hover:text-green-700">${product.name}</h3></a>
                             <p class="text-gray-500 text-sm mb-2">${product.desc}</p>
                             <div class="flex justify-between items-center mt-4">
                                 <div>
@@ -466,7 +466,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ürün sepeti iconuna tıklama işlevi (varsa)
     // Bu kısım artık doğrudan addToWarehouse'u çağırmıyor, sadece count'u gösteren bir öğeyi güncelliyor.
     // Asıl mantık common.js tarafından sağlanıyor.
-    // const addToCartButton = document.getElementById('add-to-cart'); // Bu, genel bir buton değil, bir ID'ye sahip olan bir buton.
+    // const addToWarehouseButton = document.getElementById('add-to-cart'); // Bu, genel bir buton değil, bir ID'ye sahip olan bir buton.
     // Eğer bu butonu genel sepet butonu olarak kullanıyorsanız, ID'sini kontrol edin.
     // Genel sepet butonu artık common.js tarafından yönetilmeli.
 });
@@ -516,4 +516,66 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
+
+    const addToWarehouseButton = document.querySelector('[data-action="add-to-cart"]');
+    if (addToWarehouseButton) {
+        addToWarehouseButton.addEventListener('click', (event) => {
+            console.log("Sepete Ekle butonu tıklandı!");
+
+            // Butondan ürün bilgilerini alalım
+            const productName = document.getElementById('product-name');
+            const productCarbon = document.getElementById('product-carbon')
+            const productImage = document.getElementById('product-image');
+            const productCategory = document.getElementById('product-category');
+
+            // Miktar input'undan değeri alalım
+            const quantityInput = document.getElementById('quantity');
+            const quantity = parseInt(quantityInput ? quantityInput.value : 1); // Varsayılan 1
+
+            if (!productName || isNaN(productCarbon) || isNaN(quantity)) {
+                console.error("Ürün bilgileri eksik veya hatalı. Sepete eklenemedi.");
+                alert("Ürün bilgileri eksik veya hatalı. Lütfen sayfayı yenileyin.");
+                return;
+            }
+
+            // Yeni ürün objesini oluşturalım
+            const newItem = {
+                category: productCategory,
+                quantity: quantity,
+                name: productName,
+                image: productImage,
+                desc: desc,
+                carbon: productCarbon
+            };
+
+            // Depoyu localStorage'dan çek
+            let warehouseItems = JSON.parse(localStorage.getItem('warehouse')) || [];
+
+            if (existingItemIndex > -1) {
+                // Ürün zaten var, miktarını artır
+                warehouseItems[existingItemIndex].quantity += newItem.quantity;
+            } else {
+                // Ürün yok, yeni olarak ekle
+                warehouseItems.push(newItem);
+            }
+
+            // Güncellenmiş depoyu localStorage'a kaydet
+            localStorage.setItem('warehouse', JSON.stringify(warehouseItems));
+
+            // Sepet ve karbon sayısını güncelleyen fonksiyonları çağır
+            // common.js'deki fonksiyonlar window objesine eklenmişti.
+            if (typeof window.updateCartCountFromWarehouse === 'function') {
+                window.updateCartCountFromWarehouse();
+            }
+            if (typeof window.updateCarbonCountFromWarehouse === 'function') {
+                window.updateCarbonCountFromWarehouse();
+            }
+
+            alert(`${newItem.quantity} adet ${newItem.name} depoya eklendi!`);
+            console.log("Güncel depo:", warehouseItems);
+        });
+    } else {
+        console.warn("Sepete Ekle butonu bulunamadı.");
+    }
+    
 });

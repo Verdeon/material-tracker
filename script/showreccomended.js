@@ -48,7 +48,7 @@ function renderPopularProducts(products) {
                     <span class="recommend-badge">Çok Önerilen</span>
                 </div>
                 <div class="p-4">
-                    <a href="product-page.html?id=${product.id}&category=${product.category}" class="block">
+                    <a href="product-page.html?id=${product.id}" class="block">
                         <h3 class="font-semibold mb-1 text-gray-800 hover:text-green-600 transition duration-200">${product.name}</h3>
                     </a>
                     <p class="text-gray-500 text-sm mb-2">${product.desc}</p>
