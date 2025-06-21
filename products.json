@@ -9,6 +9,14 @@
       "image": "img/concrete/c30.png"
     },
     {
+      "id": "c40",
+      "name": "C40 Beton",
+      "carbon": 320,
+      "desc": "Yüksek dayanımlı genel amaçlı beton.",
+      "rating": "Çok Önerilen",
+      "image": "img/concrete/c30.png"
+    },
+    {
       "id": "c20",
       "name": "C20 Beton",
       "carbon": 360,

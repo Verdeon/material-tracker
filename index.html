@@ -92,8 +92,7 @@
                 </div>
                 <ul class="flex flex-wrap">
                     <li><a href="index.html" class="block py-4 px-4 hover:bg-green-700 font-medium">Ana Sayfa</a></li>
-                    <li><a href="#" class="block py-4 px-4 hover:bg-green-700">Katalog</a></li>
-                    <li><a href="products-listing.html" class="block py-4 px-4 hover:bg-green-700">Ürünler</a></li>
+                    <li><a href="products-listing.html" class="block py-4 px-4 hover:bg-green-700">Katalog</a></li>
                     <li><a href="#" class="block py-4 px-4 hover:bg-green-700">Hakkımızda</a></li>
                     <li><a href="#" class="block py-4 px-4 hover:bg-green-700">İletişim</a></li>
                 </ul>
@@ -170,115 +169,13 @@
     </section>
 
     <!-- Featured Products -->
-    <section class="py-12 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center mb-8">
-                <h2 class="text-3xl font-bold">Popüler Ürünler</h2>
-                <div class="flex space-x-2">
-                    <button class="bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-green-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                        </svg>
-                    </button>
-                    <button class="bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-green-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </button>
-                </div>
+<section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8">Çok Önerilen Ürünler</h2>
+        <div id="popular-products-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <!-- Product 1 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="relative">
-                        <div class="h-60 bg-gray-200 flex items-center justify-center">
-                            
-                        </div>
-                        <span class=" recommend-badge">En çok kullanılan</span>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex items-center mb-2">
-                            <div class="flex text-yellow-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                                </svg>
-                            </div>
-                            <span class="text-gray-500 text-sm ml-2">(Çok Önerilen)</span>
-                        </div>
-                        <a href="product-page.html" ><h3 class="font-semibold mb-1">c60</h3></a>
-                        <p class="text-gray-500 text-sm mb-2">1kg Paket</p>
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <span class="text-green-600 font-bold ml-2">10 g CO₂</span>
-                            </div>
-                            <button class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700 add-to-cart">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 2 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="relative">
-                        <div class="h-60 bg-gray-200 flex items-center justify-center">
-                            
-                        </div>
-                        <span class=" recommend-badge">Köprülerde sık tercih edilen</span>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex items-center mb-2">
-                            <div class="flex text-yellow-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-300" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                                </svg>
-                            </div>
-                            <span class="text-gray-500 text-sm ml-2">(Önerilen)</span>
-                        </div>
-                        <h3 class="font-semibold mb-1">Cam</h3>
-                        <p class="text-gray-500 text-sm mb-2">500g Paket</p>
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <span class="text-green-600 font-bold ml-2">15 g CO₂</span>
-                            </div>
-                            <button class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700 add-to-cart">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
 
     <!-- Special Offers -->
     <section class="py-12">
@@ -370,7 +267,7 @@
     </section>
 
     <!-- Newsletter -->
-    <section class="py-12 bg-green-600 text-white">
+    <section id="Newsletter" class="py-12 bg-green-600 text-white">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center justify-between">
                 <div class="mb-6 md:mb-0">
@@ -417,10 +314,9 @@
                     <h4 class="text-lg font-semibold mb-4">Hızlı Bağlantılar</h4>
                     <ul class="space-y-2">
                         <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Hakkımızda</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Katalog</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Ürünler</a></li>
+                        <li><a href="products-listing.html" class="text-gray-400 hover:text-white transition duration-300">Katalog</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">İletişim</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Abonelik</a></li>
+                        <li><a href="index.html#Newsletter" class="text-gray-400 hover:text-white transition duration-300">Abonelik</a></li>
                     </ul>
                 </div>
                 
@@ -429,7 +325,7 @@
                     <ul class="space-y-2">
                         <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Mobil Uygulama</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">İstek Listesi</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Depo</a></li>
+                        <li><a href="warehouse.html" class="text-gray-400 hover:text-white transition duration-300">Depo</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">SSS</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Gizlilik Sözleşmesi</a></li>
                     </ul>
@@ -465,5 +361,6 @@
     <script src="script/common.js"></script>
     <script src="script/script.js"></script>
     <script src="script/warehouse.js"></script>
+    <script src="script/showreccomended.js"></script>
 </body>
 </html>
