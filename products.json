@@ -9,14 +9,6 @@
       "image": "img/Concrate.svg"
     },
     {
-      "id": "c40",
-      "name": "C40 Beton",
-      "carbon": 320,
-      "desc": "Yüksek dayanımlı genel amaçlı beton.",
-      "rating": "Çok Önerilen",
-      "image": "img/Concrate.svg"
-    },
-    {
       "id": "c20",
       "name": "C20 Beton",
       "carbon": 360,
@@ -59,6 +51,36 @@
       "desc": "Ucuz ve yaygın, ancak yüksek karbon içerir.",
       "rating": "Önerilmeyen",
       "image": "img/Isolation.svg"
+    }
+  ],
+  "Tuğla": [
+    {
+      "id": "tugla",
+      "name": "10'luk Tuğla",
+      "carbon": 200,
+      "desc": "Ucuz ve yaygın, ayrıca düşük karbon içerir.",
+      "rating": "Çok Önerilen",
+      "image": "img/Brick.svg"
+    }
+  ],
+  "Cam": [
+    {
+      "id": "cam",
+      "name": "Düz Cam",
+      "carbon": 300,
+      "desc": "Düz camlar boyanabilir, lamine yapılabilir, temperleme işlemi yapılabilir, ayna yapımında kullanılabilir. Saydam cam düz camdır.",
+      "rating": "Çok Önerilen",
+      "image": "img/Glass.svg"
+    }
+  ],
+  "Zemin": [
+    {
+      "id": "tile",
+      "name": "Esnek Kontrplak",
+      "carbon": 1200,
+      "desc": "Esnek kontrplak; elastikiyet , esneklik ve dayanıklılık gibi fiziksel özelliklerinin yanı sıra, bu özelliklerine göre ekonomik olması ve kullanımda büyük kolaylıklar sağlaması sonucunda tercih sebebi olmaktadır.",
+      "rating": "Önerilen",
+      "image": "img/Tile.svg"
     }
   ]
 }
