@@ -1,86 +1,74 @@
 {
-    "Beton": [
-        {
-            "id": "c30",
-            "name": "C30 Beton",
-            "carbon": 320,
-            "desc": "Yüksek dayanımlı genel amaçlı beton.",
-            "rating": "Çok Önerilen",
-            "image": "img/Concrate.svg"
-        },
-        {
-            "id": "c20",
-            "name": "C20 Beton",
-            "carbon": 360,
-            "desc": "Orta dayanımlı, yaygın kullanılan beton.",
-            "rating": "Önerilen",
-            "image": "img/Concrate.svg"
-        }
-    ],
-    "Çelik": [
-        {
-            "id": "s235",
-            "name": "Yapısal Çelik S235",
-            "carbon": 1700,
-            "desc": "İnşaatta yaygın kullanılan düşük karbonlu çelik.",
-            "rating": "Az Önerilen",
-            "image": "img/Steel.svg"
-        },
-        {
-            "id": "s355",
-            "name": "Yüksek Dayanımlı Çelik S355",
-            "carbon": 1850,
-            "desc": "Ağır yük taşıyan yapılarda tercih edilen çelik.",
-            "rating": "Önerilmeyen",
-            "image": "img/Steel.svg"
-        }
-    ],
-    "Yalıtım": [
-        {
-            "id": "camyunu",
-            "name": "Cam Yünü Yalıtım",
-            "carbon": 200,
-            "desc": "Isı ve ses yalıtımında kullanılır.",
-            "rating": "Önerilen",
-            "image": "img/Isolation.svg"
-        },
-        {
-            "id": "strafor",
-            "name": "Strafor Levha",
-            "carbon": 600,
-            "desc": "Ucuz ve yaygın, ancak yüksek karbon içerir.",
-            "rating": "Önerilmeyen",
-            "image": "img/Isolation.svg"
-        }
-    ],
-    "Tuğla": [
-        {
-            "id": "tugla",
-            "name": "10'luk Tuğla",
-            "carbon": 200,
-            "desc": "Ucuz ve yaygın, ayrıca düşük karbon içerir.",
-            "rating": "Çok Önerilen",
-            "image": "img/Brick.svg"
-        }
-    ],
-    "Cam": [
-        {
-            "id": "cam",
-            "name": "Düz Cam",
-            "carbon": 300,
-            "desc": "Düz camlar boyanabilir, lamine yapılabilir, temperleme işlemi yapılabilir, ayna yapımında kullanılabilir. Saydam cam düz camdır.",
-            "rating": "Çok Önerilen",
-            "image": "img/Glass.svg"
-        }
-    ],
-    "Zemin": [
-        {
-            "id": "plywood",
-            "name": "Esnek Kontrplak",
-            "carbon": 1200,
-            "desc": "Esnek kontrplak; elastikiyet , esneklik ve dayanıklılık gibi fiziksel özelliklerinin yanı sıra, bu özelliklerine göre ekonomik olması ve kullanımda büyük kolaylıklar sağlaması sonucunda tercih sebebi olmaktadır.",
-            "rating": "Önerilen",
-            "image": "img/Tile.svg"
-        }
-    ]
+  "Beton": [
+    { "id": "c10", "name": "C10 Beton", "carbon": 280, "desc": "Düşük dayanımlı beton, küçük yapılar için uygundur.", "rating": "Az Önerilen", "image": "img/concrete_c10.svg" },
+    { "id": "c20", "name": "C20 Beton", "carbon": 360, "desc": "Orta dayanımlı beton, temellerde yaygın kullanılır.", "rating": "Önerilen", "image": "img/concrete_c20.svg" },
+    { "id": "c25", "name": "C25 Beton", "carbon": 370, "desc": "Genel amaçlı dayanıklı beton.", "rating": "Önerilen", "image": "img/concrete_c25.svg" },
+    { "id": "c30", "name": "C30 Beton", "carbon": 320, "desc": "Yapıların ana taşıyıcı elemanı olarak kullanılır.", "rating": "Çok Önerilen", "image": "img/concrete_c30.svg" },
+    { "id": "c40", "name": "C40 Beton", "carbon": 400, "desc": "Yüksek dayanımlı beton, ağır yük taşıyan yapılar için.", "rating": "Çok Önerilen", "image": "img/concrete_c40.svg" }
+  ],
+  "Çelik": [
+    { "id": "s235", "name": "Yapısal Çelik S235", "carbon": 1700, "desc": "Düşük karbonlu yapı çeliği.", "rating": "Az Önerilen", "image": "img/steel_s235.svg" },
+    { "id": "s275", "name": "Yapısal Çelik S275", "carbon": 1750, "desc": "Orta dayanımlı yapı çeliği.", "rating": "Az Önerilen", "image": "img/steel_s275.svg" },
+    { "id": "s355", "name": "Yüksek Dayanımlı Çelik S355", "carbon": 1850, "desc": "Yüksek mukavemetli çelik.", "rating": "Önerilmeyen", "image": "img/steel_s355.svg" },
+    { "id": "st37", "name": "Yapısal Çelik St37", "carbon": 1650, "desc": "Standart yapı çeliği türü.", "rating": "Önerilen", "image": "img/steel_st37.svg" }
+  ],
+  "Yalıtım": [
+    { "id": "camyunu", "name": "Cam Yünü Yalıtım", "carbon": 200, "desc": "Isı ve ses yalıtımında kullanılır.", "rating": "Önerilen", "image": "img/insulation_glasswool.svg" },
+    { "id": "strafor", "name": "Strafor Levha", "carbon": 600, "desc": "Ucuz yalıtım malzemesi, karbon yoğunluğu yüksek.", "rating": "Önerilmeyen", "image": "img/insulation_styrofoam.svg" },
+    { "id": "taşyünü", "name": "Taş Yünü", "carbon": 450, "desc": "Yüksek ısı dayanımı sağlar.", "rating": "Önerilen", "image": "img/insulation_rockwool.svg" },
+    { "id": "poliüretan", "name": "Poliüretan Köpük", "carbon": 550, "desc": "Yüksek izolasyon değerine sahip köpük.", "rating": "Az Önerilen", "image": "img/insulation_pufoam.svg" }
+  ],
+  "Tuğla": [
+    { "id": "tugla10", "name": "10'luk Tuğla", "carbon": 200, "desc": "Orta kalınlıkta standart tuğla.", "rating": "Çok Önerilen", "image": "img/brick_10.svg" },
+    { "id": "tugla15", "name": "15'lik Tuğla", "carbon": 300, "desc": "Yüksek kalınlık, iyi yalıtım sağlar.", "rating": "Önerilen", "image": "img/brick_15.svg" },
+    { "id": "tugla20", "name": "20'lik Tuğla", "carbon": 380, "desc": "Kalın duvar yapımında kullanılır.", "rating": "Önerilen", "image": "img/brick_20.svg" }
+  ],
+  "Cam": [
+    { "id": "duzcam", "name": "Düz Cam", "carbon": 300, "desc": "Pencere ve vitrinlerde kullanılır.", "rating": "Çok Önerilen", "image": "img/glass_plain.svg" },
+    { "id": "laminecam", "name": "Lamine Cam", "carbon": 450, "desc": "Güvenlik camı, katmanlı yapı.", "rating": "Önerilen", "image": "img/glass_laminated.svg" },
+    { "id": "tempercam", "name": "Temperli Cam", "carbon": 480, "desc": "Dayanıklı ve kırılmaya dirençli cam.", "rating": "Önerilen", "image": "img/glass_tempered.svg" }
+  ],
+  "Zemin": [
+    { "id": "plywood", "name": "Esnek Kontrplak", "carbon": 1200, "desc": "Dayanıklı zemin kaplaması.", "rating": "Önerilen", "image": "img/floor_plywood.svg" },
+    { "id": "laminat", "name": "Laminat Parke", "carbon": 900, "desc": "Ekonomik ve estetik zemin.", "rating": "Çok Önerilen", "image": "img/floor_laminate.svg" },
+    { "id": "mermer", "name": "Mermer Döşeme", "carbon": 1500, "desc": "Lüks ve dayanıklı zemin kaplaması.", "rating": "Az Önerilen", "image": "img/floor_marble.svg" }
+  ],
+  "Ahşap": [
+    { "id": "mese", "name": "Meşe Ağacı", "carbon": 600, "desc": "Dayanıklı sert ağaç.", "rating": "Önerilen", "image": "img/wood_oak.svg" },
+    { "id": "cam", "name": "Çam Ağacı", "carbon": 450, "desc": "Yumuşak ve esnek ağaç türü.", "rating": "Çok Önerilen", "image": "img/wood_pine.svg" },
+    { "id": "maun", "name": "Maun Ağacı", "carbon": 700, "desc": "Estetik ve dayanıklı tropik ağaç.", "rating": "Az Önerilen", "image": "img/wood_mahogany.svg" }
+  ],
+  "Seramik": [
+    { "id": "seramik1", "name": "Seramik Karo 30x30", "carbon": 1100, "desc": "Standart seramik karo.", "rating": "Önerilen", "image": "img/ceramic_tile.svg" },
+    { "id": "seramik2", "name": "Seramik Karo 60x60", "carbon": 1300, "desc": "Büyük boy seramik karo.", "rating": "Az Önerilen", "image": "img/ceramic_tile_large.svg" }
+  ],
+  "Çatı": [
+    { "id": "cati_kiremit", "name": "Kiremit", "carbon": 900, "desc": "Geleneksel çatı kaplama malzemesi.", "rating": "Önerilen", "image": "img/roof_tile.svg" },
+    { "id": "cati_sandviç", "name": "Sandviç Panel", "carbon": 700, "desc": "Isı yalıtımlı çatı paneli.", "rating": "Çok Önerilen", "image": "img/roof_panel.svg" }
+  ],
+  "Boyalar": [
+    { "id": "dis_boya", "name": "Dış Cephe Boyası", "carbon": 150, "desc": "Hava koşullarına dayanıklı boya.", "rating": "Önerilen", "image": "img/paint_exterior.svg" },
+    { "id": "ic_boya", "name": "İç Cephe Boyası", "carbon": 100, "desc": "Sağlığa uygun iç cephe boyası.", "rating": "Çok Önerilen", "image": "img/paint_interior.svg" }
+  ],
+  "Alüminyum": [
+    { "id": "alum_profile", "name": "Alüminyum Profil", "carbon": 2100, "desc": "Yapısal alüminyum malzeme.", "rating": "Önerilmeyen", "image": "img/aluminum_profile.svg" },
+    { "id": "alum_folyo", "name": "Alüminyum Folyo", "carbon": 1800, "desc": "Isı yalıtımı için kullanılır.", "rating": "Az Önerilen", "image": "img/aluminum_foil.svg" }
+  ],
+  "Plastik": [
+    { "id": "pvc_boru", "name": "PVC Boru", "carbon": 1200, "desc": "Su tesisatında yaygın kullanılır.", "rating": "Az Önerilen", "image": "img/pvc_pipe.svg" },
+    { "id": "pe_boru", "name": "PE Boru", "carbon": 1100, "desc": "Esnek plastik boru.", "rating": "Önerilen", "image": "img/pe_pipe.svg" }
+  ],
+  "Kömür": [
+    { "id": "tas_komur", "name": "Taş Kömür", "carbon": 2900, "desc": "Yüksek enerji yoğunluklu fosil yakıt.", "rating": "Önerilmeyen", "image": "img/coal.svg" }
+  ],
+  "Ahşap Kaplama": [
+    { "id": "ahsap_lamina", "name": "Ahşap Lamina", "carbon": 650, "desc": "Dekoratif ahşap kaplama malzemesi.", "rating": "Önerilen", "image": "img/wood_laminate.svg" }
+  ],
+  "Çimento": [
+    { "id": "portland", "name": "Portland Çimento", "carbon": 900, "desc": "Genel amaçlı çimento.", "rating": "Önerilen", "image": "img/cement_portland.svg" },
+    { "id": "rapid", "name": "Hızlı Kürlenen Çimento", "carbon": 1100, "desc": "Kısa sürede sertleşir.", "rating": "Az Önerilen", "image": "img/cement_rapid.svg" }
+  ],
+  "Kireç": [
+    { "id": "tas_kirec", "name": "Taş Kireç", "carbon": 800, "desc": "Yapı malzemesi olarak kullanılır.", "rating": "Önerilen", "image": "img/lime_stone.svg" }
+  ]
 }

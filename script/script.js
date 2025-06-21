@@ -82,12 +82,35 @@ function addToWarehouse(productId, category, quantity, name, image, desc, carbon
 // --- Global DOMContentLoaded Listener (Tüm sayfalar için genel mantık burada birleştirildi) ---
 document.addEventListener('DOMContentLoaded', function() {
 
+  const categoryButtonsContainer = document.getElementById('category-buttons');
+  if (!categoryButtonsContainer) return;
+
+  const allButton = document.createElement('button');
+  allButton.textContent = 'Tüm Kategoriler';
+  allButton.className = 'category-button px-3 py-1 m-1 bg-green-300 rounded cursor-pointer hover:bg-gray-500';
+  allButton.addEventListener('click', () => {
+    window.location.href = 'products-listing.html'; // kategori filtresiz sayfa
+  });
+  categoryButtonsContainer.appendChild(allButton);
+
   fetch("products.json")
     .then(res => {
       if (!res.ok) throw new Error("JSON yüklenemedi.");
       return res.json();
     })
     .then(data => {
+
+    Object.keys(data).forEach(category => {
+        const button = document.createElement('button');
+        button.textContent = category;
+        button.className = 'category-button px-3 py-1 m-1 bg-gray-200 rounded cursor-pointer hover:bg-gray-400';
+        button.addEventListener('click', () => {
+          // Kategoriye tıklayınca products-listing.html?kategori= kategorinin adı olacak şekilde aç
+          window.location.href = `products-listing.html?kategori=${encodeURIComponent(category)}`;
+        });
+        categoryButtonsContainer.appendChild(button);
+    });
+
       document.querySelectorAll(".product-count").forEach(span => {
         const category = span.dataset.category;
         const count = data[category]?.length ?? 0;
@@ -178,7 +201,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.getElementById('products-listing-page')) {
         const productCardsContainer = document.getElementById('product-cards-container');
         const searchInput = document.getElementById('search-input');
-        const categoryButtonsContainer = document.getElementById('category-buttons');
         let allProducts = {}; // Tüm ürünleri kategori bazında saklamak için
 
         function renderProducts(productsToRender) {
@@ -398,9 +420,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         });
                         filterProducts();
                     });
-                    if (categoryButtonsContainer) { // Elemanın varlığını kontrol et
-                        categoryButtonsContainer.appendChild(button);
-                    }
                 });
 
                 document.querySelectorAll('#category-buttons li').forEach(btn => {
