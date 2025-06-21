@@ -54,6 +54,10 @@ fetch("products.json")
     categoryLink.textContent = foundCategory;
     categoryLink.href = `products-listing.html?kategori=${encodeURIComponent(foundCategory)}`;
 
+    const imageEl = document.getElementById("product-image");
+    imageEl.src = foundProduct.image;
+    imageEl.alt = foundProduct.name;
+
   })
   .catch(err => {
     console.error(err);

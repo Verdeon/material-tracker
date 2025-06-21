@@ -28,39 +28,6 @@ function decrementQuantity() {
     }
 }
 
-// --- Image Selection Function ---
-function changeImage(color) {
-    const mainImage = document.getElementById('mainImage');
-    const thumbnails = document.querySelectorAll('.thumbnail');
-
-    if (mainImage && thumbnails.length > 0) {
-        thumbnails.forEach(thumb => thumb.classList.remove('active'));
-
-        switch (color) {
-            case 'green':
-                mainImage.classList.remove('text-red-600', 'text-yellow-500', 'text-blue-600');
-                mainImage.classList.add('text-green-600');
-                document.querySelector('.thumbnail[onclick="changeImage(\'green\')"])')?.classList.add('active');
-                break;
-            case 'red':
-                mainImage.classList.remove('text-green-600', 'text-yellow-500', 'text-blue-600');
-                mainImage.classList.add('text-red-600');
-                document.querySelector('.thumbnail[onclick="changeImage(\'red\')"])')?.classList.add('active');
-                break;
-            case 'yellow':
-                mainImage.classList.remove('text-green-600', 'text-red-600', 'text-blue-600');
-                mainImage.classList.add('text-yellow-500');
-                document.querySelector('.thumbnail[onclick="changeImage(\'yellow\')"])')?.classList.add('active');
-                break;
-            case 'blue':
-                mainImage.classList.remove('text-green-600', 'text-red-600', 'text-yellow-500');
-                mainImage.classList.add('text-blue-600');
-                document.querySelector('.thumbnail[onclick="changeImage(\'blue\')"])')?.classList.add('active');
-                break;
-        }
-    }
-}
-
 // Function to calculate and update carbon emission on product-page.html
 function updateCarbonEmission() {
     const quantityInput = document.getElementById('quantity');
@@ -537,65 +504,65 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    const addToWarehouseButton = document.querySelector('[data-action="add-to-cart"]');
-    if (addToWarehouseButton) {
-        addToWarehouseButton.addEventListener('click', (event) => {
-            console.log("Sepete Ekle butonu tıklandı!");
+const addToWarehouseButton = document.querySelector('[data-action="add-to-cart"]');
+if (addToWarehouseButton) {
+  addToWarehouseButton.addEventListener('click', () => {
+    console.log("Sepete Ekle butonu tıklandı!");
 
-            // Butondan ürün bilgilerini alalım
-            const productName = document.getElementById('product-name');
-            const productCarbon = document.getElementById('product-carbon')
-            const productImage = document.getElementById('product-image');
-            const productCategory = document.getElementById('product-category');
+    const productIdEl = document.getElementById('product-id');
+    const productNameEl = document.getElementById('product-name');
+    const productCarbonEl = document.getElementById('product-carbon');
+    const productImageEl = document.getElementById('product-image');
+    const productCategoryEl = document.getElementById('product-category');
+    const productDescEl = document.getElementById('product-desc');
 
-            // Miktar input'undan değeri alalım
-            const quantityInput = document.getElementById('quantity');
-            const quantity = parseInt(quantityInput ? quantityInput.value : 1); // Varsayılan 1
+    const quantityInput = document.getElementById('quantity');
+    const quantity = parseInt(quantityInput?.value || "1");
 
-            if (!productName || isNaN(productCarbon) || isNaN(quantity)) {
-                console.error("Ürün bilgileri eksik veya hatalı. Sepete eklenemedi.");
-                alert("Ürün bilgileri eksik veya hatalı. Lütfen sayfayı yenileyin.");
-                return;
-            }
+    // ❗ Elementler varsa içeriği alalım
+    const id = productIdEl?.textContent?.trim();
+    const name = productNameEl?.textContent?.trim();
+    const carbon = parseInt(productCarbonEl?.textContent?.trim());
+    const image = productImageEl?.getAttribute("src") || "";
+    const category = productCategoryEl?.textContent?.trim();
+    const desc = productDescEl?.textContent?.trim();
 
-            // Yeni ürün objesini oluşturalım
-            const newItem = {
-                category: productCategory,
-                quantity: quantity,
-                name: productName,
-                image: productImage,
-                desc: desc,
-                carbon: productCarbon
-            };
-
-            // Depoyu localStorage'dan çek
-            let warehouseItems = JSON.parse(localStorage.getItem('warehouse')) || [];
-
-            if (existingItemIndex > -1) {
-                // Ürün zaten var, miktarını artır
-                warehouseItems[existingItemIndex].quantity += newItem.quantity;
-            } else {
-                // Ürün yok, yeni olarak ekle
-                warehouseItems.push(newItem);
-            }
-
-            // Güncellenmiş depoyu localStorage'a kaydet
-            localStorage.setItem('warehouse', JSON.stringify(warehouseItems));
-
-            // Sepet ve karbon sayısını güncelleyen fonksiyonları çağır
-            // common.js'deki fonksiyonlar window objesine eklenmişti.
-            if (typeof window.updateCartCountFromWarehouse === 'function') {
-                window.updateCartCountFromWarehouse();
-            }
-            if (typeof window.updateCarbonCountFromWarehouse === 'function') {
-                window.updateCarbonCountFromWarehouse();
-            }
-
-            alert(`${newItem.quantity} adet ${newItem.name} depoya eklendi!`);
-            console.log("Güncel depo:", warehouseItems);
-        });
-    } else {
-        console.warn("Sepete Ekle butonu bulunamadı.");
+    if (!name || isNaN(carbon) || isNaN(quantity)) {
+      console.error("Ürün bilgileri eksik veya hatalı.");
+      alert("Ürün bilgileri eksik veya hatalı. Lütfen sayfayı yenileyin.");
+      return;
     }
+
+    const newItem = {
+        id,
+      name,
+      carbon,
+      image,
+      category,
+      desc,
+      quantity,
+    };
+
+    let warehouseItems = JSON.parse(localStorage.getItem('warehouse')) || [];
+
+    const existingItemIndex = warehouseItems.findIndex(item => item.name === newItem.name);
+
+    if (existingItemIndex > -1) {
+      warehouseItems[existingItemIndex].quantity += newItem.quantity;
+    } else {
+      warehouseItems.push(newItem);
+    }
+
+    localStorage.setItem('warehouse', JSON.stringify(warehouseItems));
+
+    if (typeof window.updateCartCountFromWarehouse === 'function') {
+      window.updateCartCountFromWarehouse();
+    }
+    if (typeof window.updateCarbonCountFromWarehouse === 'function') {
+      window.updateCarbonCountFromWarehouse();
+    }
+    console.log("Güncel depo:", warehouseItems);
+  });
+}
     
 });

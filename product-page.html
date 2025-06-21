@@ -124,38 +124,9 @@
                 <div class="lg:w-1/2 px-4 mb-8 lg:mb-0">
                     <div class="relative">
                         <div class="product-image h-96 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-48 w-48 text-green-600" viewBox="0 0 20 20" fill="currentColor" id="mainImage">
-                                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
-                                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
-                            </svg>
+                            <img id="product-image" class="h-96 w-96"/>
                         </div>
                         <span class="recommend-badge">En çok tercih edilen</span>
-                    </div>
-                    <div class="grid grid-cols-4 gap-2">
-                        <div class="product-image h-24 thumbnail active" onclick="changeImage('green')">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-green-600" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
-                                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                        <div class="product-image h-24 thumbnail" onclick="changeImage('red')">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-red-600" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
-                                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                        <div class="product-image h-24 thumbnail" onclick="changeImage('yellow')">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
-                                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                        <div class="product-image h-24 thumbnail" onclick="changeImage('blue')">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
-                                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
                     </div>
                 </div>
                 
@@ -211,16 +182,7 @@
                         </ul>
                     </div>
                     
-                    <div class="mb-6">
-                        <div class="flex items-center mb-4">
-                            <span class="text-gray-700 mr-3">Ağırlık:</span>
-                            <div class="flex space-x-2">
-                                <button class="bg-green-600 text-white px-3 py-1 rounded-md">500g</button>
-                                <button class="bg-gray-200 text-gray-700 px-3 py-1 rounded-md hover:bg-gray-300">1kg</button>
-                                <button class="bg-gray-200 text-gray-700 px-3 py-1 rounded-md hover:bg-gray-300">2kg</button>
-                            </div>
-                        </div>
-                        
+                    <div class="mb-6">                        
                         <div class="flex items-center mb-4">
                             <span class="text-gray-700 mr-3">Adet:</span>
                             <div class="flex border border-gray-300 rounded-md">
