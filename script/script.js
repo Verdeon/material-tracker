@@ -114,6 +114,26 @@ function addToWarehouse(productId, category, quantity, name, image, desc, carbon
 
 // --- Global DOMContentLoaded Listener (Tüm sayfalar için genel mantık burada birleştirildi) ---
 document.addEventListener('DOMContentLoaded', function() {
+
+  fetch("products.json")
+    .then(res => {
+      if (!res.ok) throw new Error("JSON yüklenemedi.");
+      return res.json();
+    })
+    .then(data => {
+      document.querySelectorAll(".product-count").forEach(span => {
+        const category = span.dataset.category;
+        const count = data[category]?.length ?? 0;
+        span.textContent = `${count} ürün`;
+      });
+    })
+    .catch(err => {
+      console.error("Hata:", err);
+      document.querySelectorAll(".product-count").forEach(span => {
+        span.textContent = "Yüklenemedi";
+      });
+    });
+
     // Sayfa yüklendiğinde sepet sayısını da güncelleyelim (common.js'den gelen)
     if (typeof window.updateCartCountFromWarehouse === 'function') {
         window.updateCartCountFromWarehouse();
