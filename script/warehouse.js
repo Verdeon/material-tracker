@@ -1,23 +1,28 @@
 document.addEventListener('DOMContentLoaded', function () {
   const container = document.getElementById('warehouse-container');
-  let warehouseItems = JSON.parse(localStorage.getItem('warehouseItems')) || [];
+  // localStorage anahtarını 'warehouseItems' yerine 'warehouse' olarak değiştirin
+  let warehouseItems = JSON.parse(localStorage.getItem('warehouse')) || []; // <-- BURASI 'warehouse' olmalı
 
-  function updateCartCount() {
-    const total = warehouseItems.reduce((sum, item) => sum + item.quantity, 0);
-    const cartCount = document.getElementById('cartCount');
-    if (cartCount) cartCount.textContent = total;
-  }
-
+  // saveItems fonksiyonu, depodaki değişiklikleri kaydeder ve global sepet sayısını günceller.
   function saveItems() {
-    localStorage.setItem('warehouseItems', JSON.stringify(warehouseItems));
-    updateCartCount();
+    localStorage.setItem('warehouse', JSON.stringify(warehouseItems)); // <-- BURASI 'warehouse' olmalı
+    // Depo güncellendiğinde global sepet sayısını güncelleme fonksiyonunu ÇAĞIR
+    if (typeof window.updateCartCountFromWarehouse === 'function') {
+      window.updateCartCountFromWarehouse(); // <--- KRİTİK ÇAĞRI BURADA
+    } else {
+        console.warn("common.js'deki updateCartCountFromWarehouse fonksiyonu bulunamadı.");
+    }
   }
 
   function renderWarehouse() {
-    container.innerHTML = '';
+    container.innerHTML = ''; // İçeriği temizle
 
     if (warehouseItems.length === 0) {
-      container.innerHTML = '<p class="text-gray-600 text-center">Depoda ürün yok.</p>';
+      container.innerHTML = '<p class=\"text-gray-600 text-center\">Depoda ürün yok.</p>';
+      // Depo boşaldığında da sepet sayısını güncelle
+      if (typeof window.updateCartCountFromWarehouse === 'function') {
+        window.updateCartCountFromWarehouse(); // <--- KRİTİK ÇAĞRI BURADA
+      }
       return;
     }
 
@@ -25,85 +30,83 @@ document.addEventListener('DOMContentLoaded', function () {
       const card = document.createElement('div');
       card.className = 'product-card bg-white shadow rounded-lg p-4 flex justify-between items-center';
 
+      // item.image, item.name, item.desc gibi değerlerin undefined olmaması için kontroller eklendi
       card.innerHTML = `
         <div class="flex items-center gap-4">
-          <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded">
+          <img src="${item.image || 'placeholder.jpg'}" alt="${item.name || 'Ürün Resmi'}" class="w-20 h-20 object-cover rounded">
           <div>
-            <h3 class="text-lg font-semibold">${item.name}</h3>
-            <p class="text-sm text-gray-500">${item.desc}</p>
-            <div class="text-green-600 font-semibold mt-1">
-              <span class="carbon-total">${item.quantity * item.carbon}</span> g CO₂
-            </div>
+            <h3 class="text-lg font-semibold">${item.name || 'Bilinmeyen Ürün'}</h3>
+            <p class="text-sm text-gray-500">${item.desc || 'Açıklama Yok'}</p>
           </div>
         </div>
-        <div class="flex items-center gap-3">
-          <button class="decrement bg-gray-200 px-2 py-1 rounded">−</button>
-          <input type="number" value="${item.quantity}" min="1" class="quantity-input w-12 text-center border rounded">
-          <button class="increment bg-gray-200 px-2 py-1 rounded">+</button>
-
-          <button class="favorite text-red-500 hover:text-red-600"><i class="fas fa-heart"></i></button>
-          <button class="share text-blue-500 hover:text-blue-600"><i class="fas fa-share-alt"></i></button>
-          <button class="delete text-gray-500 hover:text-red-600"><i class="fas fa-trash-alt"></i></button>
+        <div class="flex items-center gap-4">
+          <button class="decrement-quantity bg-gray-200 text-gray-700 px-3 py-1 rounded-full hover:bg-gray-300">-</button>
+          <input type="number" value="${item.quantity}" min="1" class="quantity-input w-16 text-center border rounded-md">
+          <button class="increment-quantity bg-gray-200 text-gray-700 px-3 py-1 rounded-full hover:bg-gray-300">+</button>
+          <span class="font-semibold text-lg">${(item.price * item.quantity).toFixed(2) || '0.00'} g</span>
+          <button class="delete text-red-600 hover:text-red-800">Sil</button>
         </div>
       `;
 
+      // Miktar artırma butonu
+      card.querySelector('.increment-quantity').addEventListener('click', () => {
+          input.value = parseInt(input.value) + 1;
+          input.dispatchEvent(new Event('change')); // Değişikliği tetikle
+      });
+
+      // Miktar azaltma butonu
+      card.querySelector('.decrement-quantity').addEventListener('click', () => {
+          let currentValue = parseInt(input.value);
+          if (currentValue > 1) {
+              input.value = currentValue - 1;
+              input.dispatchEvent(new Event('change')); // Değişikliği tetikle
+          }
+      });
+
+      // --- Miktar Değişikliği ---
       const input = card.querySelector('.quantity-input');
-      const carbonDisplay = card.querySelector('.carbon-total');
-
-      const refreshCarbon = () => {
-        carbonDisplay.textContent = item.quantity * item.carbon;
-      };
-
-      // --- Quantity Events ---
-      card.querySelector('.increment').addEventListener('click', () => {
-        item.quantity++;
-        input.value = item.quantity;
-        refreshCarbon();
-        saveItems();
-      });
-
-      card.querySelector('.decrement').addEventListener('click', () => {
-        if (item.quantity > 1) {
-          item.quantity--;
-          input.value = item.quantity;
-          refreshCarbon();
-          saveItems();
-        } else {
-          warehouseItems.splice(index, 1);
-          saveItems();
-          renderWarehouse();
-        }
-      });
-
-      input.addEventListener('change', () => {
-        let val = parseInt(input.value);
-        if (isNaN(val) || val < 1) {
-          warehouseItems.splice(index, 1);
-        } else {
-          item.quantity = val;
-        }
-        saveItems();
-        renderWarehouse();
-      });
+      if (input) { // input elementinin varlığını kontrol edin
+        input.addEventListener('change', () => {
+          let val = parseInt(input.value);
+          if (isNaN(val) || val < 1) {
+            // Miktar 1'den azsa veya geçersizse ürünü sil
+            warehouseItems.splice(index, 1);
+          } else {
+            item.quantity = val;
+          }
+          saveItems(); // Miktar değiştiğinde depoyu kaydet ve sepeti güncelle
+          renderWarehouse(); // Depoyu yeniden render et (UI güncellemek için)
+        });
+      }
 
       // --- Silme Butonu ---
-      card.querySelector('.delete').addEventListener('click', () => {
-        warehouseItems.splice(index, 1);
-        saveItems();
-        renderWarehouse();
-      });
-
-      // --- Favori & Paylaş ---
-      card.querySelector('.favorite').addEventListener('click', () => {
-        alert('Favorilere eklendi (simülasyon)');
-      });
-
-      card.querySelector('.share').addEventListener('click', () => {
-        const url = `${window.location.origin}/product-page.html?id=${item.id}&category=${item.category}`;
-        navigator.clipboard.writeText(url).then(() => {
-          alert('Bağlantı kopyalandı!');
+      const deleteButton = card.querySelector('.delete');
+      if (deleteButton) { // deleteButton elementinin varlığını kontrol edin
+        deleteButton.addEventListener('click', () => {
+          warehouseItems.splice(index, 1);
+          saveItems(); // Ürün silindiğinde depoyu kaydet ve sepeti güncelle
+          renderWarehouse(); // Depoyu yeniden render et (UI güncellemek için)
         });
-      });
+      }
+
+      // --- Favori & Paylaş (Mevcut kodunuzdan kopyalandı, ilgili HTML elementlerinin varlığını kontrol edin) ---
+      // Eğer bu butonlar warehouse.html içinde yoksa bu kısımları silebilirsiniz.
+      const favoriteButton = card.querySelector('.favorite');
+      if (favoriteButton) {
+        favoriteButton.addEventListener('click', () => {
+          alert('Favorilere eklendi (simülasyon)');
+        });
+      }
+
+      const shareButton = card.querySelector('.share');
+      if (shareButton) {
+        shareButton.addEventListener('click', () => {
+          const url = `${window.location.origin}/product-page.html?id=${item.id}&category=${item.category}`;
+          navigator.clipboard.writeText(url).then(() => {
+            alert('Bağlantı kopyalandı!');
+          });
+        });
+      }
 
       container.appendChild(card);
     });
@@ -114,13 +117,28 @@ document.addEventListener('DOMContentLoaded', function () {
   clearBtn.textContent = 'Depoyu Temizle';
   clearBtn.className = 'mb-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700';
   clearBtn.addEventListener('click', () => {
-    if (confirm('Tüm ürünleri silmek istiyor musun?')) {
-      warehouseItems = [];
-      saveItems();
-      renderWarehouse();
+    localStorage.removeItem('warehouse'); // <--- BURASI 'warehouse' olmalı
+    warehouseItems = [];
+    renderWarehouse(); // Depoyu boşalt ve render et
+    if (typeof window.updateCartCountFromWarehouse === 'function') {
+      window.updateCartCountFromWarehouse(); // <--- KRİTİK ÇAĞRI BURADA
     }
   });
 
-  container.parentElement.insertBefore(clearBtn, container);
+  const btnContainer = document.createElement('div');
+  btnContainer.className = 'flex justify-end';
+  btnContainer.appendChild(clearBtn);
+
+  if (container && container.parentNode) {
+    container.parentNode.insertBefore(btnContainer, container.nextSibling);
+  } else {
+      console.warn("warehouse-container veya parent elementi bulunamadı, Temizle butonu eklenemedi.");
+  }
+
+
+  // Sayfa ilk yüklendiğinde hem depoyu render et hem de sepet sayısını güncelle
   renderWarehouse();
+  if (typeof window.updateCartCountFromWarehouse === 'function') {
+    window.updateCartCountFromWarehouse(); // <--- KRİTİK ÇAĞRI BURADA
+  }
 });
