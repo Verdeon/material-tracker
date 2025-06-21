@@ -40,10 +40,20 @@ fetch("products.json")
     document.getElementById("product-name").textContent = foundProduct.name;
     document.getElementById("productName").textContent = foundProduct.name;
     document.getElementById("product-desc").textContent = foundProduct.desc;
+    document.getElementById("product-description").textContent = foundProduct.desc;
     document.getElementById("product-carbon").textContent = foundProduct.carbon;
     document.getElementById("product-id").textContent = foundProduct.id;
-    document.getElementById("product-category").textContent = foundCategory;
-    document.getElementById("productCategory").textContent = foundCategory;
+
+    const categoryText = document.getElementById("product-category");
+    categoryText.textContent = foundCategory;
+    categoryText.addEventListener("click", () => {
+    window.location.href = `products-listing.html?kategori=${encodeURIComponent(foundCategory)}`;
+    });
+
+    const categoryLink = document.getElementById("product-category-link")
+    categoryLink.textContent = foundCategory;
+    categoryLink.href = `products-listing.html?kategori=${encodeURIComponent(foundCategory)}`;
+
   })
   .catch(err => {
     console.error(err);
