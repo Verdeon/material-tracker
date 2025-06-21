@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <button class="decrement-quantity bg-gray-200 text-gray-700 px-3 py-1 rounded-full hover:bg-gray-300">-</button>
           <input type="number" value="${item.quantity}" min="1" class="quantity-input w-16 text-center border rounded-md">
           <button class="increment-quantity bg-gray-200 text-gray-700 px-3 py-1 rounded-full hover:bg-gray-300">+</button>
-          <span class="font-semibold text-lg">${(item.price * item.quantity).toFixed(2) || '0.00'} g</span>
+          <span class="font-semibold text-lg">${(item.carbon * item.quantity).toFixed(2) || '0.00'} g</span>
           <button class="delete text-red-600 hover:text-red-800">Sil</button>
         </div>
       `;

@@ -82,7 +82,7 @@ function updateCarbonEmission() {
 // Bu fonksiyonu kaldırıyoruz, çünkü common.js'deki updateCartCountFromWarehouse global olarak daha doğru çalışıyor.
 // function updateCartCount(count) { /* ... */ }
 
-function addToWarehouse(productId, category, quantity, name, image, desc, price) {
+function addToWarehouse(productId, category, quantity, name, image, desc, carbon) {
     const warehouseKey = 'warehouse';
     let warehouse = JSON.parse(localStorage.getItem(warehouseKey)) || [];
 
@@ -98,7 +98,7 @@ function addToWarehouse(productId, category, quantity, name, image, desc, price)
             name: name,
             image: image,
             desc: desc,
-            price: price
+            carbon: carbon
         });
     }
 
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         product.name,
                                         product.image,
                                         product.description || product.desc,
-                                        product.price
+                                        product.carbon
                                     );
                                 } else {
                                     alert('Lütfen eklenecek ürün miktarını seçin.');
@@ -295,7 +295,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 product.name,
                                 product.image,
                                 product.description || product.desc,
-                                product.price || 0 // price ekledim, products.json'da yoksa 0 olarak kabul ettim
+                                product.carbon || 0 
                             );
                             quantityInput.value = 0; // Miktarı sıfırla
                             // Miktar inputu ve decrement butonunu gizle
