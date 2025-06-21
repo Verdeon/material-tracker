@@ -39,7 +39,7 @@
                 
                 <div class="w-full md:w-1/2 mb-4 md:mb-0">
                     <div class="relative">
-                        <input type="text" placeholder="Ürün ara..." class="w-full py-2 px-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <input autocomplete="off" type="text" id="search-input" placeholder="Ürün ara..." class="w-full py-2 px-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500">
                         <button class="absolute right-0 top-0 h-full bg-green-600 text-white px-4 rounded-r-full hover:bg-green-700">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
@@ -81,12 +81,12 @@
                     </div>
                     <div class="absolute left-0 top-full w-60 bg-white shadow-lg rounded-b-lg hidden group-hover:block z-50">
                         <ul class="py-2 text-gray-700">
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Betonlar</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Çelikler</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Tuğla &amp; Bloklar</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Yalıtım Malzemeleri</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Kaplama &amp; Zemin</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Cam &amp; Plastikler</a></li>
+                            <li><a href="products-listing.html?kategori=Beton" class="block px-4 py-2 hover:bg-gray-100">Betonlar</a></li>
+                            <li><a href="products-listing.html?kategori=Çelik" class="block px-4 py-2 hover:bg-gray-100">Çelikler</a></li>
+                            <li><a href="products-listing.html?kategori=Tuğla" class="block px-4 py-2 hover:bg-gray-100">Tuğla &amp; Bloklar</a></li>
+                            <li><a href="products-listing.html?kategori=Yalıtım" class="block px-4 py-2 hover:bg-gray-100">Yalıtım Malzemeleri</a></li>
+                            <li><a href="products-listing.html?kategori=Zemin" class="block px-4 py-2 hover:bg-gray-100">Kaplama &amp; Zemin</a></li>
+                            <li><a href="products-listing.html?kategori=Cam" class="block px-4 py-2 hover:bg-gray-100">Cam &amp; Plastikler</a></li>
                         </ul>
                     </div>
                 </div>
@@ -182,5 +182,6 @@
     <script src="script/common.js"></script>
     <script src="script/script.js"></script>
     <script src="script/warehouse.js"></script>
+    <script src="script/search.js"></script>
 </body>
 </html>
