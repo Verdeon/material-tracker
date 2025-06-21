@@ -1,0 +1,56 @@
+{
+  "Beton": [
+    {
+      "id": "c30",
+      "name": "C30 Beton",
+      "carbon": 320,
+      "desc": "Yüksek dayanımlı genel amaçlı beton.",
+      "rating": "Çok Önerilen",
+      "image": "img/concrete/c30.png"
+    },
+    {
+      "id": "c20",
+      "name": "C20 Beton",
+      "carbon": 360,
+      "desc": "Orta dayanımlı, yaygın kullanılan beton.",
+      "rating": "Önerilen",
+      "image": "img/concrete/c20.png"
+    }
+  ],
+  "Çelik": [
+    {
+      "id": "s235",
+      "name": "Yapısal Çelik S235",
+      "carbon": 1700,
+      "desc": "İnşaatta yaygın kullanılan düşük karbonlu çelik.",
+      "rating": "Az Önerilen",
+      "image": "img/steel/s235.png"
+    },
+    {
+      "id": "s355",
+      "name": "Yüksek Dayanımlı Çelik S355",
+      "carbon": 1850,
+      "desc": "Ağır yük taşıyan yapılarda tercih edilen çelik.",
+      "rating": "Önerilmeyen",
+      "image": "img/steel/s355.png"
+    }
+  ],
+  "Yalıtım": [
+    {
+      "id": "camyunu",
+      "name": "Cam Yünü Yalıtım",
+      "carbon": 200,
+      "desc": "Isı ve ses yalıtımında kullanılır.",
+      "rating": "Önerilen",
+      "image": "img/insulation/camyunu.png"
+    },
+    {
+      "id": "strafor",
+      "name": "Strafor Levha",
+      "carbon": 600,
+      "desc": "Ucuz ve yaygın, ancak yüksek karbon içerir.",
+      "rating": "Önerilmeyen",
+      "image": "img/insulation/strafor.png"
+    }
+  ]
+}
