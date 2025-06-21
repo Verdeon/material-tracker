@@ -28,14 +28,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     warehouseItems.forEach((item, index) => {
       const card = document.createElement('div');
-      card.className = 'product-card bg-white shadow rounded-lg p-4 flex justify-between items-center';
+      card.className = 'product-card bg-white shadow rounded-lg mb-2 p-4 flex justify-between items-center';
 
       // item.image, item.name, item.desc gibi değerlerin undefined olmaması için kontroller eklendi
       card.innerHTML = `
         <div class="flex items-center gap-4">
           <img src="${item.image || 'placeholder.jpg'}" alt="${item.name || 'Ürün Resmi'}" class="w-20 h-20 object-cover rounded">
           <div>
-            <h3 class="text-lg font-semibold">${item.name || 'Bilinmeyen Ürün'}</h3>
+            <a href="product-page.html"><h3 class="text-lg font-semibold">${item.name || 'Bilinmeyen Ürün'}</h3></a>
             <p class="text-sm text-gray-500">${item.desc || 'Açıklama Yok'}</p>
           </div>
         </div>
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // --- Depoyu Temizle Butonu ---
   const clearBtn = document.createElement('button');
   clearBtn.textContent = 'Depoyu Temizle';
-  clearBtn.className = 'mb-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700';
+  clearBtn.className = 'mb-4 mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700';
   clearBtn.addEventListener('click', () => {
     localStorage.removeItem('warehouse'); // <--- BURASI 'warehouse' olmalı
     warehouseItems = [];
