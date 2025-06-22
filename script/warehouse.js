@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // saveItems fonksiyonu, depodaki değişiklikleri kaydeder ve global sepet sayısını günceller.
   function saveItems() {
     localStorage.setItem('warehouse', JSON.stringify(warehouseItems)); // <-- BURASI 'warehouse' olmalı
+    updateCarbonCountFromWarehouse();
     // Depo güncellendiğinde global sepet sayısını güncelleme fonksiyonunu ÇAĞIR
     if (typeof window.updateCartCountFromWarehouse === 'function') {
       window.updateCartCountFromWarehouse(); // <--- KRİTİK ÇAĞRI BURADA
@@ -123,6 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (typeof window.updateCartCountFromWarehouse === 'function') {
       window.updateCartCountFromWarehouse(); // <--- KRİTİK ÇAĞRI BURADA
     }
+    updateCarbonCountFromWarehouse();
   });
 
   const btnContainer = document.createElement('div');

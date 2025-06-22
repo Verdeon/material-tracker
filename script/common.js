@@ -1,6 +1,7 @@
 // common.js
 document.addEventListener('DOMContentLoaded', () => {
   updateCartCountFromWarehouse();
+  window.updateCarbonCountFromWarehouse()
 });
 
 function updateCartCountFromWarehouse() {
@@ -25,3 +26,15 @@ function updateCartCountFromWarehouse() {
 }
 
 window.updateCartCountFromWarehouse = updateCartCountFromWarehouse;
+
+window.updateCarbonCountFromWarehouse = function () {
+    const warehouseItems = JSON.parse(localStorage.getItem("warehouse")) || [];
+    const totalCarbon = warehouseItems.reduce((sum, item) => {
+        return sum + (item.carbon * item.quantity);
+    }, 0);
+
+    const carbonDisplay = document.getElementById("total-carbon");
+    if (carbonDisplay) {
+        carbonDisplay.textContent = `${totalCarbon.toFixed(2)}g`;
+    }
+};

@@ -39,6 +39,7 @@ fetch("products.json")
     // Verileri DOM'a yerleştir
     document.getElementById("product-name").textContent = foundProduct.name;
     document.getElementById("productName").textContent = foundProduct.name;
+    document.getElementById("title-product").textContent = "VMT - " + foundProduct.name;
     document.getElementById("product-desc").textContent = foundProduct.desc;
     document.getElementById("product-description").textContent = foundProduct.desc;
     document.getElementById("product-carbon").textContent = foundProduct.carbon;

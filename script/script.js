@@ -70,6 +70,7 @@ function addToWarehouse(productId, category, quantity, name, image, desc, carbon
     }
 
     localStorage.setItem(warehouseKey, JSON.stringify(warehouse));
+    updateCarbonCountFromWarehouse();
 
     // Sepet sayısını güncellemek için global fonksiyonu çağır
     if (typeof window.updateCartCountFromWarehouse === 'function') {
@@ -181,6 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         product.description || product.desc,
                                         product.carbon
                                     );
+                                    window.updateCarbonCountFromWarehouse()
                                 } else {
                                     alert('Lütfen eklenecek ürün miktarını seçin.');
                                 }
@@ -205,9 +207,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function renderProducts(productsToRender) {
             const productCardsContainer = document.getElementById('product-cards-container');
-            if (!productCardsContainer) return; // Kapsayıcı yoksa fonksiyonu çalıştırma
-
+            if (!productCardsContainer) return;
             productCardsContainer.innerHTML = '';
+
+            const warehouse = JSON.parse(localStorage.getItem("warehouse")) || [];
 
             if (productsToRender.length === 0) {
                 productCardsContainer.innerHTML = '<p class="text-center text-gray-600 col-span-full">Eşleşen ürün bulunamadı.</p>';
@@ -215,6 +218,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             productsToRender.forEach(product => {
+                const warehouseItem = warehouse.find(item => item.id === product.id);
+                const depotInfo = warehouseItem
+                ? `<p class="text-sm text-green-600 mt-1 depot-info" data-id="${product.id}">Depoda ${warehouseItem.quantity} adet var</p>`
+                : `<p class="text-sm text-green-600 mt-1 depot-info" data-id="${product.id}"></p>`;
+
                 let badgeClass = '';
                 if (product.rating === 'Çok Önerilen') {
                     badgeClass = 'bg-green-500';
@@ -263,7 +271,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <p class="text-gray-500 text-sm mb-2">${product.desc}</p>
                             <div class="flex justify-between items-center mt-4">
                                 <div>
-                                    <span class="text-green-600 font-bold ml-2">${product.carbon} g CO₂</span>
+                                    <span class="text-green-600 font-bold ml-2">${product.carbon} g CO₂</span>${depotInfo}
                                 </div>
                                 <div class="flex items-center space-x-2">
                                     <button class="px-3 py-1 bg-gray-200 rounded-md hover:bg-gray-300 focus:outline-none focus:ring focus:ring-gray-300 quantity-decrement-btn hidden">
@@ -311,6 +319,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             const decrementButton = card.querySelector('.quantity-decrement-btn');
                             decrementButton?.classList.add('hidden');
                             quantityInput?.classList.add('hidden');
+                            updateSingleDepotInfo(product.id);
                         } else {
                             console.error("Listeleme sayfasında ürün bulunamadı:", productId, productCategory);
                         }
@@ -464,17 +473,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     (p.desc && p.desc.toLowerCase().includes(searchTerm)) || // desc boş olabilir
                     p.id.toLowerCase().includes(searchTerm)
                 );
-            }
+            }            
             renderProducts(allFlatProducts);
         }
     }
-
-    // Ürün sepeti iconuna tıklama işlevi (varsa)
-    // Bu kısım artık doğrudan addToWarehouse'u çağırmıyor, sadece count'u gösteren bir öğeyi güncelliyor.
-    // Asıl mantık common.js tarafından sağlanıyor.
-    // const addToWarehouseButton = document.getElementById('add-to-cart'); // Bu, genel bir buton değil, bir ID'ye sahip olan bir buton.
-    // Eğer bu butonu genel sepet butonu olarak kullanıyorsanız, ID'sini kontrol edin.
-    // Genel sepet butonu artık common.js tarafından yönetilmeli.
 });
 
 const activeCategoryLabel = document.getElementById('active-category');
@@ -573,6 +575,7 @@ if (addToWarehouseButton) {
     }
 
     localStorage.setItem('warehouse', JSON.stringify(warehouseItems));
+    updateCarbonCountFromWarehouse();
 
     if (typeof window.updateCartCountFromWarehouse === 'function') {
       window.updateCartCountFromWarehouse();
@@ -585,3 +588,17 @@ if (addToWarehouseButton) {
 }
     
 });
+
+function updateSingleDepotInfo(productId) {
+  const warehouse = JSON.parse(localStorage.getItem("warehouse")) || [];
+  const item = warehouse.find(w => w.id === productId);
+  const el = document.querySelector(`.depot-info[data-id="${productId}"]`);
+
+  if (el) {
+    if (item) {
+      el.textContent = `Depoda ${item.quantity} adet var`;
+    } else {
+      el.textContent = "";
+    }
+  }
+}
