@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             console.error("Ürün detay sayfası hatası: Ürün detayları products.json'da bulunamadı veya eşleşmedi.", {productId, productCategory});
                         }
                     })
-                    .catch(error => console.error('product-page products.json yüklenirken veya işlenirken hata:', error));
+                .catch(error => console.error('product-page products.json yüklenirken veya işlenirken hata:', error));
             } else {
                 console.warn("Ürün detayları URL'den alınamadı (id veya category eksik).");
             }
