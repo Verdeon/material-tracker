@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     container.innerHTML = ''; // İçeriği temizle
 
     if (warehouseItems.length === 0) {
-      container.innerHTML = '<p class=\"text-gray-600 text-center\">Depoda ürün yok.</p>';
+      container.innerHTML = '<p class=\"text-gray-600 text-center\">Depoda malzeme yok.</p>';
       // Depo boşaldığında da sepet sayısını güncelle
       if (typeof window.updateCartCountFromWarehouse === 'function') {
         window.updateCartCountFromWarehouse(); // <--- KRİTİK ÇAĞRI BURADA
@@ -29,14 +29,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     warehouseItems.forEach((item, index) => {
       const card = document.createElement('div');
-      card.className = 'product-card bg-white shadow rounded-lg mb-2 p-4 flex justify-between items-center';
+      card.className = 'material-card bg-white shadow rounded-lg mb-2 p-4 flex justify-between items-center';
 
       // item.image, item.name, item.desc gibi değerlerin undefined olmaması için kontroller eklendi
       card.innerHTML = `
         <div class="flex items-center gap-4">
-          <img src="${item.image || 'placeholder.jpg'}" alt="${item.name || 'Ürün Resmi'}" class="w-20 h-20 object-cover rounded">
+          <img src="${item.image || 'placeholder.jpg'}" alt="${item.name || 'Malzeme Resmi'}" class="w-20 h-20 object-cover rounded">
           <div>
-            <a href="product-page.html?id=${item.id}"><h3 class="text-lg font-semibold">${item.name || 'Bilinmeyen Ürün'}</h3></a>
+            <a href="material-page.html?id=${item.id}"><h3 class="text-lg font-semibold">${item.name || 'Bilinmeyen Malzeme'}</h3></a>
             <p class="text-sm text-gray-500">${item.desc || 'Açıklama Yok'}</p>
           </div>
         </div>
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
         input.addEventListener('change', () => {
           let val = parseInt(input.value);
           if (isNaN(val) || val < 1) {
-            // Miktar 1'den azsa veya geçersizse ürünü sil
+            // Miktar 1'den azsa veya geçersizse malzemeü sil
             warehouseItems.splice(index, 1);
           } else {
             item.quantity = val;
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (deleteButton) { // deleteButton elementinin varlığını kontrol edin
         deleteButton.addEventListener('click', () => {
           warehouseItems.splice(index, 1);
-          saveItems(); // Ürün silindiğinde depoyu kaydet ve sepeti güncelle
+          saveItems(); // Malzeme silindiğinde depoyu kaydet ve sepeti güncelle
           renderWarehouse(); // Depoyu yeniden render et (UI güncellemek için)
         });
       }
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const shareButton = card.querySelector('.share');
       if (shareButton) {
         shareButton.addEventListener('click', () => {
-          const url = `${window.location.origin}/product-page.html?id=${item.id}&category=${item.category}`;
+          const url = `${window.location.origin}/material-page.html?id=${item.id}&category=${item.category}`;
           navigator.clipboard.writeText(url).then(() => {
             alert('Bağlantı kopyalandı!');
           });

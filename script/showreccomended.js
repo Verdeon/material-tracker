@@ -1,40 +1,40 @@
-fetch('products.json')
+fetch('materials.json')
   .then(response => response.json())
   .then(data => {
-    // Tüm ürünleri düz bir diziye çevir (kategori bilgisiyle)
-    let allFlatProducts = [];
+    // Tüm malzemeleri düz bir diziye çevir (kategori bilgisiyle)
+    let allFlatMaterials = [];
     for (const category in data) {
-      data[category].forEach(product => {
-        product.category = category;
-        allFlatProducts.push(product);
+      data[category].forEach(material => {
+        material.category = category;
+        allFlatMaterials.push(material);
       });
     }
 
-    // Çok önerilen ürünleri filtrele
-    const popularProducts = allFlatProducts.filter(p => p.rating === "Çok Önerilen");
+    // Çok önerilen malzemeleri filtrele
+    const popularMaterials = allFlatMaterials.filter(p => p.rating === "Çok Önerilen");
 
-    // Popüler ürünleri render et
-    renderPopularProducts(popularProducts);
+    // Popüler malzemeleri render et
+    renderPopularMaterials(popularMaterials);
 
     // ... diğer işlemler
   });
 
 // JavaScript dosyanızda (muhtemelen script.js veya ayrı bir .js dosyası)
-function renderPopularProducts(products) {
-    const container = document.getElementById('popular-products-container');
+function renderPopularMaterials(materials) {
+    const container = document.getElementById('popular-materials-container');
     container.innerHTML = ''; // Konteyneri her render işleminden önce temizle
 
-    if (products.length === 0) {
-        container.innerHTML = '<p class="text-gray-600 text-center col-span-full">Popüler ürün bulunamadı.</p>';
+    if (materials.length === 0) {
+        container.innerHTML = '<p class="text-gray-600 text-center col-span-full">Popüler malzeme bulunamadı.</p>';
         return;
     }
 
-    products.forEach(product => {
-        const productHTML = `
-            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300 transform hover:scale-105">
+    materials.forEach(material => {
+        const materialHTML = `
+            <div class="material-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300 transform hover:scale-105">
                 <div class="relative">
                     <div class="h-60 bg-gray-200 flex items-center justify-center overflow-hidden">
-                        <img src="${product.image}" alt="${product.name}" class="max-h-full max-w-full object-contain">
+                        <img src="${material.image}" alt="${material.name}" class="max-h-full max-w-full object-contain">
                     </div>
                     <div class="absolute top-0 left-0 p-3">
                         <div class="flex text-yellow-400 mb-2">
@@ -48,20 +48,20 @@ function renderPopularProducts(products) {
                     <span class="recommend-badge">Çok Önerilen</span>
                 </div>
                 <div class="p-4">
-                    <a href="product-page.html?id=${product.id}" class="block">
-                        <h3 class="font-semibold mb-1 text-gray-800 hover:text-green-600 transition duration-200">${product.name}</h3>
+                    <a href="material-page.html?id=${material.id}" class="block">
+                        <h3 class="font-semibold mb-1 text-gray-800 hover:text-green-600 transition duration-200">${material.name}</h3>
                     </a>
-                    <p class="text-gray-500 text-sm mb-2">${product.desc}</p>
+                    <p class="text-gray-500 text-sm mb-2">${material.desc}</p>
                     <div class="flex justify-between items-center mt-3">
                         <div>
-                        <span class="text-gray-500 text-sm ml-2">(${product.carbon} g CO₂)</span> </div>
+                        <span class="text-gray-500 text-sm ml-2">(${material.carbon} g CO₂)</span> </div>
                             </div>
                 </div>
             </div>
         `;
-        container.innerHTML += productHTML;
+        container.innerHTML += materialHTML;
     });
 
-    // Her ürün kartı eklendikten sonra olay dinleyicilerini ekle
-    attachProductCardListeners(container);
+    // Her malzeme kartı eklendikten sonra olay dinleyicilerini ekle
+    attachMaterialCardListeners(container);
 }

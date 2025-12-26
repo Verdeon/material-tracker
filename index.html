@@ -44,7 +44,7 @@
                 
                 <div class="w-full md:w-1/2 mb-4 md:mb-0">
                     <div class="relative">
-                        <input autocomplete="off" type="text" id="search-input" placeholder="Ürün ara..." class="w-full py-2 px-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <input autocomplete="off" type="text" id="search-input" placeholder="Malzeme ara..." class="w-full py-2 px-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500">
                         <button id="search-button" class="absolute right-0 top-0 h-full bg-green-600 text-white px-4 rounded-r-full hover:bg-green-700">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
@@ -88,7 +88,7 @@
                 </div>
                 <ul class="flex flex-wrap">
                     <li><a href="index.html" class="block py-4 px-4 hover:bg-green-700 font-medium">Ana Sayfa</a></li>
-                    <li><a href="products-listing.html" class="block py-4 px-4 hover:bg-green-700">Katalog</a></li>
+                    <li><a href="materials-listing.html" class="block py-4 px-4 hover:bg-green-700">Katalog</a></li>
                     <li><a href="#" class="block py-4 px-4 hover:bg-green-700">Hakkımızda</a></li>
                     <li><a href="#" class="block py-4 px-4 hover:bg-green-700">İletişim</a></li>
                 </ul>
@@ -100,9 +100,9 @@
     <section class="banner py-20 text-white">
         <div class="container mx-auto px-4">
             <div class="max-w-lg">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Doğa Dostu Ürünler</h2>
-                <p class="text-lg mb-8">Kullandığınız ürünlerin karbon ayak izlerini öğrenin.</p>
-                <a href="products-listing.html" class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-8 rounded-full inline-block transition duration-300">Ürünleri incele</a>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Doğa Dostu Malzemeler</h2>
+                <p class="text-lg mb-8">Kullandığınız malzemelerin karbon ayak izlerini öğrenin.</p>
+                <a href="materials-listing.html" class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-8 rounded-full inline-block transition duration-300">Malzemeleri incele</a>
             </div>
         </div>
     </section>
@@ -112,69 +112,69 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-8">Kategoriler</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                <a href="products-listing.html?kategori=Beton">
+                <a href="materials-listing.html?kategori=Beton">
                 <div class="category-card bg-green-50 rounded-lg p-4 text-center transition duration-300 cursor-pointer">
                     <div class="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
                         <img src="img/Concrete.svg" width="48px" height="48px">
                     </div>
                     <h3 class="font-semibold">Betonlar</h3>
-                    <p class="text-sm text-gray-500 mt-1 product-count" data-category="Beton">ürün</p>
+                    <p class="text-sm text-gray-500 mt-1 material-count" data-category="Beton">malzeme</p>
                 </div></a>
                 
-                <a href="products-listing.html?kategori=Çelik">
+                <a href="materials-listing.html?kategori=Çelik">
                 <div class="category-card bg-red-50 rounded-lg p-4 text-center transition duration-300 cursor-pointer">
                     <div class="bg-red-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
                         <img src="img/Steel.svg" width="48px" height="48px">
                     </div>
                     <h3 class="font-semibold">Çelikler</h3>
-                    <p class="text-sm text-gray-500 mt-1 product-count" data-category="Çelik">ürün</p>
+                    <p class="text-sm text-gray-500 mt-1 material-count" data-category="Çelik">malzeme</p>
                 </div></a>
                 
-                <a href="products-listing.html?kategori=Tuğla">
+                <a href="materials-listing.html?kategori=Tuğla">
                 <div class="category-card bg-blue-50 rounded-lg p-4 text-center transition duration-300 cursor-pointer">
                     <div class="bg-blue-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
                         <img src="img/Brick.svg" width="48px" height="48px">
                         </svg>
                     </div>
                     <h3 class="font-semibold">Tuğla &amp; Bloklar</h3>
-                    <p class="text-sm text-gray-500 mt-1 product-count" data-category="Tuğla">ürün</p>
+                    <p class="text-sm text-gray-500 mt-1 material-count" data-category="Tuğla">malzeme</p>
                 </div></a>
                 
-                <a href="products-listing.html?kategori=Yalıtım">
+                <a href="materials-listing.html?kategori=Yalıtım">
                 <div class="category-card bg-yellow-50 rounded-lg p-4 text-center transition duration-300 cursor-pointer">
                     <div class="bg-yellow-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
                         <img src="img/Isolation.svg" width="48px" height="48px">
                     </div>
                     <h3 class="font-semibold">Yalıtım Malzemeleri</h3>
-                    <p class="text-sm text-gray-500 mt-1 product-count" data-category="Yalıtım">ürün</p>
+                    <p class="text-sm text-gray-500 mt-1 material-count" data-category="Yalıtım">malzeme</p>
                 </div></a>
                 
-                <a href="products-listing.html?kategori=Zemin">
+                <a href="materials-listing.html?kategori=Zemin">
                 <div class="category-card bg-purple-50 rounded-lg p-4 text-center transition duration-300 cursor-pointer">
                     <div class="bg-purple-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
                         <img src="img/Tile.svg" width="48px" height="48px">
                     </div>
                     <h3 class="font-semibold">Kaplama &amp; Zemin</h3>
-                    <p class="text-sm text-gray-500 mt-1 product-count" data-category="Zemin">ürün</p>
+                    <p class="text-sm text-gray-500 mt-1 material-count" data-category="Zemin">malzeme</p>
                 </div></a>
                 
-                <a href="products-listing.html?kategori=Cam">
+                <a href="materials-listing.html?kategori=Cam">
                 <div class="category-card bg-orange-50 rounded-lg p-4 text-center transition duration-300 cursor-pointer">
                     <div class="bg-orange-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
                         <img src="img/Glass.svg" width="48px" height="48px">
                     </div>
                     <h3 class="font-semibold">Cam &amp; Plastikler</h3>
-                    <p class="text-sm text-gray-500 mt-1 product-count" data-category="Cam">ürün</p>
+                    <p class="text-sm text-gray-500 mt-1 material-count" data-category="Cam">malzeme</p>
                 </div></a>
             </div>
         </div>
     </section>
 
-    <!-- Featured Products -->
+    <!-- Featured Materials -->
 <section class="py-12 bg-gray-50">
     <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-8">Çok Önerilen Ürünler</h2>
-        <div id="popular-products-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <h2 class="text-3xl font-bold text-center mb-8">Çok Önerilen Malzemeler</h2>
+        <div id="popular-materials-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             </div>
     </div>
 </section>
@@ -187,7 +187,7 @@
                     <div class="md:w-1/2 mb-6 md:mb-0">
                         <h3 class="text-2xl font-bold mb-2">Doğa Dostu Betonlar</h3>
                         <p class="text-gray-600 mb-4">%20 daha az karbon ayak izi bırakır.</p>
-                        <a href="products-listing.html?kategori=Beton" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-full inline-block transition duration-300">Ürünleri İncele</a>
+                        <a href="materials-listing.html?kategori=Beton" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-full inline-block transition duration-300">Malzemeleri İncele</a>
                     </div>
                     <div class="md:w-1/2 flex justify-center">
                         <img src="img/Concrete.svg" class="w-64 h-64"/>
@@ -198,7 +198,7 @@
                     <div class="md:w-1/2 mb-6 md:mb-0">
                         <h3 class="text-2xl font-bold mb-2">Doğa Dostu Camlar</h3>
                         <p class="text-gray-600 mb-4">%30 daha az karbon ayak izi bırakır.</p>
-                        <a href="products-listing.html?kategori=Cam" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-full inline-block transition duration-300">Ürünleri İncele</a>
+                        <a href="materials-listing.html?kategori=Cam" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-full inline-block transition duration-300">Malzemeleri İncele</a>
                     </div>
                     <div class="md:w-1/2 flex justify-center">
                         <img src="img/Glass.svg" class="w-64 h-64"/>
@@ -269,7 +269,7 @@
             <div class="flex flex-col md:flex-row items-center justify-between">
                 <div class="mb-6 md:mb-0">
                     <h2 class="text-3xl font-bold mb-2">Mail ile abone ol</h2>
-                    <p>Yeni eklenen ürünlerden anında haberdar ol</p>
+                    <p>Yeni eklenen malzemelerden anında haberdar ol</p>
                 </div>
                 <div class="w-full md:w-1/2 lg:w-1/3">
                     <div class="flex">
@@ -310,7 +310,7 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Hızlı Bağlantılar</h4>
                     <ul class="space-y-2">
-                        <li><a href="products-listing.html" class="text-gray-400 hover:text-white transition duration-300">Katalog</a></li>
+                        <li><a href="materials-listing.html" class="text-gray-400 hover:text-white transition duration-300">Katalog</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Hakkımızda</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">İletişim</a></li>
                         <li><a href="index.html#Newsletter" class="text-gray-400 hover:text-white transition duration-300">Abonelik</a></li>

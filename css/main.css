@@ -6,7 +6,7 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-        .product-card:hover {
+        .material-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
@@ -51,7 +51,7 @@
             -webkit-appearance: none;
             margin: 0;
         }
-        .product-image {
+        .material-image {
             background-color: #f3f4f6;
             display: flex;
             align-items: center;
@@ -66,7 +66,7 @@
             border-color: #047857;
         }
 
-        #popular-products-container {
+        #popular-materials-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 1rem;

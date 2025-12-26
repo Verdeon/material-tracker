@@ -28,7 +28,7 @@ function decrementQuantity() {
     }
 }
 
-// Function to calculate and update carbon emission on product-page.html
+// Function to calculate and update carbon emission on material-page.html
 function updateCarbonEmission() {
     const quantityInput = document.getElementById('quantity');
     const carbonPerUnitDisplay = document.getElementById('carbon-per-unit');
@@ -49,17 +49,17 @@ function updateCarbonEmission() {
 // Bu fonksiyonu kaldırıyoruz, çünkü common.js'deki updateCartCountFromWarehouse global olarak daha doğru çalışıyor.
 // function updateCartCount(count) { /* ... */ }
 
-function addToWarehouse(productId, category, quantity, name, image, desc, carbon) {
+function addToWarehouse(materialId, category, quantity, name, image, desc, carbon) {
     const warehouseKey = 'warehouse';
     let warehouse = JSON.parse(localStorage.getItem(warehouseKey)) || [];
 
-    const existingItem = warehouse.find(item => item.id === productId && item.category === category);
+    const existingItem = warehouse.find(item => item.id === materialId && item.category === category);
 
     if (existingItem) {
         existingItem.quantity += quantity;
     } else {
         warehouse.push({
-            id: productId,
+            id: materialId,
             category: category,
             quantity: quantity,
             name: name,
@@ -90,11 +90,11 @@ document.addEventListener('DOMContentLoaded', function() {
   allButton.textContent = 'Tüm Kategoriler';
   allButton.className = 'category-button px-3 py-1 m-1 bg-green-300 rounded cursor-pointer hover:bg-gray-500';
   allButton.addEventListener('click', () => {
-    window.location.href = 'products-listing.html'; // kategori filtresiz sayfa
+    window.location.href = 'materials-listing.html'; // kategori filtresiz sayfa
   });
   categoryButtonsContainer.appendChild(allButton);
 
-  fetch("products.json")
+  fetch("materials.json")
     .then(res => {
       if (!res.ok) throw new Error("JSON yüklenemedi.");
       return res.json();
@@ -106,21 +106,21 @@ document.addEventListener('DOMContentLoaded', function() {
         button.textContent = category;
         button.className = 'category-button px-3 py-1 m-1 bg-gray-200 rounded cursor-pointer hover:bg-gray-400';
         button.addEventListener('click', () => {
-          // Kategoriye tıklayınca products-listing.html?kategori= kategorinin adı olacak şekilde aç
-          window.location.href = `products-listing.html?kategori=${encodeURIComponent(category)}`;
+          // Kategoriye tıklayınca materials-listing.html?kategori= kategorinin adı olacak şekilde aç
+          window.location.href = `materials-listing.html?kategori=${encodeURIComponent(category)}`;
         });
         categoryButtonsContainer.appendChild(button);
     });
 
-      document.querySelectorAll(".product-count").forEach(span => {
+      document.querySelectorAll(".material-count").forEach(span => {
         const category = span.dataset.category;
         const count = data[category]?.length ?? 0;
-        span.textContent = `${count} ürün`;
+        span.textContent = `${count} malzeme`;
       });
     })
     .catch(err => {
       console.error("Hata:", err);
-      document.querySelectorAll(".product-count").forEach(span => {
+      document.querySelectorAll(".material-count").forEach(span => {
         span.textContent = "Yüklenemedi";
       });
     });
@@ -132,12 +132,12 @@ document.addEventListener('DOMContentLoaded', function() {
         console.warn("DOMContentLoaded: updateCartCountFromWarehouse fonksiyonu bulunamadı. common.js dosyasının doğru yüklendiğinden emin olun.");
     }
 
-    // --- Product Page Specific Logic (product-page.html) ---
-    if (document.getElementById('product-page-container')) {
+    // --- Material Page Specific Logic (material-page.html) ---
+    if (document.getElementById('material-page-container')) {
         const incrementButton = document.getElementById('increment-quantity');
         const decrementButton = document.getElementById('decrement-quantity');
         const quantityInput = document.getElementById('quantity');
-        const addToWarehouseButton = document.getElementById('add-to-cart'); // Ürün detay sayfasındaki "Depoya ekle" butonu
+        const addToWarehouseButton = document.getElementById('add-to-cart'); // Malzeme detay sayfasındaki "Depoya ekle" butonu
 
         if (incrementButton) {
             incrementButton.addEventListener('click', incrementQuantity);
@@ -152,97 +152,97 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (addToWarehouseButton) {
-            const productId = urlParams.get('id');
-            const productCategory = urlParams.get('category');
+            const materialId = urlParams.get('id');
+            const materialCategory = urlParams.get('category');
 
-            if (productId && productCategory) {
-                fetch('products.json')
+            if (materialId && materialCategory) {
+                fetch('materials.json')
                     .then(response => {
                         if (!response.ok) {
-                            throw new Error(`HTTP error! status: ${response.status} - products.json yüklenemedi.`);
+                            throw new Error(`HTTP error! status: ${response.status} - materials.json yüklenemedi.`);
                         }
                         return response.json();
                     })
-                    .then(productsData => {
-                        // productsData genellikle { "category1": [...], "category2": [...] } şeklinde gelir
-                        // İlgili kategorideki ürünü bul
-                        const categoryProducts = productsData[productCategory];
-                        const product = categoryProducts ? categoryProducts.find(p => p.id === productId) : null;
+                    .then(materialsData => {
+                        // materialsData genellikle { "category1": [...], "category2": [...] } şeklinde gelir
+                        // İlgili kategorideki malzemeü bul
+                        const categoryMaterials = materialsData[materialCategory];
+                        const material = categoryMaterials ? categoryMaterials.find(p => p.id === materialId) : null;
 
-                        if (product) {
+                        if (material) {
                             addToWarehouseButton.addEventListener('click', function() {
                                 const quantityToAdd = parseInt(document.getElementById('quantity')?.value || '1', 10);
                                 if (quantityToAdd > 0) {
                                     addToWarehouse(
-                                        product.id,
-                                        product.category,
+                                        material.id,
+                                        material.category,
                                         quantityToAdd,
-                                        product.name,
-                                        product.image,
-                                        product.description || product.desc,
-                                        product.carbon
+                                        material.name,
+                                        material.image,
+                                        material.description || material.desc,
+                                        material.carbon
                                     );
                                     window.updateCarbonCountFromWarehouse()
                                 } else {
-                                    alert('Lütfen eklenecek ürün miktarını seçin.');
+                                    alert('Lütfen eklenecek malzeme miktarını seçin.');
                                 }
                             });
                         } else {
-                            console.error("Ürün detay sayfası hatası: Ürün detayları products.json'da bulunamadı veya eşleşmedi.", {productId, productCategory});
+                            console.error("Malzeme detay sayfası hatası: Malzeme detayları materials.json'da bulunamadı veya eşleşmedi.", {materialId, materialCategory});
                         }
                     })
-                .catch(error => console.error('product-page products.json yüklenirken veya işlenirken hata:', error));
+                .catch(error => console.error('material-page materials.json yüklenirken veya işlenirken hata:', error));
             } else {
-                console.warn("Ürün detayları URL'den alınamadı (id veya category eksik).");
+                console.warn("Malzeme detayları URL'den alınamadı (id veya category eksik).");
             }
         }
     }
 
 
-    // --- Products Listing Page Specific Logic (products-listing.html) ---
-    if (document.getElementById('products-listing-page')) {
-        const productCardsContainer = document.getElementById('product-cards-container');
+    // --- Materials Listing Page Specific Logic (materials-listing.html) ---
+    if (document.getElementById('materials-listing-page')) {
+        const materialCardsContainer = document.getElementById('material-cards-container');
         const searchInput = document.getElementById('search-input');
-        let allProducts = {}; // Tüm ürünleri kategori bazında saklamak için
+        let allMaterials = {}; // Tüm malzemeleri kategori bazında saklamak için
 
-        function renderProducts(productsToRender) {
-            const productCardsContainer = document.getElementById('product-cards-container');
-            if (!productCardsContainer) return;
-            productCardsContainer.innerHTML = '';
+        function renderMaterials(materialsToRender) {
+            const materialCardsContainer = document.getElementById('material-cards-container');
+            if (!materialCardsContainer) return;
+            materialCardsContainer.innerHTML = '';
 
             const warehouse = JSON.parse(localStorage.getItem("warehouse")) || [];
 
-            if (productsToRender.length === 0) {
-                productCardsContainer.innerHTML = '<p class="text-center text-gray-600 col-span-full">Eşleşen ürün bulunamadı.</p>';
+            if (materialsToRender.length === 0) {
+                materialCardsContainer.innerHTML = '<p class="text-center text-gray-600 col-span-full">Eşleşen malzeme bulunamadı.</p>';
                 return;
             }
 
-            productsToRender.forEach(product => {
-                const warehouseItem = warehouse.find(item => item.id === product.id);
+            materialsToRender.forEach(material => {
+                const warehouseItem = warehouse.find(item => item.id === material.id);
                 const depotInfo = warehouseItem
-                ? `<p class="text-sm text-green-600 mt-1 depot-info" data-id="${product.id}">Depoda ${warehouseItem.quantity} adet var</p>`
-                : `<p class="text-sm text-green-600 mt-1 depot-info" data-id="${product.id}"></p>`;
+                ? `<p class="text-sm text-green-600 mt-1 depot-info" data-id="${material.id}">Depoda ${warehouseItem.quantity} adet var</p>`
+                : `<p class="text-sm text-green-600 mt-1 depot-info" data-id="${material.id}"></p>`;
 
                 let badgeClass = '';
-                if (product.rating === 'Çok Önerilen') {
+                if (material.rating === 'Çok Önerilen') {
                     badgeClass = 'bg-green-500';
-                } else if (product.rating === 'Önerilen') {
+                } else if (material.rating === 'Önerilen') {
                     badgeClass = 'bg-yellow-500';
-                } else if (product.rating === 'Az Önerilen') {
+                } else if (material.rating === 'Az Önerilen') {
                     badgeClass = 'bg-orange-500';
-                } else if (product.rating === 'Önerilmeyen') {
+                } else if (material.rating === 'Önerilmeyen') {
                     badgeClass = 'bg-red-500';
                 }
 
                 let starsHtml = '';
-                if (product.rating) {
+                if (material.rating) {
                     const ratingMap = {
                         'Çok Önerilen': 5,
                         'Önerilen': 4,
                         'Az Önerilen': 3,
                         'Önerilmeyen': 1
                     };
-                    const numberOfStars = ratingMap[product.rating] || 0;
+                    const numberOfStars = ratingMap[material.rating] || 0;
 
                     for (let i = 0; i < 5; i++) {
                         if (i < numberOfStars) {
@@ -253,13 +253,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
 
-                const productCard = `
-                    <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                const materialCard = `
+                    <div class="material-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
                         <div class="relative">
                             <div class="h-60 bg-gray-200 flex items-center justify-center">
-                                <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover">
+                                <img src="${material.image}" alt="${material.name}" class="w-full h-full object-cover">
                             </div>
-                            ${product.rating ? `<span class="recommend-badge ${badgeClass}">${product.rating}</span>` : ''}
+                            ${material.rating ? `<span class="recommend-badge ${badgeClass}">${material.rating}</span>` : ''}
                         </div>
                         <div class="p-4">
                             <div class="flex items-center mb-2">
@@ -267,70 +267,70 @@ document.addEventListener('DOMContentLoaded', function() {
                                     ${starsHtml}
                                 </div>
                             </div>
-                            <a href="product-page.html?id=${product.id}" ><h3 class="font-semibold mb-1 hover:text-green-700">${product.name}</h3></a>
-                            <p class="text-gray-500 text-sm mb-2">${product.desc}</p>
+                            <a href="material-page.html?id=${material.id}" ><h3 class="font-semibold mb-1 hover:text-green-700">${material.name}</h3></a>
+                            <p class="text-gray-500 text-sm mb-2">${material.desc}</p>
                             <div class="flex justify-between items-center mt-4">
                                 <div>
-                                    <span class="text-green-600 font-bold ml-2">${product.carbon} g CO₂</span>${depotInfo}
+                                    <span class="text-green-600 font-bold ml-2">${material.carbon} g CO₂</span>${depotInfo}
                                 </div>
                                 <div class="flex items-center space-x-2">
                                     <button class="px-3 py-1 bg-gray-200 rounded-md hover:bg-gray-300 focus:outline-none focus:ring focus:ring-gray-300 quantity-decrement-btn hidden">
                                         -
                                     </button>
-                                    <input type="number" value="0" min="0" class="w-16 text-center border rounded-md p-1 focus:outline-none focus:ring focus:ring-green-400 quantity-input-field" data-product-id="${product.id}" data-product-category="${product.category}" />
+                                    <input type="number" value="0" min="0" class="w-16 text-center border rounded-md p-1 focus:outline-none focus:ring focus:ring-green-400 quantity-input-field" data-material-id="${material.id}" data-material-category="${material.category}" />
                                     <button class="px-3 py-1 bg-gray-200 rounded-md hover:bg-gray-300 focus:outline-none focus:ring focus:ring-green-400 quantity-increment-btn">
                                         +
                                     </button>
                                 </div>
                             </div>
-                           <button class="bg-green-600 text-white w-full py-2 px-4 mt-4 rounded-md text-sm hover:bg-green-700 transition duration-300 add-to-cart-btn" data-product-id="${product.id}" data-product-category="${product.category}">
+                           <button class="bg-green-600 text-white w-full py-2 px-4 mt-4 rounded-md text-sm hover:bg-green-700 transition duration-300 add-to-cart-btn" data-material-id="${material.id}" data-material-category="${material.category}">
                                 Depoya Ekle
                            </button>
                         </div>
                     </div>
                 `;
-                productCardsContainer.innerHTML += productCard;
+                materialCardsContainer.innerHTML += materialCard;
             });
 
             // "Depoya Ekle" butonları için olay dinleyicileri
             document.querySelectorAll('.add-to-cart-btn').forEach(button => {
                 button.addEventListener('click', function() {
-                    const card = button.closest('.product-card');
+                    const card = button.closest('.material-card');
                     const quantityInput = card.querySelector('.quantity-input-field');
                     const quantityToAdd = parseInt(quantityInput?.value || '0', 10); // null veya undefined kontrolü ekledim
 
                     if (quantityToAdd > 0) {
-                        const productId = button.dataset.productId;
-                        const productCategory = button.dataset.productCategory;
-                        const product = allProducts[productCategory]?.find(p => p.id === productId); // Kategoriye göre bul
+                        const materialId = button.dataset.materialId;
+                        const materialCategory = button.dataset.materialCategory;
+                        const material = allMaterials[materialCategory]?.find(p => p.id === materialId); // Kategoriye göre bul
 
-                        if (product) {
+                        if (material) {
                             addToWarehouse(
-                                product.id,
-                                product.category,
+                                material.id,
+                                material.category,
                                 quantityToAdd,
-                                product.name,
-                                product.image,
-                                product.description || product.desc,
-                                product.carbon || 0 
+                                material.name,
+                                material.image,
+                                material.description || material.desc,
+                                material.carbon || 0 
                             );
                             quantityInput.value = 0; // Miktarı sıfırla
                             // Miktar inputu ve decrement butonunu gizle
                             const decrementButton = card.querySelector('.quantity-decrement-btn');
                             decrementButton?.classList.add('hidden');
                             quantityInput?.classList.add('hidden');
-                            updateSingleDepotInfo(product.id);
+                            updateSingleDepotInfo(material.id);
                         } else {
-                            console.error("Listeleme sayfasında ürün bulunamadı:", productId, productCategory);
+                            console.error("Listeleme sayfasında malzeme bulunamadı:", materialId, materialCategory);
                         }
                     } else {
-                        alert('Lütfen eklenecek ürün miktarını seçin.');
+                        alert('Lütfen eklenecek malzeme miktarını seçin.');
                     }
                 });
             });
 
             // Miktar kontrol butonları ve input alanları için olay dinleyicileri
-            document.querySelectorAll('.product-card').forEach(card => {
+            document.querySelectorAll('.material-card').forEach(card => {
                 const quantityInput = card.querySelector('.quantity-input-field');
                 const incrementButton = card.querySelector('.quantity-increment-btn');
                 const decrementButton = card.querySelector('.quantity-decrement-btn');
@@ -395,16 +395,16 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
-        // Fetch products and initialize
-        fetch('products.json')
+        // Fetch materials and initialize
+        fetch('materials.json')
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status} - products.json yüklenemedi.`);
+                    throw new Error(`HTTP error! status: ${response.status} - materials.json yüklenemedi.`);
                 }
                 return response.json();
             })
             .then(data => {
-                allProducts = data; // Tüm ürünleri sakla
+                allMaterials = data; // Tüm malzemeleri sakla
                 const categories = ['all', ...Object.keys(data)];
 
                 categories.forEach(category => {
@@ -427,7 +427,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 btn.classList.add('bg-white', 'text-gray-800', 'hover:bg-gray-100');
                             }
                         });
-                        filterProducts();
+                        filterMaterials();
                     });
                 });
 
@@ -442,39 +442,39 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
 
                 categoryShow();
-                filterProducts();
+                filterMaterials();
             })
-            .catch(error => console.error('Error fetching products for listing page:', error));
+            .catch(error => console.error('Error fetching materials for listing page:', error));
 
 
         // Event listener for search input
-        searchInput?.addEventListener('keyup', filterProducts);
-        searchInput?.addEventListener('change', filterProducts);
+        searchInput?.addEventListener('keyup', filterMaterials);
+        searchInput?.addEventListener('change', filterMaterials);
 
 
-        function filterProducts() {
+        function filterMaterials() {
             const searchTerm = searchInput?.value.toLowerCase() || '';
-            let allFlatProducts = [];
+            let allFlatMaterials = [];
 
-            for (const category in allProducts) {
-                allProducts[category].forEach(product => {
-                    product.category = category; // Ürün objesine kategori ekle
-                    allFlatProducts.push(product);
+            for (const category in allMaterials) {
+                allMaterials[category].forEach(material => {
+                    material.category = category; // Malzeme objesine kategori ekle
+                    allFlatMaterials.push(material);
                 });
             }
 
             if (activeCategory !== 'all') {
-                allFlatProducts = allFlatProducts.filter(p => p.category === activeCategory);
+                allFlatMaterials = allFlatMaterials.filter(p => p.category === activeCategory);
             }
 
             if (searchTerm) {
-                allFlatProducts = allFlatProducts.filter(p =>
+                allFlatMaterials = allFlatMaterials.filter(p =>
                     p.name.toLowerCase().includes(searchTerm) ||
                     (p.desc && p.desc.toLowerCase().includes(searchTerm)) || // desc boş olabilir
                     p.id.toLowerCase().includes(searchTerm)
                 );
             }            
-            renderProducts(allFlatProducts);
+            renderMaterials(allFlatMaterials);
         }
     }
 });
@@ -491,7 +491,7 @@ function categoryShow() {
 }
 
 
-// --- Tab Functionality (product-page.html veya benzeri sayfalar için) ---
+// --- Tab Functionality (material-page.html veya benzeri sayfalar için) ---
 document.addEventListener('DOMContentLoaded', function() {
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabContents = document.querySelectorAll('.tab-content');
@@ -530,27 +530,27 @@ if (addToWarehouseButton) {
   addToWarehouseButton.addEventListener('click', () => {
     console.log("Sepete Ekle butonu tıklandı!");
 
-    const productIdEl = document.getElementById('product-id');
-    const productNameEl = document.getElementById('product-name');
-    const productCarbonEl = document.getElementById('product-carbon');
-    const productImageEl = document.getElementById('product-image');
-    const productCategoryEl = document.getElementById('product-category');
-    const productDescEl = document.getElementById('product-desc');
+    const materialIdEl = document.getElementById('material-id');
+    const materialNameEl = document.getElementById('material-name');
+    const materialCarbonEl = document.getElementById('material-carbon');
+    const materialImageEl = document.getElementById('material-image');
+    const materialCategoryEl = document.getElementById('material-category');
+    const materialDescEl = document.getElementById('material-desc');
 
     const quantityInput = document.getElementById('quantity');
     const quantity = parseInt(quantityInput?.value || "1");
 
     // ❗ Elementler varsa içeriği alalım
-    const id = productIdEl?.textContent?.trim();
-    const name = productNameEl?.textContent?.trim();
-    const carbon = parseInt(productCarbonEl?.textContent?.trim());
-    const image = productImageEl?.getAttribute("src") || "";
-    const category = productCategoryEl?.textContent?.trim();
-    const desc = productDescEl?.textContent?.trim();
+    const id = materialIdEl?.textContent?.trim();
+    const name = materialNameEl?.textContent?.trim();
+    const carbon = parseInt(materialCarbonEl?.textContent?.trim());
+    const image = materialImageEl?.getAttribute("src") || "";
+    const category = materialCategoryEl?.textContent?.trim();
+    const desc = materialDescEl?.textContent?.trim();
 
     if (!name || isNaN(carbon) || isNaN(quantity)) {
-      console.error("Ürün bilgileri eksik veya hatalı.");
-      alert("Ürün bilgileri eksik veya hatalı. Lütfen sayfayı yenileyin.");
+      console.error("Malzeme bilgileri eksik veya hatalı.");
+      alert("Malzeme bilgileri eksik veya hatalı. Lütfen sayfayı yenileyin.");
       return;
     }
 
@@ -589,10 +589,10 @@ if (addToWarehouseButton) {
     
 });
 
-function updateSingleDepotInfo(productId) {
+function updateSingleDepotInfo(materialId) {
   const warehouse = JSON.parse(localStorage.getItem("warehouse")) || [];
-  const item = warehouse.find(w => w.id === productId);
-  const el = document.querySelector(`.depot-info[data-id="${productId}"]`);
+  const item = warehouse.find(w => w.id === materialId);
+  const el = document.querySelector(`.depot-info[data-id="${materialId}"]`);
 
   if (el) {
     if (item) {

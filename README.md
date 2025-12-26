@@ -2,7 +2,7 @@
 
 Material Tracker, inşaat malzemelerinin çevresel etkilerini analiz etmenizi sağlayan açık kaynaklı bir web uygulamasıdır.
 Her malzeme için karbon salımı, öneri derecesi ve açıklama gibi detaylar sunar.
-Ayrıca kullanıcılar, ürünleri kendi yerel depolarına ekleyerek karbon yükünü hesaplayabilir.
+Ayrıca kullanıcılar, malzemeleri kendi yerel depolarına ekleyerek karbon yükünü hesaplayabilir.
 
 <h3>🚀 Özellikler</h3>
 
@@ -14,7 +14,7 @@ Ayrıca kullanıcılar, ürünleri kendi yerel depolarına ekleyerek karbon yük
 
 🌍 Karbon salımı takibi
 
-📄 Ürün detay sayfası
+📄 Malzeme detay sayfası
 
 🎯 Gerçek zamanlı öneriler ve kategoriye göre filtreleme
 
@@ -22,18 +22,18 @@ Ayrıca kullanıcılar, ürünleri kendi yerel depolarına ekleyerek karbon yük
 <pre>
 material-tracker/
 ├── index.html              # Ana sayfa
-├── products-listing.html   # Ürün katalog sayfası
-├── product-page.html       # Ürün detay sayfası
-├── products.json           # Tüm malzeme verileri
+├── materials-listing.html   # Malzeme katalog sayfası
+├── material-page.html       # Malzeme detay sayfası
+├── materials.json           # Tüm malzeme verileri
 ├── warehouse.html          # Depo ekranı
 ├── script/
 │   ├── common.js           # Ortak fonksiyonlar
-│   ├── product-page.js     # Ürün detay yükleyici
+│   ├── material-page.js     # Malzeme detay yükleyici
 │   ├── search.js           # Arama kutusu
 │   ├── warehouse.js        # Depo yönetimi
 ├── style/
 │   └── main.css            # Tailwind/özel stil dosyaları
-├── img/                    # Ürün ikonları ve görseller
+├── img/                    # Malzeme ikonları ve görseller
 	</pre>
 
 <h3>🛠️ Kurulum</h3>
@@ -46,11 +46,11 @@ Veya VSCode Live Server ile doğrudan çalıştırabilirsiniz.
 
 <h3>🧪 Geliştirici Notları</h3>
 
-products.json üzerinden tüm ürün verileri yüklenir.
+materials.json üzerinden tüm malzeme verileri yüklenir.
 
 Sayfalar arası veri paylaşımı URL parametreleriyle yapılır:
 
-?id= → ürün detay
+?id= → malzeme detay
 
 ?kategori= → kategori filtreleme
 

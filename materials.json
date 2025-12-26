@@ -15,7 +15,7 @@
   "Yalıtım": [
     { "id": "camyunu", "name": "Cam Yünü Yalıtım", "carbon": 200, "desc": "Isı ve ses yalıtımında kullanılır.", "rating": "Önerilen", "image": "https://sankalpsystems.com/wp-content/uploads/2018/01/GLASS-WOOL-%E2%80%93-ROCK-WOOL-INSULATION-2.jpg" },
     { "id": "strafor", "name": "Strafor Levha", "carbon": 600, "desc": "Ucuz yalıtım malzemesi, karbon yoğunluğu yüksek.", "rating": "Önerilmeyen", "image": "https://cdn.4seasonshomeinsulation.com.au/wp-content/uploads//recycled-polystyrene-insulation.jpg" },
-    { "id": "taşyünü", "name": "Taş Yünü", "carbon": 450, "desc": "Yüksek ısı dayanımı sağlar.", "rating": "Önerilen", "image": "https://www.pipelagging.com/media/catalog/product/cache/c3c2bf8b045c2d45107e7bf72496c016/r/o/rockwool-rocklap-hv-pipe-sections_10.webp" },
+    { "id": "taşyünü", "name": "Taş Yünü", "carbon": 450, "desc": "Yüksek ısı dayanımı sağlar.", "rating": "Önerilen", "image": "https://www.pipelagging.com/media/catalog/material/cache/c3c2bf8b045c2d45107e7bf72496c016/r/o/rockwool-rocklap-hv-pipe-sections_10.webp" },
     { "id": "poliüretan", "name": "Poliüretan Köpük", "carbon": 550, "desc": "Yüksek izolasyon değerine sahip köpük.", "rating": "Az Önerilen", "image": "https://www.lindenindustries.com/wp-content/uploads/2024/02/iStock-1297955873.jpg" }
   ],
   "Tuğla": [
@@ -26,7 +26,7 @@
   "Cam": [
     { "id": "duzcam", "name": "Düz Cam", "carbon": 300, "desc": "Pencere ve vitrinlerde kullanılır.", "rating": "Çok Önerilen", "image": "https://varnagroup.com/wp-content/uploads/2022/09/clear-glass_auto_x2_colored_toned.jpg" },
     { "id": "laminecam", "name": "Lamine Cam", "carbon": 450, "desc": "Güvenlik camı, katmanlı yapı.", "rating": "Önerilen", "image": "https://lh5.googleusercontent.com/B9FupeW1VWU7zf4-5GE8cURCk2QqiXw2Jmy4eptjPyv43LgnH_55BIShV0CPvh_5tEGxv2CqpND1Pqp-fcmBG-PMlK09IJq4SV7Wap7SGHsbZRj9tG81BFPqi0Mj2iyj4T78pcTVTDpL-psULg" },
-    { "id": "tempercam", "name": "Temperli Cam", "carbon": 480, "desc": "Dayanıklı ve kırılmaya dirençli cam.", "rating": "Önerilen", "image": "https://www.vsomglass.com/wp-content/uploads/2021/09/8mm-ultra-clear-tempered-glass-vsom-products-600x400.jpg" }
+    { "id": "tempercam", "name": "Temperli Cam", "carbon": 480, "desc": "Dayanıklı ve kırılmaya dirençli cam.", "rating": "Önerilen", "image": "https://www.vsomglass.com/wp-content/uploads/2021/09/8mm-ultra-clear-tempered-glass-vsom-materials-600x400.jpg" }
   ],
   "Zemin": [
     { "id": "plywood", "name": "Esnek Kontrplak", "carbon": 1200, "desc": "Dayanıklı zemin kaplaması.", "rating": "Önerilen", "image": "https://cdn.myikas.com/images/cc685240-feff-4953-8e01-dce642c7951c/2b8b00b0-40ea-4ca9-af73-5324eed8890f/1512/filmli-plywood-3-3.webp" },
@@ -47,7 +47,7 @@
     { "id": "cati_sandviç", "name": "Sandviç Panel", "carbon": 700, "desc": "Isı yalıtımlı çatı paneli.", "rating": "Çok Önerilen", "image": "https://metalink.com.ph/wp-content/uploads/2024/10/image2.jpg" }
   ],
   "Boyalar": [
-    { "id": "dis_boya", "name": "Dış Cephe Boyası", "carbon": 150, "desc": "Hava koşullarına dayanıklı boya.", "rating": "Önerilen", "image": "https://productimages.hepsiburada.net/s/58/424-600/11309944668210.jpg/format:webp" },
+    { "id": "dis_boya", "name": "Dış Cephe Boyası", "carbon": 150, "desc": "Hava koşullarına dayanıklı boya.", "rating": "Önerilen", "image": "https://materialimages.hepsiburada.net/s/58/424-600/11309944668210.jpg/format:webp" },
     { "id": "ic_boya", "name": "İç Cephe Boyası", "carbon": 100, "desc": "Sağlığa uygun iç cephe boyası.", "rating": "Çok Önerilen", "image": "https://i.ebayimg.com/images/g/ftgAAeSwuENoBjLI/s-l960.webp" }
   ],
   "Alüminyum": [

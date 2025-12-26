@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   resultsContainer.id = "search-results";
   resultsContainer.style.position = "absolute";
   resultsContainer.style.backgroundColor = "white";
-  resultsContainer.style.border = "1px solid #ccc";
+  resultsContainer.style.border = "none";
   resultsContainer.style.width = searchInput.offsetWidth + "px";
   resultsContainer.style.maxHeight = "200px";
   resultsContainer.style.overflowY = "auto";
@@ -14,18 +14,18 @@ document.addEventListener("DOMContentLoaded", () => {
   searchInput.parentNode.style.position = "relative"; // container relative olsun
   searchInput.parentNode.appendChild(resultsContainer);
 
-  let products = [];
+  let materials = [];
 
-  // products.json'dan ürünleri çek
-  fetch("products.json")
+  // materials.json'dan malzemeleri çek
+  fetch("materials.json")
     .then(res => res.json())
     .then(data => {
-      products = Object.values(data).flat();
+      materials = Object.values(data).flat();
     });
 
-  function filterProducts(query) {
+  function filterMaterials(query) {
     const q = query.toLowerCase();
-    return products.filter(p =>
+    return materials.filter(p =>
       p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q)
     );
   }
@@ -37,9 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (query.length === 0) {
       resultsContainer.style.display = "none";
       return;
+    } else {
+      resultsContainer.style.border = "1px solid #ccc";
     }
 
-    const filtered = filterProducts(query).slice(0, 10); // max 10 sonuç
+    const filtered = filterMaterials(query).slice(0, 10); // max 10 sonuç
 
     filtered.forEach(item => {
       const div = document.createElement("div");
@@ -48,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
       div.style.cursor = "pointer";
 
       div.addEventListener("click", () => {
-        window.location.href = `product-page.html?id=${encodeURIComponent(item.id)}`;
+        window.location.href = `material-page.html?id=${encodeURIComponent(item.id)}`;
       });
 
       resultsContainer.appendChild(div);
