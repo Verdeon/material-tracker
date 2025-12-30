@@ -1,74 +1,766 @@
 {
-  "Beton": [
-    { "id": "c10", "name": "C10 Beton", "carbon": 280, "desc": "Düşük dayanımlı beton, küçük yapılar için uygundur.", "rating": "Az Önerilen", "image": "https://img.freepik.com/premium-psd/cement-gray-construction-bajri-stone-transparent-background_1195761-22143.jpg" },
-    { "id": "c20", "name": "C20 Beton", "carbon": 360, "desc": "Orta dayanımlı beton, temellerde yaygın kullanılır.", "rating": "Önerilen", "image": "https://img.freepik.com/premium-psd/gray-cement-cinder-block-isolate-transparency-background-psd_1269612-10533.jpg?semt=ais_hybrid&w=740" },
-    { "id": "c25", "name": "C25 Beton", "carbon": 370, "desc": "Genel amaçlı dayanıklı beton.", "rating": "Önerilen", "image": "https://img.freepik.com/free-psd/single-gray-concrete-block-rough-texture-construction-material-isolated-white-background_191095-86031.jpg?semt=ais_hybrid&w=740" },
-    { "id": "c30", "name": "C30 Beton", "carbon": 320, "desc": "Yapıların ana taşıyıcı elemanı olarak kullanılır.", "rating": "Çok Önerilen", "image": "https://www.albayrakbeton.com.tr/upload/sayfalar/5305268-353332e8e0bff7b20905fa10d47cee150.jpg" },
-    { "id": "c40", "name": "C40 Beton", "carbon": 400, "desc": "Yüksek dayanımlı beton, ağır yük taşıyan yapılar için.", "rating": "Çok Önerilen", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDeX86lbz961CHxWBr2izM_jlcujgUHQewQw&s" }
-  ],
-  "Çelik": [
-    { "id": "s235", "name": "Yapısal Çelik S235", "carbon": 1700, "desc": "Düşük karbonlu yapı çeliği.", "rating": "Az Önerilen", "image": "https://www.tsmsteel.com/assets/img/s235.jpg" },
-    { "id": "s275", "name": "Yapısal Çelik S275", "carbon": 1750, "desc": "Orta dayanımlı yapı çeliği.", "rating": "Az Önerilen", "image": "https://i0.wp.com/www.jaiganeshsteel.com/wp-content/uploads/2021/10/st5.jpg?w=500&ssl=1" },
-    { "id": "s355", "name": "Yüksek Dayanımlı Çelik S355", "carbon": 1850, "desc": "Yüksek mukavemetli çelik.", "rating": "Önerilmeyen", "image": "https://www.theworldmaterial.com/wp-content/uploads/s355-steel.jpg" },
-    { "id": "st37", "name": "Yapısal Çelik St37", "carbon": 1650, "desc": "Standart yapı çeliği türü.", "rating": "Önerilen", "image": "https://www.steel-sections.com/img/st37-2-angle-steel.jpg" }
-  ],
-  "Yalıtım": [
-    { "id": "camyunu", "name": "Cam Yünü Yalıtım", "carbon": 200, "desc": "Isı ve ses yalıtımında kullanılır.", "rating": "Önerilen", "image": "https://sankalpsystems.com/wp-content/uploads/2018/01/GLASS-WOOL-%E2%80%93-ROCK-WOOL-INSULATION-2.jpg" },
-    { "id": "strafor", "name": "Strafor Levha", "carbon": 600, "desc": "Ucuz yalıtım malzemesi, karbon yoğunluğu yüksek.", "rating": "Önerilmeyen", "image": "https://cdn.4seasonshomeinsulation.com.au/wp-content/uploads//recycled-polystyrene-insulation.jpg" },
-    { "id": "taşyünü", "name": "Taş Yünü", "carbon": 450, "desc": "Yüksek ısı dayanımı sağlar.", "rating": "Önerilen", "image": "https://www.pipelagging.com/media/catalog/material/cache/c3c2bf8b045c2d45107e7bf72496c016/r/o/rockwool-rocklap-hv-pipe-sections_10.webp" },
-    { "id": "poliüretan", "name": "Poliüretan Köpük", "carbon": 550, "desc": "Yüksek izolasyon değerine sahip köpük.", "rating": "Az Önerilen", "image": "https://www.lindenindustries.com/wp-content/uploads/2024/02/iStock-1297955873.jpg" }
-  ],
-  "Tuğla": [
-    { "id": "tugla10", "name": "10'luk Tuğla", "carbon": 200, "desc": "Orta kalınlıkta standart tuğla.", "rating": "Çok Önerilen", "image": "https://colorceramics.com/public/uploads/all/GNYIWY2owA1U3WG0YMKWXF9rNQF1gQ72el6Crszc.jpg" },
-    { "id": "tugla15", "name": "15'lik Tuğla", "carbon": 300, "desc": "Yüksek kalınlık, iyi yalıtım sağlar.", "rating": "Önerilen", "image": "https://5.imimg.com/data5/SELLER/Default/2023/11/364099788/NB/LZ/WP/99527172/15-inch-wall-brick-1000x1000.png" },
-    { "id": "tugla20", "name": "20'lik Tuğla", "carbon": 380, "desc": "Kalın duvar yapımında kullanılır.", "rating": "Önerilen", "image": "https://www.yukseltuglakiremit.com/images/urunler/yclieehd_ceb6a.jpg" }
-  ],
-  "Cam": [
-    { "id": "duzcam", "name": "Düz Cam", "carbon": 300, "desc": "Pencere ve vitrinlerde kullanılır.", "rating": "Çok Önerilen", "image": "https://varnagroup.com/wp-content/uploads/2022/09/clear-glass_auto_x2_colored_toned.jpg" },
-    { "id": "laminecam", "name": "Lamine Cam", "carbon": 450, "desc": "Güvenlik camı, katmanlı yapı.", "rating": "Önerilen", "image": "https://lh5.googleusercontent.com/B9FupeW1VWU7zf4-5GE8cURCk2QqiXw2Jmy4eptjPyv43LgnH_55BIShV0CPvh_5tEGxv2CqpND1Pqp-fcmBG-PMlK09IJq4SV7Wap7SGHsbZRj9tG81BFPqi0Mj2iyj4T78pcTVTDpL-psULg" },
-    { "id": "tempercam", "name": "Temperli Cam", "carbon": 480, "desc": "Dayanıklı ve kırılmaya dirençli cam.", "rating": "Önerilen", "image": "https://www.vsomglass.com/wp-content/uploads/2021/09/8mm-ultra-clear-tempered-glass-vsom-materials-600x400.jpg" }
-  ],
-  "Zemin": [
-    { "id": "plywood", "name": "Esnek Kontrplak", "carbon": 1200, "desc": "Dayanıklı zemin kaplaması.", "rating": "Önerilen", "image": "https://cdn.myikas.com/images/cc685240-feff-4953-8e01-dce642c7951c/2b8b00b0-40ea-4ca9-af73-5324eed8890f/1512/filmli-plywood-3-3.webp" },
-    { "id": "laminat", "name": "Laminat Parke", "carbon": 900, "desc": "Ekonomik ve estetik zemin.", "rating": "Çok Önerilen", "image": "https://www.yerevdekor.com/images_buyuk/f78/krono-modera-classic-derzli-lami_34178_1.jpg" },
-    { "id": "mermer", "name": "Mermer Döşeme", "carbon": 1500, "desc": "Lüks ve dayanıklı zemin kaplaması.", "rating": "Az Önerilen", "image": "https://media.domita.it/uploads/domita/1/site/370/7/1/71__44194__calacatta_black.jpg" }
-  ],
-  "Ahşap": [
-    { "id": "mese", "name": "Meşe Ağacı", "carbon": 600, "desc": "Dayanıklı sert ağaç.", "rating": "Önerilen", "image": "https://makerswoodshop.com/wp-content/uploads/elementor/thumbs/oak-grain-min-e1643409394272-pjp5yjdd1pz3xl4ddkpyzpxmrg5hnn3hjpnv089ajk.jpg" },
-    { "id": "cam", "name": "Çam Ağacı", "carbon": 450, "desc": "Yumuşak ve esnek ağaç türü.", "rating": "Çok Önerilen", "image": "https://woodcraftfurniture.store/cdn/shop/articles/png_20220827_232314_0000_1924x1924.png?v=1726161689" },
-    { "id": "maun", "name": "Maun Ağacı", "carbon": 700, "desc": "Estetik ve dayanıklı tropik ağaç.", "rating": "Az Önerilen", "image": "https://liberon.co.uk/wp-content/uploads/2016/11/mahogany-613x345.jpg" }
-  ],
-  "Seramik": [
-    { "id": "seramik1", "name": "Seramik Karo 30x30", "carbon": 1100, "desc": "Standart seramik karo.", "rating": "Önerilen", "image": "https://media.domita.it/uploads/domita/1/site/370/i/d/id__27575__note.jpg" },
-    { "id": "seramik2", "name": "Seramik Karo 60x60", "carbon": 1300, "desc": "Büyük boy seramik karo.", "rating": "Az Önerilen", "image": "https://media.domita.it/uploads/domita/1/site/370/n/x/nx__44219__bianco_arni.jpg" }
-  ],
-  "Çatı": [
-    { "id": "cati_kiremit", "name": "Kiremit", "carbon": 900, "desc": "Geleneksel çatı kaplama malzemesi.", "rating": "Önerilen", "image": "//image.made-in-china.com/202f0j00BbHkfdYcLAzs/Stone-Coated-Steel-Roofing-Tile-Price-0-2-0-6mm-Chinese-Glazed-Roof-Tiles.webp" },
-    { "id": "cati_sandviç", "name": "Sandviç Panel", "carbon": 700, "desc": "Isı yalıtımlı çatı paneli.", "rating": "Çok Önerilen", "image": "https://metalink.com.ph/wp-content/uploads/2024/10/image2.jpg" }
-  ],
-  "Boyalar": [
-    { "id": "dis_boya", "name": "Dış Cephe Boyası", "carbon": 150, "desc": "Hava koşullarına dayanıklı boya.", "rating": "Önerilen", "image": "https://materialimages.hepsiburada.net/s/58/424-600/11309944668210.jpg/format:webp" },
-    { "id": "ic_boya", "name": "İç Cephe Boyası", "carbon": 100, "desc": "Sağlığa uygun iç cephe boyası.", "rating": "Çok Önerilen", "image": "https://i.ebayimg.com/images/g/ftgAAeSwuENoBjLI/s-l960.webp" }
-  ],
-  "Alüminyum": [
-    { "id": "alum_profile", "name": "Alüminyum Profil", "carbon": 2100, "desc": "Yapısal alüminyum malzeme.", "rating": "Önerilmeyen", "image": "https://m.media-amazon.com/images/I/51Nhh7bRdfL._AC_SX522_.jpg" },
-    { "id": "alum_folyo", "name": "Alüminyum Folyo", "carbon": 1800, "desc": "Isı yalıtımı için kullanılır.", "rating": "Az Önerilen", "image": "https://www.htmm-alufoil.com/d/images/household-foil/aluminum-foil-roll.jpg" }
-  ],
-  "Plastik": [
-    { "id": "pvc_boru", "name": "PVC Boru", "carbon": 1200, "desc": "Su tesisatında yaygın kullanılır.", "rating": "Az Önerilen", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6SuagV29o5Q8uCXJLal7urkIFDGDfvl08vy2wm4yHyzg9klfMIV_D-RBjqvAFUYwlFKFGiWC9QsI7_IrXBpaWZYSJ3uAQ1dP0_uhkpA" },
-    { "id": "pe_boru", "name": "PE Boru", "carbon": 1100, "desc": "Esnek plastik boru.", "rating": "Önerilen", "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQz3vSNVaY0K04-c6S35PM-O6Pp3hIYdLyykIZ6tkOj-8fgYXXkhsLet7hhysMzhegEbdY73h1movxYf_EYk_gdrph7ZTtOethDg4ZTZR8nhLjXETQ-kJfH3xQd" }
-  ],
-  "Kömür": [
-    { "id": "tas_komur", "name": "Taş Kömür", "carbon": 2900, "desc": "Yüksek enerji yoğunluklu fosil yakıt.", "rating": "Önerilmeyen", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Bituminous_Coal.JPG/500px-Bituminous_Coal.JPG" }
-  ],
-  "Ahşap Kaplama": [
-    { "id": "ahsap_lamina", "name": "Ahşap Lamina", "carbon": 650, "desc": "Dekoratif ahşap kaplama malzemesi.", "rating": "Önerilen", "image": "https://designfloor.com.tr//images/O351-Lamine-Urun.webp" }
-  ],
-  "Çimento": [
-    { "id": "portland", "name": "Portland Çimento", "carbon": 900, "desc": "Genel amaçlı çimento.", "rating": "Önerilen", "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRl823aMKWXfBUdioR6_wuee6K1sr3ijpsUpVjVd8IP0SJAFLXWCg7Ru5naddoJiFa3W9EA9jO2ROF-QUpuzbtXVZCha7AsEWga9A_EaTE" },
-    { "id": "rapid", "name": "Hızlı Kürlenen Çimento", "carbon": 1100, "desc": "Kısa sürede sertleşir.", "rating": "Az Önerilen", "image": "https://5.imimg.com/data5/ED/CI/BR/SELLER-49244192/rapid-hardening-cement-1000x1000.jpg" }
-  ],
-  "Kireç": [
-    { "id": "tas_kirec", "name": "Taş Kireç", "carbon": 800, "desc": "Yapı malzemesi olarak kullanılır.", "rating": "Önerilen", "image": "https://efesusstone.com/wp-content/smush-webp/2021/01/mocca-cilali-2-768x485.png.webp" }
+  "materials": [
+    {
+      "id": "c10",
+      "name": "C10 Beton",
+      "category": "Beton",
+      "carbon_emission": 280,
+      "desc": "Düşük dayanımlı beton, küçük yapılar için uygundur.",
+      "rating": "Az Önerilen",
+      "image": "https://img.freepik.com/premium-psd/cement-gray-construction-bajri-stone-transparent-background_1195761-22143.jpg",
+      "properties": {
+        "mechanical": {
+          "compressive_strength": 10,
+          "unit": "MPa",
+          "usage": "Grobeton, dolgu"
+        },
+        "physical": {
+          "density": 2200,
+          "unit": "kg/m³"
+        }
+      }
+    },
+    {
+      "id": "c20",
+      "name": "C20 Beton",
+      "category": "Beton",
+      "carbon_emission": 360,
+      "desc": "Orta dayanımlı beton, temellerde yaygın kullanılır.",
+      "rating": "Önerilen",
+      "image": "https://img.freepik.com/premium-psd/gray-cement-cinder-block-isolate-transparency-background-psd_1269612-10533.jpg?semt=ais_hybrid&w=740",
+      "properties": {
+        "mechanical": {
+          "compressive_strength": 20,
+          "unit": "MPa",
+          "usage": "Temel betonları"
+        },
+        "physical": {
+          "density": 2300,
+          "unit": "kg/m³"
+        }
+      }
+    },
+    {
+      "id": "c25",
+      "name": "C25 Beton",
+      "category": "Beton",
+      "carbon_emission": 370,
+      "desc": "Genel amaçlı dayanıklı beton.",
+      "rating": "Önerilen",
+      "image": "https://img.freepik.com/free-psd/single-gray-concrete-block-rough-texture-construction-material-isolated-white-background_191095-86031.jpg?semt=ais_hybrid&w=740",
+      "properties": {
+        "mechanical": {
+          "compressive_strength": 25,
+          "unit": "MPa",
+          "usage": "Kolon ve kirişler"
+        },
+        "physical": {
+          "density": 2350,
+          "unit": "kg/m³"
+        }
+      }
+    },
+    {
+      "id": "c30",
+      "name": "C30 Beton",
+      "category": "Beton",
+      "carbon_emission": 320,
+      "desc": "Yapıların ana taşıyıcı elemanı olarak kullanılır.",
+      "rating": "Çok Önerilen",
+      "image": "https://www.albayrakbeton.com.tr/upload/sayfalar/5305268-353332e8e0bff7b20905fa10d47cee150.jpg",
+      "properties": {
+        "mechanical": {
+          "compressive_strength": 30,
+          "unit": "MPa",
+          "usage": "Yüksek katlı yapılar"
+        },
+        "physical": {
+          "density": 2400,
+          "unit": "kg/m³"
+        }
+      }
+    },
+    {
+      "id": "c40",
+      "name": "C40 Beton",
+      "category": "Beton",
+      "carbon_emission": 400,
+      "desc": "Yüksek dayanımlı beton, ağır yük taşıyan yapılar için.",
+      "rating": "Çok Önerilen",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDeX86lbz961CHxWBr2izM_jlcujgUHQewQw&s",
+      "properties": {
+        "mechanical": {
+          "compressive_strength": 40,
+          "unit": "MPa",
+          "usage": "Köprüler, tüneller"
+        },
+        "physical": {
+          "density": 2450,
+          "unit": "kg/m³"
+        }
+      }
+    },
+    {
+      "id": "aisi-1040",
+      "name": "AISI 1040 Çeliği",
+      "category": "Metal",
+      "carbon_emission": 1.85,
+      "desc": "Makine imalatında, dişlilerde ve akslarda yaygın kullanılan orta karbonlu çelik.",
+      "image": "resim-linki.jpg",
+      "rating": "Çok Önerilen",
+      "properties": {
+        "mechanical": {
+          "yield_strength": "415 MPa",
+          "tensile_strength": "620 MPa",
+          "elastic_modulus": "200 GPa",
+          "ductility": "%25",
+          "hardness": "170 HB",
+          "toughness": "Orta"
+        },
+        "physical": {
+          "density": "7.85 g/cm³",
+          "melting_point": "1520 °C",
+          "thermal_conductivity": "50.7 W/m·K",
+          "electrical_resistivity": "Genel İletken"
+        },
+        "chemical": {
+          "carbon_content": 0.40,
+          "crystal_structure": "BCC (Hacim Merkezli Kübik)",
+          "microstructure": "Ferrit + Perlit",
+          "corrosion_resistance": "Düşük (Kaplama gerekir)"
+        },
+        "environmental": {
+          "recyclability": "%100 Geri Dönüştürülebilir",
+          "embodied_energy": "25 MJ/kg"
+        }
+      }
+    },
+    {
+      "id": "s235",
+      "name": "Yapısal Çelik S235",
+      "category": "Çelik",
+      "carbon_emission": 1700,
+      "desc": "Düşük karbonlu yapı çeliği.",
+      "rating": "Az Önerilen",
+      "image": "https://www.tsmsteel.com/assets/img/s235.jpg",
+      "properties": {
+        "mechanical": {
+          "yield_strength": 235,
+          "tensile_strength": 360,
+          "unit": "MPa",
+          "ductility": "Yüksek"
+        },
+        "structure": {
+          "carbon_content": 0.17,
+          "microstructure": "Ferrit + Perlit"
+        }
+      }
+    },
+    {
+      "id": "s275",
+      "name": "Yapısal Çelik S275",
+      "category": "Çelik",
+      "carbon_emission": 1750,
+      "desc": "Orta dayanımlı yapı çeliği.",
+      "rating": "Az Önerilen",
+      "image": "https://i0.wp.com/www.jaiganeshsteel.com/wp-content/uploads/2021/10/st5.jpg?w=500&ssl=1",
+      "properties": {
+        "mechanical": {
+          "yield_strength": 275,
+          "tensile_strength": 430,
+          "unit": "MPa"
+        },
+        "structure": {
+          "carbon_content": 0.20,
+          "microstructure": "Ferrit + Perlit"
+        }
+      }
+    },
+    {
+      "id": "s355",
+      "name": "Yüksek Dayanımlı Çelik S355",
+      "category": "Çelik",
+      "carbon_emission": 1850,
+      "desc": "Yüksek mukavemetli çelik.",
+      "rating": "Önerilmeyen",
+      "image": "https://www.theworldmaterial.com/wp-content/uploads/s355-steel.jpg",
+      "properties": {
+        "mechanical": {
+          "yield_strength": 355,
+          "tensile_strength": 510,
+          "unit": "MPa"
+        },
+        "structure": {
+          "carbon_content": 0.22,
+          "grain_structure": "Fine Grain"
+        }
+      }
+    },
+    {
+      "id": "st37",
+      "name": "Yapısal Çelik St37",
+      "category": "Çelik",
+      "carbon_emission": 1650,
+      "desc": "Standart yapı çeliği türü.",
+      "rating": "Önerilen",
+      "image": "https://www.steel-sections.com/img/st37-2-angle-steel.jpg",
+      "properties": {
+        "mechanical": {
+          "yield_strength": 235,
+          "tensile_strength": 370,
+          "unit": "MPa"
+        },
+        "structure": {
+          "standard": "DIN 17100"
+        }
+      }
+    },
+    {
+      "id": "camyunu",
+      "name": "Cam Yünü Yalıtım",
+      "category": "Yalıtım",
+      "carbon_emission": 200,
+      "desc": "Isı ve ses yalıtımında kullanılır.",
+      "rating": "Önerilen",
+      "image": "https://sankalpsystems.com/wp-content/uploads/2018/01/GLASS-WOOL-%E2%80%93-ROCK-WOOL-INSULATION-2.jpg",
+      "properties": {
+        "thermal": {
+          "conductivity": 0.040,
+          "unit": "W/mK",
+          "fire_resistance": "A1 Sınıfı"
+        },
+        "physical": {
+          "form": "Lifli"
+        }
+      }
+    },
+    {
+      "id": "strafor",
+      "name": "Strafor Levha",
+      "category": "Yalıtım",
+      "carbon_emission": 600,
+      "desc": "Ucuz yalıtım malzemesi, karbon yoğunluğu yüksek.",
+      "rating": "Önerilmeyen",
+      "image": "https://cdn.4seasonshomeinsulation.com.au/wp-content/uploads//recycled-polystyrene-insulation.jpg",
+      "properties": {
+        "thermal": {
+          "conductivity": 0.035,
+          "unit": "W/mK",
+          "type": "EPS (Genleştirilmiş Polistiren)"
+        },
+        "physical": {
+          "density": 15,
+          "unit": "kg/m³"
+        }
+      }
+    },
+    {
+      "id": "taşyünü",
+      "name": "Taş Yünü",
+      "category": "Yalıtım",
+      "carbon_emission": 450,
+      "desc": "Yüksek ısı dayanımı sağlar.",
+      "rating": "Önerilen",
+      "image": "https://www.pipelagging.com/media/catalog/material/cache/c3c2bf8b045c2d45107e7bf72496c016/r/o/rockwool-rocklap-hv-pipe-sections_10.webp",
+      "properties": {
+        "thermal": {
+          "conductivity": 0.038,
+          "unit": "W/mK",
+          "max_temp": "750°C"
+        },
+        "structure": {
+          "material": "Bazalt kaya lifleri"
+        }
+      }
+    },
+    {
+      "id": "poliüretan",
+      "name": "Poliüretan Köpük",
+      "category": "Yalıtım",
+      "carbon_emission": 550,
+      "desc": "Yüksek izolasyon değerine sahip köpük.",
+      "rating": "Az Önerilen",
+      "image": "https://www.lindenindustries.com/wp-content/uploads/2024/02/iStock-1297955873.jpg",
+      "properties": {
+        "thermal": {
+          "conductivity": 0.022,
+          "unit": "W/mK",
+          "note": "En düşük iletkenlik"
+        },
+        "application": {
+          "method": "Sprey veya levha"
+        }
+      }
+    },
+    {
+      "id": "tugla10",
+      "name": "10'luk Tuğla",
+      "category": "Tuğla",
+      "carbon_emission": 200,
+      "desc": "Orta kalınlıkta standart tuğla.",
+      "rating": "Çok Önerilen",
+      "image": "https://colorceramics.com/public/uploads/all/GNYIWY2owA1U3WG0YMKWXF9rNQF1gQ72el6Crszc.jpg",
+      "properties": {
+        "dimensions": {
+          "width": 10,
+          "unit": "cm"
+        },
+        "physical": {
+          "porosity": "%30",
+          "weight": "2.5 kg"
+        }
+      }
+    },
+    {
+      "id": "tugla15",
+      "name": "15'lik Tuğla",
+      "category": "Tuğla",
+      "carbon_emission": 300,
+      "desc": "Yüksek kalınlık, iyi yalıtım sağlar.",
+      "rating": "Önerilen",
+      "image": "https://5.imimg.com/data5/SELLER/Default/2023/11/364099788/NB/LZ/WP/99527172/15-inch-wall-brick-1000x1000.png",
+      "properties": {
+        "dimensions": {
+          "width": 15,
+          "unit": "cm"
+        },
+        "physical": {
+          "insulation": "Orta seviye"
+        }
+      }
+    },
+    {
+      "id": "tugla20",
+      "name": "20'lik Tuğla",
+      "category": "Tuğla",
+      "carbon_emission": 380,
+      "desc": "Kalın duvar yapımında kullanılır.",
+      "rating": "Önerilen",
+      "image": "https://www.yukseltuglakiremit.com/images/urunler/yclieehd_ceb6a.jpg",
+      "properties": {
+        "dimensions": {
+          "width": 20,
+          "unit": "cm"
+        },
+        "mechanical": {
+          "compressive_strength": 3,
+          "unit": "MPa"
+        }
+      }
+    },
+    {
+      "id": "duzcam",
+      "name": "Düz Cam",
+      "category": "Cam",
+      "carbon_emission": 300,
+      "desc": "Pencere ve vitrinlerde kullanılır.",
+      "rating": "Çok Önerilen",
+      "image": "https://varnagroup.com/wp-content/uploads/2022/09/clear-glass_auto_x2_colored_toned.jpg",
+      "properties": {
+        "optical": {
+          "transparency": "%90",
+          "type": "Float Glass"
+        },
+        "mechanical": {
+          "fragility": "Yüksek"
+        }
+      }
+    },
+    {
+      "id": "laminecam",
+      "name": "Lamine Cam",
+      "category": "Cam",
+      "carbon_emission": 450,
+      "desc": "Güvenlik camı, katmanlı yapı.",
+      "rating": "Önerilen",
+      "image": "https://lh5.googleusercontent.com/B9FupeW1VWU7zf4-5GE8cURCk2QqiXw2Jmy4eptjPyv43LgnH_55BIShV0CPvh_5tEGxv2CqpND1Pqp-fcmBG-PMlK09IJq4SV7Wap7SGHsbZRj9tG81BFPqi0Mj2iyj4T78pcTVTDpL-psULg",
+      "properties": {
+        "structure": {
+          "layers": "PVB Ara Katman",
+          "safety": "Dağılmaz"
+        },
+        "acoustic": {
+          "insulation": "Yüksek"
+        }
+      }
+    },
+    {
+      "id": "tempercam",
+      "name": "Temperli Cam",
+      "category": "Cam",
+      "carbon_emission": 480,
+      "desc": "Dayanıklı ve kırılmaya dirençli cam.",
+      "rating": "Önerilen",
+      "image": "https://www.vsomglass.com/wp-content/uploads/2021/09/8mm-ultra-clear-tempered-glass-vsom-materials-600x400.jpg",
+      "properties": {
+        "mechanical": {
+          "impact_resistance": "Normal camdan 5 kat fazla",
+          "breakage_mode": "Küçük zararsız parçalar"
+        }
+      }
+    },
+    {
+      "id": "plywood",
+      "name": "Esnek Kontrplak",
+      "category": "Zemin",
+      "carbon_emission": 1200,
+      "desc": "Dayanıklı zemin kaplaması.",
+      "rating": "Önerilen",
+      "image": "https://cdn.myikas.com/images/cc685240-feff-4953-8e01-dce642c7951c/2b8b00b0-40ea-4ca9-af73-5324eed8890f/1512/filmli-plywood-3-3.webp",
+      "properties": {
+        "structure": {
+          "layers": "Çapraz ahşap katmanlar",
+          "bonding": "Fenolik reçine"
+        },
+        "mechanical": {
+          "flexibility": "Yüksek"
+        }
+      }
+    },
+    {
+      "id": "laminat",
+      "name": "Laminat Parke",
+      "category": "Zemin",
+      "carbon_emission": 900,
+      "desc": "Ekonomik ve estetik zemin.",
+      "rating": "Çok Önerilen",
+      "image": "https://www.yerevdekor.com/images_buyuk/f78/krono-modera-classic-derzli-lami_34178_1.jpg",
+      "properties": {
+        "surface": {
+          "abrasion_class": "AC3/AC4",
+          "material": "HDF üzeri dekor kağıdı"
+        },
+        "installation": {
+          "system": "Klik kilit sistemi"
+        }
+      }
+    },
+    {
+      "id": "mermer",
+      "name": "Mermer Döşeme",
+      "category": "Zemin",
+      "carbon_emission": 1500,
+      "desc": "Lüks ve dayanıklı zemin kaplaması.",
+      "rating": "Az Önerilen",
+      "image": "https://media.domita.it/uploads/domita/1/site/370/7/1/71__44194__calacatta_black.jpg",
+      "properties": {
+        "physical": {
+          "hardness": "3-4 Mohs",
+          "porosity": "Orta (Leke tutabilir)"
+        },
+        "visual": {
+          "texture": "Doğal damarlı"
+        }
+      }
+    },
+    {
+      "id": "mese",
+      "name": "Meşe Ağacı",
+      "category": "Ahşap",
+      "carbon_emission": 600,
+      "desc": "Dayanıklı sert ağaç.",
+      "rating": "Önerilen",
+      "image": "https://makerswoodshop.com/wp-content/uploads/elementor/thumbs/oak-grain-min-e1643409394272-pjp5yjdd1pz3xl4ddkpyzpxmrg5hnn3hjpnv089ajk.jpg",
+      "properties": {
+        "mechanical": {
+          "hardness": "Janka 1360 lbf",
+          "durability": "Çürümeye dirençli"
+        },
+        "type": {
+          "class": "Hardwood (Sert Ağaç)"
+        }
+      }
+    },
+    {
+      "id": "cam_agaci",
+      "name": "Çam Ağacı",
+      "category": "Ahşap",
+      "carbon_emission": 450,
+      "desc": "Yumuşak ve esnek ağaç türü.",
+      "rating": "Çok Önerilen",
+      "image": "https://woodcraftfurniture.store/cdn/shop/articles/png_20220827_232314_0000_1924x1924.png?v=1726161689",
+      "properties": {
+        "mechanical": {
+          "hardness": "Janka 380-690 lbf",
+          "workability": "Kolay işlenir"
+        },
+        "type": {
+          "class": "Softwood (Yumuşak Ağaç)"
+        }
+      }
+    },
+    {
+      "id": "maun",
+      "name": "Maun Ağacı",
+      "category": "Ahşap",
+      "carbon_emission": 700,
+      "desc": "Estetik ve dayanıklı tropik ağaç.",
+      "rating": "Az Önerilen",
+      "image": "https://liberon.co.uk/wp-content/uploads/2016/11/mahogany-613x345.jpg",
+      "properties": {
+        "visual": {
+          "color": "Kızılımsı kahverengi",
+          "finish": "Yüksek cila tutar"
+        },
+        "mechanical": {
+          "stability": "Nem değişimine dayanıklı"
+        }
+      }
+    },
+    {
+      "id": "seramik1",
+      "name": "Seramik Karo 30x30",
+      "category": "Seramik",
+      "carbon_emission": 1100,
+      "desc": "Standart seramik karo.",
+      "rating": "Önerilen",
+      "image": "https://media.domita.it/uploads/domita/1/site/370/i/d/id__27575__note.jpg",
+      "properties": {
+        "physical": {
+          "water_absorption": "> %0.5",
+          "use_case": "İç mekan duvar/zemin"
+        }
+      }
+    },
+    {
+      "id": "seramik2",
+      "name": "Seramik Karo 60x60",
+      "category": "Seramik",
+      "carbon_emission": 1300,
+      "desc": "Büyük boy seramik karo.",
+      "rating": "Az Önerilen",
+      "image": "https://media.domita.it/uploads/domita/1/site/370/n/x/nx__44219__bianco_arni.jpg",
+      "properties": {
+        "physical": {
+          "surface": "Sırlı/Mat",
+          "thickness": "8-10 mm"
+        }
+      }
+    },
+    {
+      "id": "cati_kiremit",
+      "name": "Kiremit",
+      "category": "Çatı",
+      "carbon_emission": 900,
+      "desc": "Geleneksel çatı kaplama malzemesi.",
+      "rating": "Önerilen",
+      "image": "//image.made-in-china.com/202f0j00BbHkfdYcLAzs/Stone-Coated-Steel-Roofing-Tile-Price-0-2-0-6mm-Chinese-Glazed-Roof-Tiles.webp",
+      "properties": {
+        "material": {
+          "base": "Pişmiş toprak (Kil)",
+          "life_span": "50+ yıl"
+        },
+        "physical": {
+          "weight": "40-50 kg/m²"
+        }
+      }
+    },
+    {
+      "id": "cati_sandvic",
+      "name": "Sandviç Panel",
+      "category": "Çatı",
+      "carbon_emission": 700,
+      "desc": "Isı yalıtımlı çatı paneli.",
+      "rating": "Çok Önerilen",
+      "image": "https://metalink.com.ph/wp-content/uploads/2024/10/image2.jpg",
+      "properties": {
+        "structure": {
+          "composition": "Metal sac + Yalıtım (PU/Taşyünü) + Metal sac"
+        },
+        "thermal": {
+          "insulation": "Çok Yüksek"
+        }
+      }
+    },
+    {
+      "id": "dis_boya",
+      "name": "Dış Cephe Boyası",
+      "category": "Boyalar",
+      "carbon_emission": 150,
+      "desc": "Hava koşullarına dayanıklı boya.",
+      "rating": "Önerilen",
+      "image": "https://materialimages.hepsiburada.net/s/58/424-600/11309944668210.jpg/format:webp",
+      "properties": {
+        "chemical": {
+          "base": "Akrilik / Silikon",
+          "resistance": "UV ve Su"
+        },
+        "application": {
+          "coverage": "10-12 m²/L"
+        }
+      }
+    },
+    {
+      "id": "ic_boya",
+      "name": "İç Cephe Boyası",
+      "category": "Boyalar",
+      "carbon_emission": 100,
+      "desc": "Sağlığa uygun iç cephe boyası.",
+      "rating": "Çok Önerilen",
+      "image": "https://i.ebayimg.com/images/g/ftgAAeSwuENoBjLI/s-l960.webp",
+      "properties": {
+        "chemical": {
+          "base": "Su bazlı",
+          "voc": "Düşük VOC (Uçucu Organik Bileşen)"
+        },
+        "feature": {
+          "cleanability": "Silinebilir"
+        }
+      }
+    },
+    {
+      "id": "alum_profile",
+      "name": "Alüminyum Profil",
+      "category": "Alüminyum",
+      "carbon_emission": 2100,
+      "desc": "Yapısal alüminyum malzeme.",
+      "rating": "Önerilmeyen",
+      "image": "https://m.media-amazon.com/images/I/51Nhh7bRdfL._AC_SX522_.jpg",
+      "properties": {
+        "mechanical": {
+          "density": 2.7,
+          "unit": "g/cm³ (Hafif)",
+          "alloy": "6063 Serisi"
+        },
+        "chemical": {
+          "corrosion": "Oksit tabakası sayesinde dirençli"
+        }
+      }
+    },
+    {
+      "id": "alum_folyo",
+      "name": "Alüminyum Folyo",
+      "category": "Alüminyum",
+      "carbon_emission": 1800,
+      "desc": "Isı yalıtımı için kullanılır.",
+      "rating": "Az Önerilen",
+      "image": "https://www.htmm-alufoil.com/d/images/household-foil/aluminum-foil-roll.jpg",
+      "properties": {
+        "thermal": {
+          "reflectivity": "%95-%97 Isı yansıtma",
+          "usage": "Buhar kesici"
+        }
+      }
+    },
+    {
+      "id": "pvc_boru",
+      "name": "PVC Boru",
+      "category": "Plastik",
+      "carbon_emission": 1200,
+      "desc": "Su tesisatında yaygın kullanılır.",
+      "rating": "Az Önerilen",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6SuagV29o5Q8uCXJLal7urkIFDGDfvl08vy2wm4yHyzg9klfMIV_D-RBjqvAFUYwlFKFGiWC9QsI7_IrXBpaWZYSJ3uAQ1dP0_uhkpA",
+      "properties": {
+        "chemical": {
+          "material": "Polivinil Klorür",
+          "resistance": "Asit ve bazlara dayanıklı"
+        },
+        "usage": {
+          "type": "Atık su giderleri"
+        }
+      }
+    },
+    {
+      "id": "pe_boru",
+      "name": "PE Boru",
+      "category": "Plastik",
+      "carbon_emission": 1100,
+      "desc": "Esnek plastik boru.",
+      "rating": "Önerilen",
+      "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQz3vSNVaY0K04-c6S35PM-O6Pp3hIYdLyykIZ6tkOj-8fgYXXkhsLet7hhysMzhegEbdY73h1movxYf_EYk_gdrph7ZTtOethDg4ZTZR8nhLjXETQ-kJfH3xQd",
+      "properties": {
+        "mechanical": {
+          "material": "Polietilen",
+          "flexibility": "Yüksek (Kırılmaz)"
+        },
+        "usage": {
+          "type": "Temiz su ve doğalgaz hattı"
+        }
+      }
+    },
+    {
+      "id": "tas_komur",
+      "name": "Taş Kömür",
+      "category": "Kömür",
+      "carbon_emission": 2900,
+      "desc": "Yüksek enerji yoğunluklu fosil yakıt.",
+      "rating": "Önerilmeyen",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Bituminous_Coal.JPG/500px-Bituminous_Coal.JPG",
+      "properties": {
+        "energy": {
+          "calorific_value": "6000-7000 kcal/kg",
+          "type": "Antrasit/Bitümlü"
+        }
+      }
+    },
+    {
+      "id": "ahsap_lamina",
+      "name": "Ahşap Lamina",
+      "category": "Ahşap Kaplama",
+      "carbon_emission": 650,
+      "desc": "Dekoratif ahşap kaplama malzemesi.",
+      "rating": "Önerilen",
+      "image": "https://designfloor.com.tr//images/O351-Lamine-Urun.webp",
+      "properties": {
+        "visual": {
+          "thickness": "0.5 - 2 mm",
+          "appearance": "Doğal ahşap dokusu"
+        },
+        "application": {
+          "method": "Mobilya yüzey kaplama"
+        }
+      }
+    },
+    {
+      "id": "portland",
+      "name": "Portland Çimento",
+      "category": "Çimento",
+      "carbon_emission": 900,
+      "desc": "Genel amaçlı çimento.",
+      "rating": "Önerilen",
+      "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRl823aMKWXfBUdioR6_wuee6K1sr3ijpsUpVjVd8IP0SJAFLXWCg7Ru5naddoJiFa3W9EA9jO2ROF-QUpuzbtXVZCha7AsEWga9A_EaTE",
+      "properties": {
+        "chemical": {
+          "type": "CEM I",
+          "hydration": "Su ile reaksiyona girer"
+        },
+        "mechanical": {
+          "setting_time": "Başlangıç > 45 dk"
+        }
+      }
+    },
+    {
+      "id": "rapid",
+      "name": "Hızlı Kürlenen Çimento",
+      "category": "Çimento",
+      "carbon_emission": 1100,
+      "desc": "Kısa sürede sertleşir.",
+      "rating": "Az Önerilen",
+      "image": "https://5.imimg.com/data5/ED/CI/BR/SELLER-49244192/rapid-hardening-cement-1000x1000.jpg",
+      "properties": {
+        "mechanical": {
+          "early_strength": "Yüksek",
+          "setting_time": "Çok kısa (Tamir harçları)"
+        }
+      }
+    },
+    {
+      "id": "tas_kirec",
+      "name": "Taş Kireç",
+      "category": "Kireç",
+      "carbon_emission": 800,
+      "desc": "Yapı malzemesi olarak kullanılır.",
+      "rating": "Önerilen",
+      "image": "https://efesusstone.com/wp-content/smush-webp/2021/01/mocca-cilali-2-768x485.png.webp",
+      "properties": {
+        "chemical": {
+          "composition": "Kalsiyum Oksit (CaO)",
+          "reaction": "Söndürülünce ısı açığa çıkar"
+        },
+        "usage": {
+          "area": "Sıva ve harç yapımı"
+        }
+      }
+    }
   ]
 }

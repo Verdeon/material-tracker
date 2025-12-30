@@ -52,11 +52,6 @@ function renderPopularMaterials(materials) {
                         <h3 class="font-semibold mb-1 text-gray-800 hover:text-green-600 transition duration-200">${material.name}</h3>
                     </a>
                     <p class="text-gray-500 text-sm mb-2">${material.desc}</p>
-                    <div class="flex justify-between items-center mt-3">
-                        <div>
-                        <span class="text-gray-500 text-sm ml-2">(${material.carbon} g CO₂)</span> </div>
-                            </div>
-                </div>
             </div>
         `;
         container.innerHTML += materialHTML;

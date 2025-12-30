@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         const query = searchInput.value.trim();
         if (query.length > 0) {
-            resultsContainer.children[0].click();
+            window.location.href = `materials-listing.html?search=${encodeURIComponent(query)}`;
         }
     }
   });
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         const query = searchInput.value.trim();
         if (query.length > 0) {
-            resultsContainer.children[0].click();
+            window.location.href = `materials-listing.html?search=${encodeURIComponent(query)}`;
         }
   });
 
@@ -84,4 +84,17 @@ document.addEventListener("DOMContentLoaded", () => {
       resultsContainer.style.display = "none";
     }
   });
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchParam = urlParams.get('search'); // ?search=... kısmını alır
+
+  if (searchParam) {
+  // 1. Arama kutusuna yazıyı koy
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) searchInput.value = searchParam;
+  // 2. Filtreleme fonksiyonunu çağır
+      if (typeof filterMaterials === 'function') {
+        filterMaterials(); 
+      }
+ }
 });

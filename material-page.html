@@ -120,7 +120,6 @@
                         <div class="material-image h-96 mb-4">
                             <img id="material-image" class="h-96 w-96"/>
                         </div>
-                        <span class="recommend-badge">En çok tercih edilen</span>
                     </div>
                 </div>
                 
@@ -128,27 +127,12 @@
                 <div class="lg:w-1/2 px-4">
                     <h1 id="materialName" class="text-3xl font-bold mb-2">Malzeme Adı</h1>
                     <div class="flex items-center mb-4">
-                        <div class="flex text-yellow-400 mr-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                            </svg>
+                        <div class="flex text-yellow-400 mr-2" id="material-rating">
+                            <!-- Star icons will be inserted here -->
                         </div>
                     </div>
                     <div class="mb-4">
                         <span class="text-green-600 text-2xl font-bold"><span id="material-carbon">0</span> g CO₂</span>
-                        <span class="bg-green-100 text-green-800 text-sm font-semibold ml-2 px-2 py-1 rounded">Çevre Dostu</span>
                     </div>
                     <div class="border-t border-b border-gray-200 py-4 mb-6">
                         <p id="material-desc" class="text-gray-700 mb-4">
@@ -189,7 +173,7 @@
                     
                     <div class="flex flex-wrap gap-3 mb-6">
                         
-                <button data-action="add-to-cart" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-md flex items-center transition duration-300">
+                <button data-action="add-to-warehouse" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-md flex items-center transition duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M20 21H22V6.6439L12 2.09845L2 6.6439V21H4V10C4 9.4477 4.44772 8.99999 5 8.99999H19C19.5523 8.99999 20 9.4477 20 10V21zM18 21V11H6V21H18zM1 23C0.447715 23 0 22.5523 0 22V6.6439C0 5.85962 0.458406 5.14771 1.17239 4.82317L11.1724 0.27772C11.6982 0.03869 12.3018 0.03869 12.8276 0.27772L22.8276 4.82317C23.5416 5.14771 24 5.85962 24 6.6439V22C24 22.5523 23.5523 23 23 23H1zM6 13H18V15H6V13zM6 17H18V19H6V17z" fill="#fff"></path>
                     </svg>
@@ -243,46 +227,37 @@
         <div class="container mx-auto px-4">
             <div class="border-b border-gray-200">
                 <nav class="flex flex-wrap -mb-px">
-                    <button class="tab-button mr-8 py-4 px-1 border-b-2 font-medium text-lg tab-active" data-tab="description">
-                        Malzeme Açıklaması
+                    <button class="tab-button mr-8 py-4 px-1 border-b-2 font-medium text-lg tab-active" data-tab="mechanical">
+                        ⚙️ Mekanik
                     </button>
-                    <button class="tab-button mr-8 py-4 px-1 border-b-2 border-transparent font-medium text-lg text-gray-500 hover:text-gray-700" data-tab="additional">
-                        Özellikler
+                    <button class="tab-button mr-8 py-4 px-1 border-b-2 border-transparent font-medium text-lg text-gray-500 hover:text-gray-700" data-tab="physical">
+                        ⚛️ Fiziksel
+                    </button>
+                    <button class="tab-button mr-8 py-4 px-1 border-b-2 border-transparent font-medium text-lg text-gray-500 hover:text-gray-700" data-tab="chemical">
+                        ⚗️ Kimyasal
+                    </button>
+                    <button class="tab-button mr-8 py-4 px-1 border-b-2 border-transparent font-medium text-lg text-gray-500 hover:text-gray-700" data-tab="environmental">
+                        🌱 Çevresel
                     </button>
                 </nav>
             </div>
             
             <div class="py-6">
-                <!-- Description Tab -->
-                <div id="description" class="tab-content">
-                    <h3 class="text-xl font-semibold mb-4">Malzeme Açıklaması</h3>
-                    <div id="material-description" class="text-gray-700 space-y-4">
-                    </div>
+                <div id="mechanical" class="tab-content">
+                    <h3 class="text-2xl font-bold mb-4">Mekanik Özellikler</h3>
+                    <p class="text-gray-700">Malzemenin mekanik özellikleri burada listelenecektir.</p>
                 </div>
-                
-                <!-- Additional Information Tab -->
-                <div id="additional" class="tab-content hidden">
-                    <h3 class="text-xl font-semibold mb-4">Ekstra Özellikler</h3>
-                    <table class="w-full border-collapse">
-                        <tbody>
-                            <tr class="border-b border-gray-200">
-                                <th class="text-left py-3 px-4 bg-gray-50 text-gray-700 w-1/4">Ağırlık</th>
-                                <td class="py-3 px-4 text-gray-700">500g, 1kg, 2kg</td>
-                            </tr>
-                            <tr class="border-b border-gray-200">
-                                <th class="text-left py-3 px-4 bg-gray-50 text-gray-700 w-1/4">Menşei</th>
-                                <td class="py-3 px-4 text-gray-700">Local Farms, USA</td>
-                            </tr>
-                            <tr class="border-b border-gray-200">
-                                <th class="text-left py-3 px-4 bg-gray-50 text-gray-700 w-1/4">Sertifika</th>
-                                <td class="py-3 px-4 text-gray-700">USDA Organic</td>
-                            </tr>
-                            <tr class="border-b border-gray-200">
-                                <th class="text-left py-3 px-4 bg-gray-50 text-gray-700 w-1/4">Yanmaz</th>
-                                <td class="py-3 px-4 text-gray-700">Evet</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div id="physical" class="tab-content hidden">
+                    <h3 class="text-2xl font-bold mb-4">Fiziksel Özellikler</h3>
+                    <p class="text-gray-700">Malzemenin fiziksel özellikleri burada listelenecektir.</p>
+                </div>
+                <div id="chemical" class="tab-content hidden">
+                    <h3 class="text-2xl font-bold mb-4">Kimyasal Özellikler</h3>
+                    <p class="text-gray-700">Malzemenin kimyasal özellikleri burada listelenecektir.</p>
+                </div>
+                <div id="environmental" class="tab-content hidden">
+                    <h3 class="text-2xl font-bold mb-4">Çevresel Özellikler</h3>
+                    <p class="text-gray-700">Malzemenin çevresel özellikleri burada listelenecektir.</p>
                 </div>
             </div>
         </div>
