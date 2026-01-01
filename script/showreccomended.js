@@ -1,11 +1,11 @@
 fetch('materials.json')
   .then(response => response.json())
   .then(data => {
-    // Tüm malzemeleri düz bir diziye çevir (kategori bilgisiyle)
+    // Tüm malzemeleri düz bir diziye çevir (malzeme sınıfı bilgisiyle)
     let allFlatMaterials = [];
-    for (const category in data) {
-      data[category].forEach(material => {
-        material.category = category;
+    for (const material_class in data) {
+      data[material_class].forEach(material => {
+        material.material_class = material_class;
         allFlatMaterials.push(material);
       });
     }

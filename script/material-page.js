@@ -15,9 +15,9 @@ fetch("materials.json")
     if (data.materials) {
         const groups = {};
         data.materials.forEach(item => {
-            // Eğer kategori yoksa oluştur, varsa içine at
-            if (!groups[item.category]) groups[item.category] = [];
-            groups[item.category].push(item);
+            // Eğer malzeme sınıfı yoksa oluştur, varsa içine at
+            if (!groups[item.material_class]) groups[item.material_class] = [];
+            groups[item.material_class].push(item);
         });
         data = groups;
     }
@@ -26,14 +26,14 @@ fetch("materials.json")
     const materialId = params.get("id");
 
     let foundMaterial = null;
-    let foundCategory = null;
+    let foundMaterialClass = null;
 
-    // Her kategori içinde ara
-    for (const [category, materials] of Object.entries(data)) {
+    // Her malzeme sınıfı içinde ara
+    for (const [materialClass, materials] of Object.entries(data)) {
       const match = materials.find(p => p.id === materialId);
       if (match) {
         foundMaterial = match;
-        foundCategory = category;
+        foundMaterialClass = materialClass;
         break;
       }
     }
@@ -110,7 +110,7 @@ fetch("materials.json")
 
     // 3. Kimyasal ve Yapısal (Ders notu mantığı burada)
     let phaseInfo = "";
-    if (material.category === "Metal" && chem.carbon_content) {
+    if (material.material_class === "Metal" && chem.carbon_content) {
         if (chem.carbon_content < 0.77) phaseInfo = "Hipoeutektoid Çelik (Ferrit + Perlit)";
         else if (chem.carbon_content == 0.77) phaseInfo = "Eutektoid Çelik (Perlit)";
         else phaseInfo = "Hipereutektoid Çelik (Sementit + Perlit)";
@@ -185,15 +185,15 @@ function setupTabClickLogic() {
     });
 }
 
-    const categoryText = document.getElementById("material-category");
-    categoryText.textContent = foundCategory;
-    categoryText.addEventListener("click", () => {
-    window.location.href = `materials-listing.html?kategori=${encodeURIComponent(foundCategory)}`;
+    const material_classText = document.getElementById("material-material_class");
+    material_classText.textContent = foundMaterialClass;
+    material_classText.addEventListener("click", () => {
+    window.location.href = `materials-listing.html?material_class=${encodeURIComponent(foundMaterialClass)}`;
     });
 
-    const categoryLink = document.getElementById("material-category-link")
-    categoryLink.textContent = foundCategory;
-    categoryLink.href = `materials-listing.html?kategori=${encodeURIComponent(foundCategory)}`;
+    const material_classLink = document.getElementById("material-material_class-link")
+    material_classLink.textContent = foundMaterialClass;
+    material_classLink.href = `materials-listing.html?material_class=${encodeURIComponent(foundMaterialClass)}`;
 
     const imageEl = document.getElementById("material-image");
     imageEl.src = foundMaterial.image;

@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="icon" href="img/favicon.png" type="image/png">
-        <meta name="description" content="VMT, farklı kategorilerdeki inşaat malzemelerinin neden olduğu karbon emisyonlarını sistemli bir şekilde ölçmenize, karşılaştırmanıza ve sürdürülebilir seçimler yapmanıza yardımcı olan dijital bir izleme aracıdır.">
+        <meta name="description" content="VMT, farklı malzeme sınıflarındaki inşaat malzemelerinin neden olduğu karbon emisyonlarını sistemli bir şekilde ölçmenize, karşılaştırmanıza ve sürdürülebilir seçimler yapmanıza yardımcı olan dijital bir izleme aracıdır.">
         <meta name="keywords" content="verdeon, material, green software, sustainability, çevre teknolojisi">
         <meta property="og:title" content="VMT - Verdeon Material Tracker">
     </head>
@@ -60,7 +60,7 @@
                         <span class="cart-count" id="cartCount">0</span>
                     </a>
                     <div class="hidden md:block">
-                        <span class="text-gray-500 text-sm">Depo</span></br>
+                        <span class="text-gray-500 text-sm">Metraj Cetveli</span></br>
                         <span id="total-carbon" class="font-semibold text-green-700">0.00 g</span>
                     </div>
                 </div>
@@ -77,10 +77,10 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
-                        <span class="font-semibold">Kategoriler</span>
+                        <span class="font-semibold">Malzeme Sınıfları</span>
                     </div>
                     <div class="absolute left-0 top-full w-60 bg-white shadow-lg rounded-b-lg hidden group-hover:block z-50">
-                        <ul id="category-buttons" class="py-2 text-gray-700">
+                        <ul id="material_class-buttons" class="py-2 text-gray-700">
                                
                         </ul>
                     </div>
@@ -103,7 +103,7 @@
                 <span class="mx-2 text-gray-400">/</span>
                 <a href="materials-listing.html" class="text-gray-600 hover:text-green-600">Katalog</a>
                 <span class="mx-2 text-gray-400">/</span>
-                <a href="#" id="material-category" class="text-gray-600 hover:text-green-600">Kategori</a>
+                <a href="#" id="material-material_class" class="text-gray-600 hover:text-green-600">Malzeme Sınıfı</a>
                 <span class="mx-2 text-gray-400">/</span>
                 <span id="material-name" class="text-green-600">Malzeme Adı</span>
             </div>
@@ -177,7 +177,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M20 21H22V6.6439L12 2.09845L2 6.6439V21H4V10C4 9.4477 4.44772 8.99999 5 8.99999H19C19.5523 8.99999 20 9.4477 20 10V21zM18 21V11H6V21H18zM1 23C0.447715 23 0 22.5523 0 22V6.6439C0 5.85962 0.458406 5.14771 1.17239 4.82317L11.1724 0.27772C11.6982 0.03869 12.3018 0.03869 12.8276 0.27772L22.8276 4.82317C23.5416 5.14771 24 5.85962 24 6.6439V22C24 22.5523 23.5523 23 23 23H1zM6 13H18V15H6V13zM6 17H18V19H6V17z" fill="#fff"></path>
                     </svg>
-                    Depoya ekle
+                    Metraja İşle
                 </button>
                         <button class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-3 px-6 rounded-md flex items-center transition duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -193,8 +193,8 @@
                             <span id="material-id" class="text-gray-600">Malzeme Kodu</span>
                         </div>
                         <div class="flex items-center mb-2">
-                            <span class="text-gray-700 mr-2">Kategori:</span>
-                             <a href="#" id="material-category-link" class="text-green-600 hover:underline"></a>
+                            <span class="text-gray-700 mr-2">Malzeme Sınıfı:</span>
+                             <a href="#" id="material-material_class-link" class="text-green-600 hover:underline"></a>
                         </div>
                         <div class="flex items-center">
                             <span class="text-gray-700 mr-2">Paylaş:</span>
@@ -312,7 +312,7 @@
                     <h4 class="text-lg font-semibold mb-4">Müşteri Servisi</h4>
                     <ul class="space-y-2">
                         <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Mobil Uygulama</a></li>
-                        <li><a href="warehouse.html" class="text-gray-400 hover:text-white transition duration-300">Depo</a></li>
+                        <li><a href="warehouse.html" class="text-gray-400 hover:text-white transition duration-300">Metraj Cetveli</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">SSS</a></li>
                         <li><a href="privacy.html" class="text-gray-400 hover:text-white transition duration-300">Gizlilik Politikası</a></li>
                     </ul>

@@ -3,11 +3,11 @@ document.addEventListener('DOMContentLoaded', function () {
   // localStorage anahtarını 'warehouseItems' yerine 'warehouse' olarak değiştirin
   let warehouseItems = JSON.parse(localStorage.getItem('warehouse')) || []; // <-- BURASI 'warehouse' olmalı
 
-  // saveItems fonksiyonu, depodaki değişiklikleri kaydeder ve global sepet sayısını günceller.
+  // saveItems fonksiyonu, metrajdaki değişiklikleri kaydeder ve global sepet sayısını günceller.
   function saveItems() {
     localStorage.setItem('warehouse', JSON.stringify(warehouseItems)); // <-- BURASI 'warehouse' olmalı
     updateCarbonCountFromWarehouse();
-    // Depo güncellendiğinde global sepet sayısını güncelleme fonksiyonunu ÇAĞIR
+    // Metraj güncellendiğinde global sepet sayısını güncelleme fonksiyonunu ÇAĞIR
     if (typeof window.updateCartCountFromWarehouse === 'function') {
       window.updateCartCountFromWarehouse(); // <--- KRİTİK ÇAĞRI BURADA
     } else {
@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
     container.innerHTML = ''; // İçeriği temizle
 
     if (warehouseItems.length === 0) {
-      container.innerHTML = '<p class=\"text-gray-600 text-center\">Depoda malzeme yok.</p>';
-      // Depo boşaldığında da sepet sayısını güncelle
+      container.innerHTML = '<p class=\"text-gray-600 text-center\">Henüz metraj hesabı için malzeme seçilmedi.</p>';
+      // Metraj boşaldığında da sepet sayısını güncelle
       if (typeof window.updateCartCountFromWarehouse === 'function') {
         window.updateCartCountFromWarehouse(); // <--- KRİTİK ÇAĞRI BURADA
       }
@@ -75,8 +75,8 @@ document.addEventListener('DOMContentLoaded', function () {
           } else {
             item.quantity = val;
           }
-          saveItems(); // Miktar değiştiğinde depoyu kaydet ve sepeti güncelle
-          renderWarehouse(); // Depoyu yeniden render et (UI güncellemek için)
+          saveItems(); // Miktar değiştiğinde metrajyu kaydet ve sepeti güncelle
+          renderWarehouse(); // Metrajı yeniden render et (UI güncellemek için)
         });
       }
 
@@ -85,8 +85,8 @@ document.addEventListener('DOMContentLoaded', function () {
       if (deleteButton) { // deleteButton elementinin varlığını kontrol edin
         deleteButton.addEventListener('click', () => {
           warehouseItems.splice(index, 1);
-          saveItems(); // Malzeme silindiğinde depoyu kaydet ve sepeti güncelle
-          renderWarehouse(); // Depoyu yeniden render et (UI güncellemek için)
+          saveItems(); // Malzeme silindiğinde metrajyu kaydet ve sepeti güncelle
+          renderWarehouse(); // Metrajı yeniden render et (UI güncellemek için)
         });
       }
 
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const shareButton = card.querySelector('.share');
       if (shareButton) {
         shareButton.addEventListener('click', () => {
-          const url = `${window.location.origin}/material-page.html?id=${item.id}&category=${item.category}`;
+          const url = `${window.location.origin}/material-page.html?id=${item.id}&material_class=${item.material_class}`;
           navigator.clipboard.writeText(url).then(() => {
             alert('Bağlantı kopyalandı!');
           });
@@ -113,14 +113,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // --- Depoyu Temizle Butonu ---
+  // --- Metrajı Temizle Butonu ---
   const clearBtn = document.createElement('button');
-  clearBtn.textContent = 'Depoyu Temizle';
+  clearBtn.textContent = 'Metrajı Temizle';
   clearBtn.className = 'mb-4 mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700';
   clearBtn.addEventListener('click', () => {
     localStorage.removeItem('warehouse'); // <--- BURASI 'warehouse' olmalı
     warehouseItems = [];
-    renderWarehouse(); // Depoyu boşalt ve render et
+    renderWarehouse(); // Metrajı boşalt ve render et
     if (typeof window.updateCartCountFromWarehouse === 'function') {
       window.updateCartCountFromWarehouse(); // <--- KRİTİK ÇAĞRI BURADA
     }
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
-  // Sayfa ilk yüklendiğinde hem depoyu render et hem de sepet sayısını güncelle
+  // Sayfa ilk yüklendiğinde hem metrajyu render et hem de sepet sayısını güncelle
   renderWarehouse();
   if (typeof window.updateCartCountFromWarehouse === 'function') {
     window.updateCartCountFromWarehouse(); // <--- KRİTİK ÇAĞRI BURADA

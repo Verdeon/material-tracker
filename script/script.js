@@ -1,7 +1,7 @@
-let activeCategory;
+let activeMaterialClass;
 const urlParams = new URLSearchParams(window.location.search);
-const kategoriParam = urlParams.get('kategori');
-activeCategory = kategoriParam ? kategoriParam : 'all';
+const material_class = urlParams.get('material_class');
+activeMaterialClass = material_class ? material_class : 'all';
 let allMaterials = []; // Global değişken olarak tanımladık, her yerden erişilebilsin
 
 // --- Quantity Control Functions ---
@@ -46,22 +46,21 @@ function updateCarbonEmission() {
     totalCarbonDisplay.textContent = `${totalCarbon} g CO₂`;
 }
 
-// Depo Ekleme Fonksiyonu
-function addToWarehouse(materialId, category, quantity, name, image, desc, carbon) {
+// Metraj Ekleme Fonksiyonu
+function addToWarehouse(materialId, material_class, quantity, name, desc, carbon) {
     const warehouseKey = 'warehouse';
     let warehouse = JSON.parse(localStorage.getItem(warehouseKey)) || [];
 
-    const existingItem = warehouse.find(item => item.id === materialId); // Kategori kontrolüne gerek yok, ID unique varsayılır
+    const existingItem = warehouse.find(item => item.id === materialId); // Malzeme Sınıfı kontrolüne gerek yok, ID unique varsayılır
 
     if (existingItem) {
         existingItem.quantity += quantity;
     } else {
         warehouse.push({
             id: materialId,
-            category: category,
+            material_class: material_class,
             quantity: quantity,
             name: name,
-            image: image,
             desc: desc,
             carbon: carbon
         });
@@ -80,9 +79,9 @@ function addToWarehouse(materialId, category, quantity, name, image, desc, carbo
 // --- Global DOMContentLoaded Listener ---
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- Veri Çekme ve Kategori Butonları ---
+    // --- Veri Çekme ve Malzeme Sınıfı Butonları ---
     
-    const categoryButtonsContainer = document.getElementById('category-buttons');
+    const material_classButtonsContainer = document.getElementById('material_class-buttons');
     
     // Veriyi çekiyoruz (Tüm sayfalar için ortak)
     fetch("materials.json")
@@ -96,39 +95,39 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Sayıların güncellenmesi (Sidebar vb. için)
             document.querySelectorAll(".material-count").forEach(span => {
-                const category = span.dataset.category;
-                const count = allMaterials.filter(m => m.category === category).length;
+                const material_class = span.dataset.material_class;
+                const count = allMaterials.filter(m => m.material_class === material_class).length;
                 span.textContent = `${count} malzeme`;
             });
 
-            // Eğer kategori butonları alanı varsa (Listing sayfası veya sidebar)
-            if (categoryButtonsContainer) {
-                categoryButtonsContainer.innerHTML = ''; // Temizle
+            // Eğer malzeme sınıfı butonları alanı varsa (Listing sayfası veya sidebar)
+            if (material_classButtonsContainer) {
+                material_classButtonsContainer.innerHTML = ''; // Temizle
 
-                // "Tüm Kategoriler" Butonu
+                // "Tüm Malzeme Sınıfları" Butonu
                 const allButton = document.createElement('button');
-                allButton.textContent = 'Tüm Kategoriler';
+                allButton.textContent = 'Tüm Malzeme Sınıfları';
                 // 1. Kodun stilini koruduk
-                allButton.className = `category-button px-3 py-1 m-1 rounded cursor-pointer ${activeCategory === 'all' ? 'bg-green-600 text-white' : 'bg-green-300 hover:bg-gray-500'}`;
+                allButton.className = `material_class-button px-3 py-1 m-1 rounded cursor-pointer ${activeMaterialClass === 'all' ? 'bg-green-600 text-white' : 'bg-green-300 hover:bg-gray-500'}`;
                 allButton.addEventListener('click', () => {
                     window.location.href = 'materials-listing.html';
                 });
-                categoryButtonsContainer.appendChild(allButton);
+                material_classButtonsContainer.appendChild(allButton);
 
-                // Dinamik Kategoriler
-                const uniqueCategories = [...new Set(allMaterials.map(m => m.category))];
+                // Dinamik Malzeme Sınıfları
+                const uniqueCategories = [...new Set(allMaterials.map(m => m.material_class))];
 
-                uniqueCategories.forEach(category => {
+                uniqueCategories.forEach(material_class => {
                     const button = document.createElement('button');
-                    button.textContent = category;
-                    // Aktif kategori kontrolü ile stil
-                    const isActive = category === activeCategory;
-                    button.className = `category-button px-3 py-1 m-1 rounded cursor-pointer ${isActive ? 'bg-green-600 text-white' : 'bg-gray-200 hover:bg-gray-400'}`;
+                    button.textContent = material_class;
+                    // Aktif malzeme sınıfı kontrolü ile stil
+                    const isActive = material_class === activeMaterialClass;
+                    button.className = `material_class-button px-3 py-1 m-1 rounded cursor-pointer ${isActive ? 'bg-green-600 text-white' : 'bg-gray-200 hover:bg-gray-400'}`;
                     
                     button.addEventListener('click', () => {
-                        window.location.href = `materials-listing.html?kategori=${encodeURIComponent(category)}`;
+                        window.location.href = `materials-listing.html?material_class=${encodeURIComponent(material_class)}`;
                     });
-                    categoryButtonsContainer.appendChild(button);
+                    material_classButtonsContainer.appendChild(button);
                 });
             }
 
@@ -181,10 +180,9 @@ document.addEventListener('DOMContentLoaded', function() {
                                 if (quantityToAdd > 0) {
                                     addToWarehouse(
                                         material.id,
-                                        material.category,
+                                        material.material_class,
                                         quantityToAdd,
                                         material.name,
-                                        material.image,
                                         material.description || material.desc,
                                         material.carbon || material.carbon_emission
                                     );
@@ -207,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const materialCardsContainer = document.getElementById('material-cards-container');
         const searchInput = document.getElementById('search-input');
-        const activeCategoryLabel = document.getElementById('active-category');
+        const activeMaterialClassLabel = document.getElementById('active-material_class');
 
         const urlParams = new URLSearchParams(window.location.search);
         const searchParam = urlParams.get('search'); // URL'deki ?search=... kısmını al
@@ -218,8 +216,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Başlığı Güncelle
-        if (activeCategoryLabel) {
-            activeCategoryLabel.textContent = activeCategory === 'all' ? 'Tüm Kategoriler' : activeCategory;
+        if (activeMaterialClassLabel) {
+            activeMaterialClassLabel.textContent = activeMaterialClass === 'all' ? 'Tüm Malzeme Sınıfları' : activeMaterialClass;
         }
 
         // Listeyi Filtrele ve Göster (İlk Yükleme)
@@ -236,9 +234,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // allMaterials (data.materials)
             let filteredList = allMaterials;
 
-            // Kategori Filtresi
-            if (activeCategory !== 'all') {
-                filteredList = filteredList.filter(p => p.category === activeCategory);
+            // Malzeme Sınıfı Filtresi
+            if (activeMaterialClass !== 'all') {
+                filteredList = filteredList.filter(p => p.material_class === activeMaterialClass);
             }
 
             // Arama Filtresi
@@ -267,9 +265,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             materialsToRender.forEach(material => {
                 const warehouseItem = warehouse.find(item => item.id === material.id);
-                const depotInfo = warehouseItem
-                ? `<p class="text-sm text-green-600 mt-1 depot-info" data-id="${material.id}">Depoda ${warehouseItem.quantity} adet var</p>`
-                : `<p class="text-sm text-green-600 mt-1 depot-info" data-id="${material.id}"></p>`;
+                const metrajInfo = warehouseItem
+                ? `<p class="text-sm text-green-600 mt-1 metraj-info" data-id="${material.id}">Metrajda ${warehouseItem.quantity} adet var</p>`
+                : `<p class="text-sm text-green-600 mt-1 metraj-info" data-id="${material.id}"></p>`;
 
                 // Yıldız HTML oluşturma
                 let starsHtml = '';
@@ -284,50 +282,77 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
 
+                let materialImg = './img/banner.png';
+                if (material.material_class === "Tuğla") {
+                    materialImg = "./img/Brick.svg";
+                } else if (material.material_class === "Çimento") {
+                    materialImg = "./img/Cement.svg";
+                } else if (material.material_class === "Beton") {
+                    materialImg = "./img/Concrete.svg";
+                } else if (material.material_class === "Ahşap") {
+                    materialImg = "./img/Wood.svg";
+                } else if (material.material_class === "Çelik") {
+                    materialImg = "./img/Steel.svg";
+                } else if (material.material_class === "Yalıtım") {
+                    materialImg = "./img/Isolation.svg";
+                } else if (material.material_class === "Cam") {
+                    materialImg = "./img/Glass.svg";
+                } else if (material.material_class === "Zemin") {
+                    materialImg = "./img/Tile.svg";
+                }
+                else {
+                    materialImg = './img/banner.png';
+                }
+
                 // Kart Yapısı
-                const materialCard = `
-                <div class="material-card bg-white rounded-xl shadow-sm hover:shadow-lg transition border border-gray-100 overflow-hidden group flex flex-col h-full">
-                    <div class="h-48 relative overflow-hidden">
-                        <img src="${material.image}" alt="${material.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    </div>
-
-                    <div class="p-5 flex-1 flex flex-col justify-between">
-                        <div>
-                            <div class="flex text-yellow-400 mb-1">
-                                ${starsHtml}
-                            </div>
-                            
-                            <h3 class="text-lg font-bold text-gray-800 mb-1">
-                                <a href="material-page.html?id=${material.id}" class="hover:text-green-600 transition">${material.name}</a>
-                            </h3>
-                            
-                            <p class="text-sm text-gray-500 line-clamp-2 mb-2">${material.desc}</p>
-                            
-                            ${depotInfo}
-                        </div>
-                        
-                        <div class="flex justify-between items-center border-t pt-3 mt-2">
-                             
-                             <div class="flex flex-col">
-                                <span class="text-[10px] uppercase text-gray-400 font-bold">Emisyon</span>
-                                <span class="text-green-600 font-bold text-sm">🌱 ${material.carbon || material.carbon_emission} g CO₂</span>
-                             </div>
-                             
-                             <div class="flex gap-2 items-center">
-                                 <div class="flex items-center bg-gray-100 rounded-lg p-1">
-                                    <button class="px-2 py-1 text-gray-600 hover:text-red-500 focus:outline-none quantity-decrement-btn hidden font-bold text-lg">-</button>
-                                    <input type="number" value="0" min="1" class="w-10 bg-transparent text-center text-sm font-semibold focus:outline-none quantity-input-field hidden" data-material-id="${material.id}" />
-                                    <button class="px-2 py-1 text-gray-600 hover:text-green-600 focus:outline-none quantity-increment-btn font-bold text-lg">+</button>
-                                 </div>
-
-                                 <button class="bg-gray-900 text-white px-3 py-2 rounded-lg text-sm hover:bg-gray-800 transition add-to-warehouse-btn shadow-md whitespace-nowrap" data-material-id="${material.id}">
-                                    Depoya Ekle
-                                 </button>
-                             </div>
-                        </div>
-                    </div>
+               const materialCard = `
+<div class="material-card bg-white rounded-xl shadow-sm hover:shadow-lg transition border border-gray-100 overflow-hidden group flex flex-col h-full">
+    <div class="p-5 flex-1 flex flex-col justify-between">
+        
+        <div class="flex justify-between items-start gap-3 mb-2">
+            
+            <div class="flex flex-col flex-1 pr-2">
+                <div class="flex text-yellow-400 mb-1 text-xs">
+                    ${starsHtml}
                 </div>
-                `;
+
+                <h3 class="text-lg font-bold text-gray-800 mb-1 leading-tight">
+                    <a href="material-page.html?id=${material.id}" class="hover:text-green-600 transition">${material.name}</a>
+                </h3>
+
+                <p class="text-sm text-gray-500 line-clamp-2 mb-2">${material.desc}</p>
+                
+                ${metrajInfo}
+            </div>
+
+            <div class="w-16 h-16 flex-shrink-0 bg-gray-50 rounded-lg p-2 flex items-center justify-center">
+                <img src="${materialImg}" alt="${material.name}" class="w-full h-full object-contain" />
+            </div>
+
+        </div>
+        
+        <div class="flex justify-between items-center border-t pt-3 mt-2">
+            
+            <div class="flex flex-col">
+                <span class="text-[10px] uppercase text-gray-400 font-bold">Emisyon</span>
+                <span class="text-green-600 font-bold text-sm">🌱 ${material.carbon || material.carbon_emission} g CO₂</span>
+            </div>
+            
+            <div class="flex gap-2 items-center">
+                <div class="flex items-center bg-gray-100 rounded-lg p-1">
+                    <button class="px-2 py-1 text-gray-600 hover:text-red-500 focus:outline-none quantity-decrement-btn hidden font-bold text-lg">-</button>
+                    <input type="number" value="0" min="1" class="w-10 bg-transparent text-center text-sm font-semibold focus:outline-none quantity-input-field hidden" data-material-id="${material.id}" />
+                    <button class="px-2 py-1 text-gray-600 hover:text-green-600 focus:outline-none quantity-increment-btn font-bold text-lg">+</button>
+                </div>
+
+                <button class="bg-gray-900 text-white px-3 py-2 rounded-lg text-sm hover:bg-gray-800 transition add-to-warehouse-btn shadow-md whitespace-nowrap" data-material-id="${material.id}">
+                    Metraja İşle
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+`;
                 materialCardsContainer.innerHTML += materialCard;
             });
 
@@ -336,7 +361,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Kart içi butonların olaylarını tanımlama (Event Listeners)
         function setupCardEventListeners(materialsSource) {
-            // "Depoya Ekle" butonları
+            // "Metraja İşle" butonları
             document.querySelectorAll('.add-to-warehouse-btn').forEach(button => {
                 button.addEventListener('click', function() {
                     const card = button.closest('.material-card');
@@ -350,10 +375,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         if (material) {
                             addToWarehouse(
                                 material.id,
-                                material.category,
+                                material.material_class,
                                 quantityToAdd,
                                 material.name,
-                                material.image,
                                 material.description || material.desc,
                                 material.carbon || material.carbon_emission
                             );
@@ -362,7 +386,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             const decrementButton = card.querySelector('.quantity-decrement-btn');
                             decrementButton?.classList.add('hidden');
                             quantityInput?.classList.add('hidden');
-                            updateSingleDepotInfo(material.id);
+                            updateSingleMetrajInfo(material.id);
                         }
                     } else {
                         alert('Lütfen eklenecek malzeme miktarını seçin.');
@@ -402,15 +426,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Yardımcı Fonksiyon: Tek bir ürünün depo bilgisini güncelle
-function updateSingleDepotInfo(materialId) {
+// Yardımcı Fonksiyon: Tek bir ün metraj bilgisini güncelle
+function updateSingleMetrajInfo(materialId) {
   const warehouse = JSON.parse(localStorage.getItem("warehouse")) || [];
   const item = warehouse.find(w => w.id === materialId);
-  const el = document.querySelector(`.depot-info[data-id="${materialId}"]`);
+  const el = document.querySelector(`.metraj-info[data-id="${materialId}"]`);
 
   if (el) {
     if (item) {
-      el.textContent = `Depoda ${item.quantity} adet var`;
+      el.textContent = `Metraj cetvelinde ${item.quantity} adet var`;
     } else {
       el.textContent = "";
     }

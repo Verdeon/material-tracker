@@ -17,7 +17,7 @@ function updateCartCountFromWarehouse() {
       cartCountElement.textContent = totalCount;
     }
   } catch (error) {
-    console.error('Depo sayısı güncellenirken hata:', error);
+    console.error('Metraj sayısı güncellenirken hata:', error);
     const cartCountElement = document.getElementById('cartCount');
     if (cartCountElement) {
         cartCountElement.textContent = 0;

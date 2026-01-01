@@ -2,7 +2,7 @@
 
 Material Tracker, inşaat malzemelerinin çevresel etkilerini analiz etmenizi sağlayan açık kaynaklı bir web uygulamasıdır.
 Her malzeme için karbon salımı, öneri derecesi ve açıklama gibi detaylar sunar.
-Ayrıca kullanıcılar, malzemeleri kendi yerel depolarına ekleyerek karbon yükünü hesaplayabilir.
+Ayrıca kullanıcılar, malzemeleri kendi yerel metrajlarına ekleyerek karbon yükünü hesaplayabilir.
 
 <h3>🚀 Özellikler</h3>
 
@@ -10,7 +10,7 @@ Ayrıca kullanıcılar, malzemeleri kendi yerel depolarına ekleyerek karbon yü
 
 🔍 Arama ve kategori filtreleme sistemi
 
-📦 Depo yönetimi (localStorage üzerinden)
+📦 Metraj yönetimi (localStorage üzerinden)
 
 🌍 Karbon salımı takibi
 
@@ -25,12 +25,12 @@ material-tracker/
 ├── materials-listing.html   # Malzeme katalog sayfası
 ├── material-page.html       # Malzeme detay sayfası
 ├── materials.json           # Tüm malzeme verileri
-├── warehouse.html          # Depo ekranı
+├── warehouse.html          # Metraj ekranı
 ├── script/
 │   ├── common.js           # Ortak fonksiyonlar
 │   ├── material-page.js     # Malzeme detay yükleyici
 │   ├── search.js           # Arama kutusu
-│   ├── warehouse.js        # Depo yönetimi
+│   ├── warehouse.js        # Metraj yönetimi
 ├── style/
 │   └── main.css            # Tailwind/özel stil dosyaları
 ├── img/                    # Malzeme ikonları ve görseller
@@ -54,7 +54,7 @@ Sayfalar arası veri paylaşımı URL parametreleriyle yapılır:
 
 ?kategori= → kategori filtreleme
 
-Depo içeriği ve karbon salımı localStorage ile saklanır.
+Metraj içeriği ve karbon salımı localStorage ile saklanır.
 
 <h3>🤝 Katkı</h3>
 
