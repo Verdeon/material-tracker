@@ -65,6 +65,12 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             allMaterials = data.materials || []; 
 
+            // Dropdownları Doldur
+            populateDropdown('filter-treatment', 'processing_state'); // İşlem Durumu
+            populateDropdown('filter-bonding', 'properties.structure.bonding_type'); // Bağ Türü
+            populateDropdown('filter-crystal', 'properties.structure.crystal_structure'); // Kristal Yapı
+            populateDropdown('filter-corrosion', 'properties.environmental.corrosion_resistance'); // Korozyon
+
             // 1. Sidebar Sayaçlarını Güncelle
             updateSidebarCounts();
 
@@ -603,4 +609,41 @@ function setupCardEventListeners(materialsSource) {
             }
         });
     });
+}
+
+function populateDropdown(selectId, keyPath) {
+    const selectBox = document.getElementById(selectId);
+    if (!selectBox) return;
+
+    // 1. Tüm değerleri topla
+    const values = new Set(); // Set, aynı değerden 2 tane olmasını engeller (Unique yapar)
+
+    allMaterials.forEach(material => {
+        // "properties.structure.bonding_type" gibi noktalı yolları çözmek için:
+        let value = material;
+        const keys = keyPath.split('.'); // ['properties', 'structure', 'bonding_type']
+        
+        for (let k of keys) {
+            if (value) value = value[k];
+            else break;
+        }
+
+        // Değer varsa ve boş değilse listeye ekle
+        if (value && typeof value === 'string') {
+            values.add(value.trim());
+        }
+    });
+
+    // 2. Alfabetik Sırala
+    const sortedValues = Array.from(values).sort();
+
+    // 3. HTML'e Ekle
+    sortedValues.forEach(val => {
+        const option = document.createElement('option');
+        option.value = val;
+        option.textContent = val;
+        selectBox.appendChild(option);
+    });
+    
+    console.log(`✅ ${selectId} kutusu ${sortedValues.length} seçenekle dolduruldu.`);
 }

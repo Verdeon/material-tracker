@@ -1192,7 +1192,7 @@
       "image": "https://images.unsplash.com/photo-1616423668822-9907c7247d47?auto=format&fit=crop&q=80&w=600",
       "desc": "Doğal lüks zemin taşı.",
       "carbon_emission": 0.6,
-      "processing_state": "Kesiti",
+      "processing_state": "Kesilmiş",
       "properties": {
         "mechanical": {
           "compressive_strength": 70,
