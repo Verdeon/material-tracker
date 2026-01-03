@@ -35,6 +35,6 @@ window.updateCarbonCountFromWarehouse = function () {
 
     const carbonDisplay = document.getElementById("total-carbon");
     if (carbonDisplay) {
-        carbonDisplay.textContent = `${totalCarbon.toFixed(2)}g`;
+        carbonDisplay.textContent = `${totalCarbon.toFixed(2)}kg`;
     }
 };

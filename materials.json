@@ -4,18 +4,51 @@
       "id": "c10",
       "name": "C10 Beton",
       "material_class": "Beton",
-      "carbon_emission": 280,
-      "desc": "Düşük dayanımlı beton, küçük yapılar için uygundur.",
       "rating": "Az Önerilen",
+      "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=600",
+      "desc": "Düşük dayanımlı beton, küçük yapılar ve dolgu için uygundur.",
+      "carbon_emission": 0.13,
+      "processing_state": "Kürlenmiş",
       "properties": {
         "mechanical": {
           "compressive_strength": 10,
-          "unit": "MPa",
-          "usage": "Grobeton, dolgu"
+          "tensile_strength": 1.5,
+          "elastic_modulus": 20,
+          "ductility": 0,
+          "hardness": 3,
+          "toughness": 1
         },
         "physical": {
           "density": 2200,
-          "unit": "kg/m³"
+          "thermal_conductivity": 1.1,
+          "melting_point": 0,
+          "electrical_resistivity": 100000
+        },
+        "chemical": {
+          "carbon_content": 0,
+          "ph_level": 12.5,
+          "corrosion_resistance": 2
+        },
+        "environmental": {
+          "recyclability": 90,
+          "embodied_energy": 0.8,
+          "corrosion_resistance": "Düşük"
+        },
+        "structure": {
+          "bonding_type": "İyonik",
+          "crystal_structure": "Amorf",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.01,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.001
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
@@ -23,18 +56,51 @@
       "id": "c20",
       "name": "C20 Beton",
       "material_class": "Beton",
-      "carbon_emission": 360,
-      "desc": "Orta dayanımlı beton, temellerde yaygın kullanılır.",
       "rating": "Önerilen",
+      "image": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=600",
+      "desc": "Orta dayanımlı beton, temellerde yaygın kullanılır.",
+      "carbon_emission": 0.15,
+      "processing_state": "Kürlenmiş",
       "properties": {
         "mechanical": {
           "compressive_strength": 20,
-          "unit": "MPa",
-          "usage": "Temel betonları"
+          "tensile_strength": 2.2,
+          "elastic_modulus": 25,
+          "ductility": 0,
+          "hardness": 4,
+          "toughness": 2
         },
         "physical": {
           "density": 2300,
-          "unit": "kg/m³"
+          "thermal_conductivity": 1.3,
+          "melting_point": 0,
+          "electrical_resistivity": 100000
+        },
+        "chemical": {
+          "carbon_content": 0,
+          "ph_level": 12.5,
+          "corrosion_resistance": 2
+        },
+        "environmental": {
+          "recyclability": 95,
+          "embodied_energy": 0.9,
+          "corrosion_resistance": "Orta"
+        },
+        "structure": {
+          "bonding_type": "İyonik",
+          "crystal_structure": "Amorf",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.01,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.001
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
@@ -42,18 +108,51 @@
       "id": "c25",
       "name": "C25 Beton",
       "material_class": "Beton",
-      "carbon_emission": 370,
-      "desc": "Genel amaçlı dayanıklı beton.",
       "rating": "Önerilen",
+      "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=600",
+      "desc": "Genel amaçlı dayanıklı beton.",
+      "carbon_emission": 0.16,
+      "processing_state": "Kürlenmiş",
       "properties": {
         "mechanical": {
           "compressive_strength": 25,
-          "unit": "MPa",
-          "usage": "Kolon ve kirişler"
+          "tensile_strength": 2.6,
+          "elastic_modulus": 30,
+          "ductility": 0,
+          "hardness": 5,
+          "toughness": 3
         },
         "physical": {
           "density": 2350,
-          "unit": "kg/m³"
+          "thermal_conductivity": 1.4,
+          "melting_point": 0,
+          "electrical_resistivity": 100000
+        },
+        "chemical": {
+          "carbon_content": 0,
+          "ph_level": 13.0,
+          "corrosion_resistance": 2
+        },
+        "environmental": {
+          "recyclability": 100,
+          "embodied_energy": 1.0,
+          "corrosion_resistance": "Orta"
+        },
+        "structure": {
+          "bonding_type": "İyonik",
+          "crystal_structure": "Amorf",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.01,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.001
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
@@ -61,18 +160,51 @@
       "id": "c30",
       "name": "C30 Beton",
       "material_class": "Beton",
-      "carbon_emission": 320,
-      "desc": "Yapıların ana taşıyıcı elemanı olarak kullanılır.",
       "rating": "Çok Önerilen",
+      "image": "https://images.unsplash.com/photo-1621262021648-52b8eb30a4d1?auto=format&fit=crop&q=80&w=600",
+      "desc": "Yüksek katlı yapıların ana taşıyıcı elemanı.",
+      "carbon_emission": 0.14,
+      "processing_state": "Kürlenmiş",
       "properties": {
         "mechanical": {
           "compressive_strength": 30,
-          "unit": "MPa",
-          "usage": "Yüksek katlı yapılar"
+          "tensile_strength": 2.9,
+          "elastic_modulus": 33,
+          "ductility": 0,
+          "hardness": 6,
+          "toughness": 4
         },
         "physical": {
           "density": 2400,
-          "unit": "kg/m³"
+          "thermal_conductivity": 1.5,
+          "melting_point": 0,
+          "electrical_resistivity": 100000
+        },
+        "chemical": {
+          "carbon_content": 0,
+          "ph_level": 13.0,
+          "corrosion_resistance": 2
+        },
+        "environmental": {
+          "recyclability": 100,
+          "embodied_energy": 1.1,
+          "corrosion_resistance": "Orta"
+        },
+        "structure": {
+          "bonding_type": "İyonik",
+          "crystal_structure": "Amorf",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.01,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.001
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
@@ -80,52 +212,159 @@
       "id": "c40",
       "name": "C40 Beton",
       "material_class": "Beton",
-      "carbon_emission": 400,
-      "desc": "Yüksek dayanımlı beton, ağır yük taşıyan yapılar için.",
       "rating": "Çok Önerilen",
+      "image": "https://images.unsplash.com/photo-1590059591461-8979313b4822?auto=format&fit=crop&q=80&w=600",
+      "desc": "Çok yüksek dayanımlı beton, ağır yük taşıyan yapılar.",
+      "carbon_emission": 0.17,
+      "processing_state": "Kürlenmiş",
       "properties": {
         "mechanical": {
           "compressive_strength": 40,
-          "unit": "MPa",
-          "usage": "Köprüler, tüneller"
+          "tensile_strength": 3.5,
+          "elastic_modulus": 36,
+          "ductility": 0,
+          "hardness": 7,
+          "toughness": 5
         },
         "physical": {
           "density": 2450,
-          "unit": "kg/m³"
+          "thermal_conductivity": 1.6,
+          "melting_point": 0,
+          "electrical_resistivity": 100000
+        },
+        "chemical": {
+          "carbon_content": 0,
+          "ph_level": 13.0,
+          "corrosion_resistance": 2
+        },
+        "environmental": {
+          "recyclability": 100,
+          "embodied_energy": 1.3,
+          "corrosion_resistance": "Orta"
+        },
+        "structure": {
+          "bonding_type": "İyonik",
+          "crystal_structure": "Amorf",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.01,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.001
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
     {
       "id": "aisi-1040",
       "name": "AISI 1040 Çeliği",
-      "material_class": "Metal",
-      "carbon_emission": 1.85,
-      "desc": "Makine imalatında, dişlilerde ve akslarda yaygın kullanılan orta karbonlu çelik.",
+      "material_class": "Çelik",
       "rating": "Çok Önerilen",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=600",
+      "desc": "Orta karbonlu makine çeliği.",
+      "carbon_emission": 1.85,
+      "processing_state": "SuVerilmiş",
       "properties": {
         "mechanical": {
-          "yield_strength": "415 MPa",
-          "tensile_strength": "620 MPa",
-          "elastic_modulus": "200 GPa",
-          "ductility": "%25",
-          "hardness": "170 HB",
-          "toughness": "Orta"
+          "yield_strength": 415,
+          "tensile_strength": 620,
+          "elastic_modulus": 200,
+          "ductility": 25,
+          "hardness": 170,
+          "toughness": 50,
+          "hardness_vickers": 200
         },
         "physical": {
-          "density": "7.85 g/cm³",
-          "melting_point": "1520 °C",
-          "thermal_conductivity": "50.7 W/m·K",
-          "electrical_resistivity": "Genel İletken"
+          "density": 7850,
+          "thermal_conductivity": 50.7,
+          "melting_point": 1520,
+          "electrical_resistivity": 0.000001
         },
         "chemical": {
           "carbon_content": 0.40,
-          "crystal_structure": "BCC (Hacim Merkezli Kübik)",
-          "microstructure": "Ferrit + Perlit",
-          "corrosion_resistance": "Düşük (Kaplama gerekir)"
+          "corrosion_resistance": 2
         },
         "environmental": {
-          "recyclability": "%100 Geri Dönüştürülebilir",
-          "embodied_energy": "25 MJ/kg"
+          "recyclability": 100,
+          "embodied_energy": 25,
+          "corrosion_resistance": "Düşük"
+        },
+        "structure": {
+          "bonding_type": "Metalik",
+          "crystal_structure": "BCC",
+          "is_magnetic": true
+        },
+        "electrical": {
+          "electrical_conductivity": 10.1,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 10
+        },
+        "magnetic": {
+          "permeability": 200,
+          "coercivity": 0.8,
+          "saturation_magnetization": 1.6,
+          "is_magnetic": true
+        }
+      }
+    },
+    {
+      "id": "aisi-316",
+      "name": "AISI 316 Paslanmaz Çelik",
+      "material_class": "Çelik",
+      "rating": "Önerilen",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=600",
+      "desc": "Molibden içeriği sayesinde yüksek korozyon direncine sahip, deniz ortamı ve kimyasal ortamlarda kullanılan premium paslanmaz çelik. Gıda, tıbbi ve endüstriyel uygulamalarda idealdir.",
+      "carbon_emission": 2.1,
+      "processing_state": "Tavlanmış",
+      "properties": {
+        "mechanical": {
+          "compressive_strength": 290,
+          "yield_strength": 290,
+          "tensile_strength": 580,
+          "elastic_modulus": 193,
+          "ductility": 40,
+          "hardness": 150,
+          "toughness": 70,
+          "hardness_vickers": 180
+        },
+        "physical": {
+          "density": 8000,
+          "thermal_conductivity": 16.3,
+          "melting_point": 1375,
+          "electrical_resistivity": 0.00000075
+        },
+        "chemical": {
+          "carbon_content": 0.08,
+          "molybdenum_content": 2.0,
+          "chromium_content": 16.0,
+          "nickel_content": 10.0,
+          "corrosion_resistance": 9
+        },
+        "environmental": {
+          "recyclability": 100,
+          "embodied_energy": 30,
+          "corrosion_resistance": "Yüksek"
+        },
+        "structure": {
+          "bonding_type": "Metalik",
+          "crystal_structure": "FCC",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 1.4,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 2
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0.1,
+          "saturation_magnetization": 0.2,
+          "is_magnetic": false
         }
       }
     },
@@ -133,19 +372,50 @@
       "id": "s235",
       "name": "Yapısal Çelik S235",
       "material_class": "Çelik",
-      "carbon_emission": 1700,
-      "desc": "Düşük karbonlu yapı çeliği.",
       "rating": "Az Önerilen",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=600",
+      "desc": "Standart yapı çeliği.",
+      "carbon_emission": 1.70,
+      "processing_state": "Tavlanmış",
       "properties": {
         "mechanical": {
           "yield_strength": 235,
           "tensile_strength": 360,
-          "unit": "MPa",
-          "ductility": "Yüksek"
+          "elastic_modulus": 210,
+          "ductility": 26,
+          "hardness": 120,
+          "toughness": 60
+        },
+        "physical": {
+          "density": 7850,
+          "thermal_conductivity": 50,
+          "melting_point": 1450,
+          "electrical_resistivity": 0.000001
+        },
+        "chemical": {
+          "carbon_content": 0.17,
+          "corrosion_resistance": 2
+        },
+        "environmental": {
+          "recyclability": 100,
+          "embodied_energy": 20,
+          "corrosion_resistance": "Düşük"
         },
         "structure": {
-          "carbon_content": 0.17,
-          "microstructure": "Ferrit + Perlit"
+          "bonding_type": "Metalik",
+          "crystal_structure": "BCC",
+          "is_magnetic": true
+        },
+        "electrical": {
+          "electrical_conductivity": 9.0,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 9
+        },
+        "magnetic": {
+          "permeability": 200,
+          "coercivity": 1.0,
+          "saturation_magnetization": 1.7,
+          "is_magnetic": true
         }
       }
     },
@@ -153,92 +423,254 @@
       "id": "s275",
       "name": "Yapısal Çelik S275",
       "material_class": "Çelik",
-      "carbon_emission": 1750,
-      "desc": "Orta dayanımlı yapı çeliği.",
       "rating": "Az Önerilen",
+      "image": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=600",
+      "desc": "Orta mukavemetli yapı çeliği.",
+      "carbon_emission": 1.75,
+      "processing_state": "Tavlanmış",
       "properties": {
         "mechanical": {
           "yield_strength": 275,
           "tensile_strength": 430,
-          "unit": "MPa"
+          "elastic_modulus": 210,
+          "ductility": 24,
+          "hardness": 130,
+          "toughness": 58
+        },
+        "physical": {
+          "density": 7850,
+          "thermal_conductivity": 50,
+          "melting_point": 1450,
+          "electrical_resistivity": 0.000001
+        },
+        "chemical": {
+          "carbon_content": 0.20,
+          "corrosion_resistance": 2
+        },
+        "environmental": {
+          "recyclability": 100,
+          "embodied_energy": 22,
+          "corrosion_resistance": "Düşük"
         },
         "structure": {
-          "carbon_content": 0.20,
-          "microstructure": "Ferrit + Perlit"
+          "bonding_type": "Metalik",
+          "crystal_structure": "BCC",
+          "is_magnetic": true
+        },
+        "electrical": {
+          "electrical_conductivity": 9.0,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 9
+        },
+        "magnetic": {
+          "permeability": 200,
+          "coercivity": 1.0,
+          "saturation_magnetization": 1.7,
+          "is_magnetic": true
         }
       }
     },
     {
       "id": "s355",
-      "name": "Yüksek Dayanımlı Çelik S355",
+      "name": "Çelik S355",
       "material_class": "Çelik",
-      "carbon_emission": 1850,
-      "desc": "Yüksek mukavemetli çelik.",
       "rating": "Önerilmeyen",
+      "image": "https://images.unsplash.com/photo-1533560739943-34676162383c?auto=format&fit=crop&q=80&w=600",
+      "desc": "Yüksek dayanımlı yapı çeliği.",
+      "carbon_emission": 1.85,
+      "processing_state": "Tavlanmış",
       "properties": {
         "mechanical": {
           "yield_strength": 355,
           "tensile_strength": 510,
-          "unit": "MPa"
+          "elastic_modulus": 210,
+          "ductility": 22,
+          "hardness": 160,
+          "toughness": 55
+        },
+        "physical": {
+          "density": 7850,
+          "thermal_conductivity": 45,
+          "melting_point": 1420,
+          "electrical_resistivity": 0.000001
+        },
+        "chemical": {
+          "carbon_content": 0.22,
+          "corrosion_resistance": 2
+        },
+        "environmental": {
+          "recyclability": 100,
+          "embodied_energy": 26,
+          "corrosion_resistance": "Düşük"
         },
         "structure": {
-          "carbon_content": 0.22,
-          "grain_structure": "Fine Grain"
+          "bonding_type": "Metalik",
+          "crystal_structure": "BCC",
+          "is_magnetic": true
+        },
+        "electrical": {
+          "electrical_conductivity": 9.0,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 9
+        },
+        "magnetic": {
+          "permeability": 200,
+          "coercivity": 1.0,
+          "saturation_magnetization": 1.7,
+          "is_magnetic": true
         }
       }
     },
     {
       "id": "st37",
-      "name": "Yapısal Çelik St37",
+      "name": "Çelik St37",
       "material_class": "Çelik",
-      "carbon_emission": 1650,
-      "desc": "Standart yapı çeliği türü.",
       "rating": "Önerilen",
+      "image": "https://images.unsplash.com/photo-1567634863-71887e49195e?auto=format&fit=crop&q=80&w=600",
+      "desc": "Genel profil ve boru çeliği.",
+      "carbon_emission": 1.65,
+      "processing_state": "Tavlanmış",
       "properties": {
         "mechanical": {
           "yield_strength": 235,
           "tensile_strength": 370,
-          "unit": "MPa"
+          "elastic_modulus": 210,
+          "ductility": 25,
+          "hardness": 120,
+          "toughness": 60
+        },
+        "physical": {
+          "density": 7850,
+          "thermal_conductivity": 50,
+          "melting_point": 1450,
+          "electrical_resistivity": 0.000001
+        },
+        "chemical": {
+          "carbon_content": 0.17,
+          "corrosion_resistance": 2
+        },
+        "environmental": {
+          "recyclability": 100,
+          "embodied_energy": 20,
+          "corrosion_resistance": "Düşük"
         },
         "structure": {
-          "standard": "DIN 17100"
+          "bonding_type": "Metalik",
+          "crystal_structure": "BCC",
+          "is_magnetic": true
+        },
+        "electrical": {
+          "electrical_conductivity": 9.0,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 9
+        },
+        "magnetic": {
+          "permeability": 200,
+          "coercivity": 1.0,
+          "saturation_magnetization": 1.7,
+          "is_magnetic": true
         }
       }
     },
     {
       "id": "camyunu",
-      "name": "Cam Yünü Yalıtım",
+      "name": "Cam Yünü",
       "material_class": "Yalıtım",
-      "carbon_emission": 200,
-      "desc": "Isı ve ses yalıtımında kullanılır.",
       "rating": "Önerilen",
+      "image": "https://images.unsplash.com/photo-1595846519845-68e298c2edd8?auto=format&fit=crop&q=80&w=600",
+      "desc": "İnorganik elyaf ısı yalıtımı.",
+      "carbon_emission": 1.2,
+      "processing_state": "Pişmiş",
       "properties": {
-        "thermal": {
-          "conductivity": 0.040,
-          "unit": "W/mK",
-          "fire_resistance": "A1 Sınıfı"
+        "mechanical": {
+          "compressive_strength": 0,
+          "tensile_strength": 0,
+          "elastic_modulus": 0,
+          "ductility": 0,
+          "hardness": 0,
+          "toughness": 0
         },
         "physical": {
-          "form": "Lifli"
+          "density": 18,
+          "thermal_conductivity": 0.040,
+          "melting_point": 1000,
+          "electrical_resistivity": 1000000
+        },
+        "chemical": {
+          "carbon_content": 0,
+          "corrosion_resistance": 10
+        },
+        "environmental": {
+          "recyclability": 80,
+          "embodied_energy": 15,
+          "corrosion_resistance": "Yüksek"
+        },
+        "structure": {
+          "bonding_type": "Kovalent",
+          "crystal_structure": "Amorf",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.0,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.0
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
     {
       "id": "strafor",
-      "name": "Strafor Levha",
+      "name": "Strafor (EPS)",
       "material_class": "Yalıtım",
-      "carbon_emission": 600,
-      "desc": "Ucuz yalıtım malzemesi, karbon yoğunluğu yüksek.",
       "rating": "Önerilmeyen",
+      "image": "https://images.unsplash.com/photo-1596238624637-022de642f88d?auto=format&fit=crop&q=80&w=600",
+      "desc": "Ekonomik, petrol türevi yalıtım.",
+      "carbon_emission": 2.5,
+      "processing_state": "Köpüklü",
       "properties": {
-        "thermal": {
-          "conductivity": 0.035,
-          "unit": "W/mK",
-          "type": "EPS (Genleştirilmiş Polistiren)"
+        "mechanical": {
+          "compressive_strength": 0.1,
+          "tensile_strength": 0.2,
+          "elastic_modulus": 0.005,
+          "ductility": 5,
+          "hardness": 0,
+          "toughness": 1
         },
         "physical": {
           "density": 15,
-          "unit": "kg/m³"
+          "thermal_conductivity": 0.035,
+          "melting_point": 100,
+          "electrical_resistivity": 1000000
+        },
+        "chemical": {
+          "carbon_content": 90,
+          "corrosion_resistance": 8
+        },
+        "environmental": {
+          "recyclability": 50,
+          "embodied_energy": 85,
+          "corrosion_resistance": "Orta"
+        },
+        "structure": {
+          "bonding_type": "Kovalent",
+          "crystal_structure": "Amorf",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.0,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.0
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
@@ -246,35 +678,101 @@
       "id": "taşyünü",
       "name": "Taş Yünü",
       "material_class": "Yalıtım",
-      "carbon_emission": 450,
-      "desc": "Yüksek ısı dayanımı sağlar.",
       "rating": "Önerilen",
+      "image": "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?auto=format&fit=crop&q=80&w=600",
+      "desc": "Yangın dayanımlı yalıtım levhası.",
+      "carbon_emission": 1.5,
+      "processing_state": "Pişmiş",
       "properties": {
-        "thermal": {
-          "conductivity": 0.038,
-          "unit": "W/mK",
-          "max_temp": "750°C"
+        "mechanical": {
+          "compressive_strength": 0.04,
+          "tensile_strength": 0.01,
+          "elastic_modulus": 0,
+          "ductility": 0,
+          "hardness": 0,
+          "toughness": 0
+        },
+        "physical": {
+          "density": 40,
+          "thermal_conductivity": 0.038,
+          "melting_point": 1000,
+          "electrical_resistivity": 1000000
+        },
+        "chemical": {
+          "carbon_content": 0,
+          "corrosion_resistance": 10
+        },
+        "environmental": {
+          "recyclability": 90,
+          "embodied_energy": 16,
+          "corrosion_resistance": "Yüksek"
         },
         "structure": {
-          "material": "Bazalt kaya lifleri"
+          "bonding_type": "Kovalent",
+          "crystal_structure": "Amorf",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.0,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.0
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
     {
       "id": "poliüretan",
-      "name": "Poliüretan Köpük",
+      "name": "Poliüretan (PUR)",
       "material_class": "Yalıtım",
-      "carbon_emission": 550,
-      "desc": "Yüksek izolasyon değerine sahip köpük.",
       "rating": "Az Önerilen",
+      "image": "https://images.unsplash.com/photo-1622646875936-e8d1979b0629?auto=format&fit=crop&q=80&w=600",
+      "desc": "Yüksek performanslı köpük yalıtım.",
+      "carbon_emission": 4.0,
+      "processing_state": "Köpüklü",
       "properties": {
-        "thermal": {
-          "conductivity": 0.022,
-          "unit": "W/mK",
-          "note": "En düşük iletkenlik"
+        "mechanical": {
+          "compressive_strength": 0.15,
+          "tensile_strength": 0.3,
+          "elastic_modulus": 0.01,
+          "ductility": 8,
+          "hardness": 0,
+          "toughness": 2
         },
-        "application": {
-          "method": "Sprey veya levha"
+        "physical": {
+          "density": 30,
+          "thermal_conductivity": 0.022,
+          "melting_point": 150,
+          "electrical_resistivity": 1000000
+        },
+        "chemical": {
+          "carbon_content": 65,
+          "corrosion_resistance": 8
+        },
+        "environmental": {
+          "recyclability": 10,
+          "embodied_energy": 100,
+          "corrosion_resistance": "Orta"
+        },
+        "structure": {
+          "bonding_type": "Kovalent",
+          "crystal_structure": "Amorf",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.0,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.0
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
@@ -282,17 +780,50 @@
       "id": "tugla10",
       "name": "10'luk Tuğla",
       "material_class": "Tuğla",
-      "carbon_emission": 200,
-      "desc": "Orta kalınlıkta standart tuğla.",
       "rating": "Çok Önerilen",
+      "image": "https://images.unsplash.com/photo-1594411132036-7c385c363943?auto=format&fit=crop&q=80&w=600",
+      "desc": "İç bölme duvar tuğlası.",
+      "carbon_emission": 0.22,
+      "processing_state": "Pişmiş",
       "properties": {
-        "dimensions": {
-          "width": 10,
-          "unit": "cm"
+        "mechanical": {
+          "compressive_strength": 2.5,
+          "tensile_strength": 0.5,
+          "elastic_modulus": 5,
+          "ductility": 0,
+          "hardness": 30,
+          "toughness": 0
         },
         "physical": {
-          "porosity": "%30",
-          "weight": "2.5 kg"
+          "density": 900,
+          "thermal_conductivity": 0.32,
+          "melting_point": 1000,
+          "electrical_resistivity": 100000
+        },
+        "chemical": {
+          "carbon_content": 0,
+          "corrosion_resistance": 9
+        },
+        "environmental": {
+          "recyclability": 100,
+          "embodied_energy": 3.0,
+          "corrosion_resistance": "Yüksek"
+        },
+        "structure": {
+          "bonding_type": "İyonik",
+          "crystal_structure": "Kristal",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.01,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.001
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
@@ -300,16 +831,50 @@
       "id": "tugla15",
       "name": "15'lik Tuğla",
       "material_class": "Tuğla",
-      "carbon_emission": 300,
-      "desc": "Yüksek kalınlık, iyi yalıtım sağlar.",
       "rating": "Önerilen",
+      "image": "https://images.unsplash.com/photo-1599695669049-37335607b318?auto=format&fit=crop&q=80&w=600",
+      "desc": "Kalın bölme duvar tuğlası.",
+      "carbon_emission": 0.22,
+      "processing_state": "Pişmiş",
       "properties": {
-        "dimensions": {
-          "width": 15,
-          "unit": "cm"
+        "mechanical": {
+          "compressive_strength": 3.0,
+          "tensile_strength": 0.6,
+          "elastic_modulus": 5,
+          "ductility": 0,
+          "hardness": 30,
+          "toughness": 0
         },
         "physical": {
-          "insulation": "Orta seviye"
+          "density": 900,
+          "thermal_conductivity": 0.30,
+          "melting_point": 1000,
+          "electrical_resistivity": 100000
+        },
+        "chemical": {
+          "carbon_content": 0,
+          "corrosion_resistance": 9
+        },
+        "environmental": {
+          "recyclability": 100,
+          "embodied_energy": 3.0,
+          "corrosion_resistance": "Yüksek"
+        },
+        "structure": {
+          "bonding_type": "İyonik",
+          "crystal_structure": "Kristal",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.01,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.001
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
@@ -317,17 +882,50 @@
       "id": "tugla20",
       "name": "20'lik Tuğla",
       "material_class": "Tuğla",
-      "carbon_emission": 380,
-      "desc": "Kalın duvar yapımında kullanılır.",
       "rating": "Önerilen",
+      "image": "https://images.unsplash.com/photo-1588018788939-50953a3b0927?auto=format&fit=crop&q=80&w=600",
+      "desc": "Dış cephe ve yığma tuğlası.",
+      "carbon_emission": 0.22,
+      "processing_state": "Pişmiş",
       "properties": {
-        "dimensions": {
-          "width": 20,
-          "unit": "cm"
-        },
         "mechanical": {
-          "compressive_strength": 3,
-          "unit": "MPa"
+          "compressive_strength": 5.0,
+          "tensile_strength": 1.0,
+          "elastic_modulus": 6,
+          "ductility": 0,
+          "hardness": 35,
+          "toughness": 0
+        },
+        "physical": {
+          "density": 1000,
+          "thermal_conductivity": 0.45,
+          "melting_point": 1000,
+          "electrical_resistivity": 100000
+        },
+        "chemical": {
+          "carbon_content": 0,
+          "corrosion_resistance": 9
+        },
+        "environmental": {
+          "recyclability": 100,
+          "embodied_energy": 3.0,
+          "corrosion_resistance": "Yüksek"
+        },
+        "structure": {
+          "bonding_type": "İyonik",
+          "crystal_structure": "Kristal",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.01,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.001
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
@@ -335,16 +933,50 @@
       "id": "duzcam",
       "name": "Düz Cam",
       "material_class": "Cam",
-      "carbon_emission": 300,
-      "desc": "Pencere ve vitrinlerde kullanılır.",
       "rating": "Çok Önerilen",
+      "image": "https://images.unsplash.com/photo-1506720078750-04de2262d04f?auto=format&fit=crop&q=80&w=600",
+      "desc": "Şeffaf standart cam.",
+      "carbon_emission": 1.1,
+      "processing_state": "Pişmiş",
       "properties": {
-        "optical": {
-          "transparency": "%90",
-          "type": "Float Glass"
-        },
         "mechanical": {
-          "fragility": "Yüksek"
+          "compressive_strength": 1000,
+          "tensile_strength": 40,
+          "elastic_modulus": 70,
+          "ductility": 0,
+          "hardness": 500,
+          "toughness": 1
+        },
+        "physical": {
+          "density": 2500,
+          "thermal_conductivity": 1.0,
+          "melting_point": 1000,
+          "electrical_resistivity": 1000000
+        },
+        "chemical": {
+          "carbon_content": 0,
+          "corrosion_resistance": 10
+        },
+        "environmental": {
+          "recyclability": 100,
+          "embodied_energy": 15,
+          "corrosion_resistance": "Yüksek"
+        },
+        "structure": {
+          "bonding_type": "Kovalent",
+          "crystal_structure": "Amorf",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.0,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.0
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
@@ -352,16 +984,50 @@
       "id": "laminecam",
       "name": "Lamine Cam",
       "material_class": "Cam",
-      "carbon_emission": 450,
-      "desc": "Güvenlik camı, katmanlı yapı.",
       "rating": "Önerilen",
+      "image": "https://images.unsplash.com/photo-1598414349340-e791244c77c6?auto=format&fit=crop&q=80&w=600",
+      "desc": "Güvenlikli katmanlı cam.",
+      "carbon_emission": 1.4,
+      "processing_state": "Katmanlı",
       "properties": {
-        "structure": {
-          "layers": "PVB Ara Katman",
-          "safety": "Dağılmaz"
+        "mechanical": {
+          "compressive_strength": 1000,
+          "tensile_strength": 45,
+          "elastic_modulus": 70,
+          "ductility": 1,
+          "hardness": 500,
+          "toughness": 10
         },
-        "acoustic": {
-          "insulation": "Yüksek"
+        "physical": {
+          "density": 2550,
+          "thermal_conductivity": 1.0,
+          "melting_point": 1000,
+          "electrical_resistivity": 1000000
+        },
+        "chemical": {
+          "carbon_content": 5,
+          "corrosion_resistance": 10
+        },
+        "environmental": {
+          "recyclability": 50,
+          "embodied_energy": 18,
+          "corrosion_resistance": "Yüksek"
+        },
+        "structure": {
+          "bonding_type": "Kovalent",
+          "crystal_structure": "Amorf",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.0,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.0
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
@@ -369,30 +1035,101 @@
       "id": "tempercam",
       "name": "Temperli Cam",
       "material_class": "Cam",
-      "carbon_emission": 480,
-      "desc": "Dayanıklı ve kırılmaya dirençli cam.",
       "rating": "Önerilen",
+      "image": "https://images.unsplash.com/photo-1550965318-6b0805c86851?auto=format&fit=crop&q=80&w=600",
+      "desc": "Güçlendirilmiş güvenlik camı.",
+      "carbon_emission": 1.3,
+      "processing_state": "Temperli",
       "properties": {
         "mechanical": {
-          "impact_resistance": "Normal camdan 5 kat fazla",
-          "breakage_mode": "Küçük zararsız parçalar"
+          "compressive_strength": 1000,
+          "tensile_strength": 200,
+          "elastic_modulus": 70,
+          "ductility": 0,
+          "hardness": 500,
+          "toughness": 20
+        },
+        "physical": {
+          "density": 2500,
+          "thermal_conductivity": 1.0,
+          "melting_point": 1000,
+          "electrical_resistivity": 1000000
+        },
+        "chemical": {
+          "carbon_content": 0,
+          "corrosion_resistance": 10
+        },
+        "environmental": {
+          "recyclability": 100,
+          "embodied_energy": 17,
+          "corrosion_resistance": "Yüksek"
+        },
+        "structure": {
+          "bonding_type": "Kovalent",
+          "crystal_structure": "Amorf",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.0,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.0
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
     {
       "id": "plywood",
-      "name": "Esnek Kontrplak",
+      "name": "Plywood (Kontrplak)",
       "material_class": "Zemin",
-      "carbon_emission": 1200,
-      "desc": "Dayanıklı zemin kaplaması.",
       "rating": "Önerilen",
+      "image": "https://images.unsplash.com/photo-1596401057633-5638c4c344df?auto=format&fit=crop&q=80&w=600",
+      "desc": "Katmanlı dayanıklı ahşap levha.",
+      "carbon_emission": 0.8,
+      "processing_state": "Yapıştırılmış",
       "properties": {
-        "structure": {
-          "layers": "Çapraz ahşap katmanlar",
-          "bonding": "Fenolik reçine"
-        },
         "mechanical": {
-          "flexibility": "Yüksek"
+          "compressive_strength": 30,
+          "tensile_strength": 60,
+          "elastic_modulus": 9,
+          "ductility": 5,
+          "hardness": 40,
+          "toughness": 20
+        },
+        "physical": {
+          "density": 700,
+          "thermal_conductivity": 0.15,
+          "melting_point": 0,
+          "electrical_resistivity": 100000
+        },
+        "chemical": {
+          "carbon_content": 50,
+          "corrosion_resistance": 6
+        },
+        "environmental": {
+          "recyclability": 90,
+          "embodied_energy": 5,
+          "corrosion_resistance": "Orta"
+        },
+        "structure": {
+          "bonding_type": "Kovalent",
+          "crystal_structure": "Amorf",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.0,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.0
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
@@ -400,33 +1137,101 @@
       "id": "laminat",
       "name": "Laminat Parke",
       "material_class": "Zemin",
-      "carbon_emission": 900,
-      "desc": "Ekonomik ve estetik zemin.",
       "rating": "Çok Önerilen",
+      "image": "https://images.unsplash.com/photo-1581850518616-bcb8077a2536?auto=format&fit=crop&q=80&w=600",
+      "desc": "Kompozit zemin kaplaması.",
+      "carbon_emission": 1.0,
+      "processing_state": "Lamineli",
       "properties": {
-        "surface": {
-          "abrasion_class": "AC3/AC4",
-          "material": "HDF üzeri dekor kağıdı"
+        "mechanical": {
+          "compressive_strength": 50,
+          "tensile_strength": 30,
+          "elastic_modulus": 5,
+          "ductility": 2,
+          "hardness": 60,
+          "toughness": 10
         },
-        "installation": {
-          "system": "Klik kilit sistemi"
+        "physical": {
+          "density": 900,
+          "thermal_conductivity": 0.14,
+          "melting_point": 0,
+          "electrical_resistivity": 100000
+        },
+        "chemical": {
+          "carbon_content": 45,
+          "corrosion_resistance": 7
+        },
+        "environmental": {
+          "recyclability": 20,
+          "embodied_energy": 10,
+          "corrosion_resistance": "Orta"
+        },
+        "structure": {
+          "bonding_type": "Kovalent",
+          "crystal_structure": "Amorf",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.0,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.0
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
     {
       "id": "mermer",
-      "name": "Mermer Döşeme",
+      "name": "Mermer",
       "material_class": "Zemin",
-      "carbon_emission": 1500,
-      "desc": "Lüks ve dayanıklı zemin kaplaması.",
       "rating": "Az Önerilen",
+      "image": "https://images.unsplash.com/photo-1616423668822-9907c7247d47?auto=format&fit=crop&q=80&w=600",
+      "desc": "Doğal lüks zemin taşı.",
+      "carbon_emission": 0.6,
+      "processing_state": "Kesiti",
       "properties": {
-        "physical": {
-          "hardness": "3-4 Mohs",
-          "porosity": "Orta (Leke tutabilir)"
+        "mechanical": {
+          "compressive_strength": 70,
+          "tensile_strength": 10,
+          "elastic_modulus": 50,
+          "ductility": 0,
+          "hardness": 100,
+          "toughness": 5
         },
-        "visual": {
-          "texture": "Doğal damarlı"
+        "physical": {
+          "density": 2700,
+          "thermal_conductivity": 2.5,
+          "melting_point": 0,
+          "electrical_resistivity": 100000
+        },
+        "chemical": {
+          "carbon_content": 12,
+          "corrosion_resistance": 4
+        },
+        "environmental": {
+          "recyclability": 100,
+          "embodied_energy": 2.0,
+          "corrosion_resistance": "Orta"
+        },
+        "structure": {
+          "bonding_type": "İyonik",
+          "crystal_structure": "Kristal",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.01,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.001
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
@@ -434,16 +1239,50 @@
       "id": "mese",
       "name": "Meşe Ağacı",
       "material_class": "Ahşap",
-      "carbon_emission": 600,
-      "desc": "Dayanıklı sert ağaç.",
       "rating": "Önerilen",
+      "image": "https://images.unsplash.com/photo-1611080062725-d01874251786?auto=format&fit=crop&q=80&w=600",
+      "desc": "Sert ve dayanıklı doğal ahşap.",
+      "carbon_emission": 0.5,
+      "processing_state": "Kurutulmuş",
       "properties": {
         "mechanical": {
-          "hardness": "Janka 1360 lbf",
-          "durability": "Çürümeye dirençli"
+          "compressive_strength": 50,
+          "tensile_strength": 100,
+          "elastic_modulus": 12,
+          "ductility": 5,
+          "hardness": 60,
+          "toughness": 15
         },
-        "type": {
-          "class": "Hardwood (Sert Ağaç)"
+        "physical": {
+          "density": 750,
+          "thermal_conductivity": 0.17,
+          "melting_point": 0,
+          "electrical_resistivity": 100000
+        },
+        "chemical": {
+          "carbon_content": 50,
+          "corrosion_resistance": 5
+        },
+        "environmental": {
+          "recyclability": 100,
+          "embodied_energy": 2,
+          "corrosion_resistance": "Orta"
+        },
+        "structure": {
+          "bonding_type": "Kovalent",
+          "crystal_structure": "Kristal",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.0,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.0
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
@@ -451,16 +1290,50 @@
       "id": "cam_agaci",
       "name": "Çam Ağacı",
       "material_class": "Ahşap",
-      "carbon_emission": 450,
-      "desc": "Yumuşak ve esnek ağaç türü.",
       "rating": "Çok Önerilen",
+      "image": "https://images.unsplash.com/photo-1542461927-9945037d2f95?auto=format&fit=crop&q=80&w=600",
+      "desc": "Yumuşak yapı kerestesi.",
+      "carbon_emission": 0.45,
+      "processing_state": "Kurutulmuş",
       "properties": {
         "mechanical": {
-          "hardness": "Janka 380-690 lbf",
-          "workability": "Kolay işlenir"
+          "compressive_strength": 35,
+          "tensile_strength": 70,
+          "elastic_modulus": 9,
+          "ductility": 6,
+          "hardness": 30,
+          "toughness": 12
         },
-        "type": {
-          "class": "Softwood (Yumuşak Ağaç)"
+        "physical": {
+          "density": 500,
+          "thermal_conductivity": 0.14,
+          "melting_point": 0,
+          "electrical_resistivity": 100000
+        },
+        "chemical": {
+          "carbon_content": 50,
+          "corrosion_resistance": 4
+        },
+        "environmental": {
+          "recyclability": 100,
+          "embodied_energy": 1.8,
+          "corrosion_resistance": "Düşük"
+        },
+        "structure": {
+          "bonding_type": "Kovalent",
+          "crystal_structure": "Kristal",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.0,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.0
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
@@ -468,44 +1341,152 @@
       "id": "maun",
       "name": "Maun Ağacı",
       "material_class": "Ahşap",
-      "carbon_emission": 700,
-      "desc": "Estetik ve dayanıklı tropik ağaç.",
       "rating": "Az Önerilen",
+      "image": "https://images.unsplash.com/photo-1572912444342-97b7b9669527?auto=format&fit=crop&q=80&w=600",
+      "desc": "Sert tropikal ahşap.",
+      "carbon_emission": 0.7,
+      "processing_state": "Kurutulmuş",
       "properties": {
-        "visual": {
-          "color": "Kızılımsı kahverengi",
-          "finish": "Yüksek cila tutar"
-        },
         "mechanical": {
-          "stability": "Nem değişimine dayanıklı"
+          "compressive_strength": 60,
+          "tensile_strength": 110,
+          "elastic_modulus": 14,
+          "ductility": 4,
+          "hardness": 80,
+          "toughness": 18
+        },
+        "physical": {
+          "density": 650,
+          "thermal_conductivity": 0.16,
+          "melting_point": 0,
+          "electrical_resistivity": 100000
+        },
+        "chemical": {
+          "carbon_content": 50,
+          "corrosion_resistance": 8
+        },
+        "environmental": {
+          "recyclability": 100,
+          "embodied_energy": 3,
+          "corrosion_resistance": "Orta"
+        },
+        "structure": {
+          "bonding_type": "Kovalent",
+          "crystal_structure": "Kristal",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.0,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.0
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
     {
       "id": "seramik1",
-      "name": "Seramik Karo 30x30",
+      "name": "Seramik Karo",
       "material_class": "Seramik",
-      "carbon_emission": 1100,
-      "desc": "Standart seramik karo.",
       "rating": "Önerilen",
+      "image": "https://images.unsplash.com/photo-1620613903741-d9a42144d2d4?auto=format&fit=crop&q=80&w=600",
+      "desc": "Yer ve duvar kaplaması.",
+      "carbon_emission": 1.1,
+      "processing_state": "Pişmiş",
       "properties": {
+        "mechanical": {
+          "compressive_strength": 200,
+          "tensile_strength": 20,
+          "elastic_modulus": 40,
+          "ductility": 0,
+          "hardness": 500,
+          "toughness": 2
+        },
         "physical": {
-          "water_absorption": "> %0.5",
-          "use_case": "İç mekan duvar/zemin"
+          "density": 2000,
+          "thermal_conductivity": 1.2,
+          "melting_point": 1200,
+          "electrical_resistivity": 1000000
+        },
+        "chemical": {
+          "carbon_content": 0,
+          "corrosion_resistance": 10
+        },
+        "environmental": {
+          "recyclability": 100,
+          "embodied_energy": 12,
+          "corrosion_resistance": "Yüksek"
+        },
+        "structure": {
+          "bonding_type": "İyonik",
+          "crystal_structure": "Kristal",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.01,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.001
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
     {
       "id": "seramik2",
-      "name": "Seramik Karo 60x60",
+      "name": "Porselen Karo",
       "material_class": "Seramik",
-      "carbon_emission": 1300,
-      "desc": "Büyük boy seramik karo.",
       "rating": "Az Önerilen",
+      "image": "https://images.unsplash.com/photo-1616423668822-9907c7247d47?auto=format&fit=crop&q=80&w=600",
+      "desc": "Yüksek dayanımlı zemin karosu.",
+      "carbon_emission": 1.3,
+      "processing_state": "Pişmiş",
       "properties": {
+        "mechanical": {
+          "compressive_strength": 250,
+          "tensile_strength": 30,
+          "elastic_modulus": 60,
+          "ductility": 0,
+          "hardness": 600,
+          "toughness": 3
+        },
         "physical": {
-          "surface": "Sırlı/Mat",
-          "thickness": "8-10 mm"
+          "density": 2400,
+          "thermal_conductivity": 1.3,
+          "melting_point": 1300,
+          "electrical_resistivity": 1000000
+        },
+        "chemical": {
+          "carbon_content": 0,
+          "corrosion_resistance": 10
+        },
+        "environmental": {
+          "recyclability": 100,
+          "embodied_energy": 15,
+          "corrosion_resistance": "Yüksek"
+        },
+        "structure": {
+          "bonding_type": "İyonik",
+          "crystal_structure": "Kristal",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.01,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.001
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
@@ -513,16 +1494,50 @@
       "id": "cati_kiremit",
       "name": "Kiremit",
       "material_class": "Çatı",
-      "carbon_emission": 900,
-      "desc": "Geleneksel çatı kaplama malzemesi.",
       "rating": "Önerilen",
+      "image": "https://images.unsplash.com/photo-1617259606822-775c754668b8?auto=format&fit=crop&q=80&w=600",
+      "desc": "Pişmiş toprak çatı örtüsü.",
+      "carbon_emission": 0.9,
+      "processing_state": "Pişmiş",
       "properties": {
-        "material": {
-          "base": "Pişmiş toprak (Kil)",
-          "life_span": "50+ yıl"
+        "mechanical": {
+          "compressive_strength": 20,
+          "tensile_strength": 5,
+          "elastic_modulus": 15,
+          "ductility": 0,
+          "hardness": 50,
+          "toughness": 1
         },
         "physical": {
-          "weight": "40-50 kg/m²"
+          "density": 1800,
+          "thermal_conductivity": 0.6,
+          "melting_point": 1000,
+          "electrical_resistivity": 100000
+        },
+        "chemical": {
+          "carbon_content": 0,
+          "corrosion_resistance": 10
+        },
+        "environmental": {
+          "recyclability": 100,
+          "embodied_energy": 6,
+          "corrosion_resistance": "Yüksek"
+        },
+        "structure": {
+          "bonding_type": "İyonik",
+          "crystal_structure": "Kristal",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.01,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.001
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
@@ -530,15 +1545,50 @@
       "id": "cati_sandvic",
       "name": "Sandviç Panel",
       "material_class": "Çatı",
-      "carbon_emission": 700,
-      "desc": "Isı yalıtımlı çatı paneli.",
       "rating": "Çok Önerilen",
+      "image": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=600",
+      "desc": "Yalıtımlı çatı paneli.",
+      "carbon_emission": 2.5,
+      "processing_state": "Yapıştırılmış",
       "properties": {
-        "structure": {
-          "composition": "Metal sac + Yalıtım (PU/Taşyünü) + Metal sac"
+        "mechanical": {
+          "compressive_strength": 0.2,
+          "tensile_strength": 200,
+          "elastic_modulus": 5,
+          "ductility": 10,
+          "hardness": 20,
+          "toughness": 5
         },
-        "thermal": {
-          "insulation": "Çok Yüksek"
+        "physical": {
+          "density": 40,
+          "thermal_conductivity": 0.022,
+          "melting_point": 0,
+          "electrical_resistivity": 1000000
+        },
+        "chemical": {
+          "carbon_content": 50,
+          "corrosion_resistance": 9
+        },
+        "environmental": {
+          "recyclability": 80,
+          "embodied_energy": 50,
+          "corrosion_resistance": "Orta"
+        },
+        "structure": {
+          "bonding_type": "Kovalent",
+          "crystal_structure": "Amorf",
+          "is_magnetic": false
+        },
+        "electrical": {
+          "electrical_conductivity": 0.0,
+          "dielectric_strength": 0,
+          "conductivity_iacs": 0.0
+        },
+        "magnetic": {
+          "permeability": 1,
+          "coercivity": 0,
+          "saturation_magnetization": 0,
+          "is_magnetic": false
         }
       }
     },
@@ -546,180 +1596,359 @@
       "id": "dis_boya",
       "name": "Dış Cephe Boyası",
       "material_class": "Boyalar",
-      "carbon_emission": 150,
-      "desc": "Hava koşullarına dayanıklı boya.",
       "rating": "Önerilen",
-      "properties": {
-        "chemical": {
-          "base": "Akrilik / Silikon",
-          "resistance": "UV ve Su"
-        },
-        "application": {
-          "coverage": "10-12 m²/L"
-        }
-      }
-    },
-    {
-      "id": "ic_boya",
-      "name": "İç Cephe Boyası",
-      "material_class": "Boyalar",
-      "carbon_emission": 100,
-      "desc": "Sağlığa uygun iç cephe boyası.",
-      "rating": "Çok Önerilen",
-      "properties": {
-        "chemical": {
-          "base": "Su bazlı",
-          "voc": "Düşük VOC (Uçucu Organik Bileşen)"
-        },
-        "feature": {
-          "cleanability": "Silinebilir"
-        }
-      }
-    },
-    {
-      "id": "alum_profile",
-      "name": "Alüminyum Profil",
-      "material_class": "Alüminyum",
-      "carbon_emission": 2100,
-      "desc": "Yapısal alüminyum malzeme.",
-      "rating": "Önerilmeyen",
+      "image": "https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?auto=format&fit=crop&q=80&w=600",
+      "desc": "Silikonlu dış boya.",
+      "carbon_emission": 2.0,
+      "processing_state": "Sıvı",
       "properties": {
         "mechanical": {
-          "density": 2.7,
-          "unit": "g/cm³ (Hafif)",
-          "alloy": "6063 Serisi"
+          "compressive_strength": 0,
+          "tensile_strength": 1,
+          "elastic_modulus": 0.1,
+          "ductility": 100,
+          "hardness": 0,
+          "toughness": 0
+        },
+        "physical": {
+          "density": 1200,
+          "thermal_conductivity": 0.3,
+          "melting_point": 0,
+          "electrical_resistivity": 1000000
         },
         "chemical": {
-          "corrosion": "Oksit tabakası sayesinde dirençli"
-        }
-      }
-    },
-    {
-      "id": "alum_folyo",
-      "name": "Alüminyum Folyo",
-      "material_class": "Alüminyum",
-      "carbon_emission": 1800,
-      "desc": "Isı yalıtımı için kullanılır.",
-      "rating": "Az Önerilen",
-      "properties": {
-        "thermal": {
-          "reflectivity": "%95-%97 Isı yansıtma",
-          "usage": "Buhar kesici"
-        }
-      }
-    },
-    {
-      "id": "pvc_boru",
-      "name": "PVC Boru",
-      "material_class": "Plastik",
-      "carbon_emission": 1200,
-      "desc": "Su tesisatında yaygın kullanılır.",
-      "rating": "Az Önerilen",
-      "properties": {
-        "chemical": {
-          "material": "Polivinil Klorür",
-          "resistance": "Asit ve bazlara dayanıklı"
+          "carbon_content": 60,
+          "corrosion_resistance": 8
         },
-        "usage": {
-          "type": "Atık su giderleri"
-        }
-      }
-    },
-    {
-      "id": "pe_boru",
-      "name": "PE Boru",
-      "material_class": "Plastik",
-      "carbon_emission": 1100,
-      "desc": "Esnek plastik boru.",
-      "rating": "Önerilen",
-      "properties": {
-        "mechanical": {
-          "material": "Polietilen",
-          "flexibility": "Yüksek (Kırılmaz)"
+        "environmental": {
+          "recyclability": 0,
+          "embodied_energy": 40,
+          "corrosion_resistance": "Orta"
         },
-        "usage": {
-          "type": "Temiz su ve doğalgaz hattı"
-        }
-      }
-    },
-    {
-      "id": "tas_komur",
-      "name": "Taş Kömür",
-      "material_class": "Kömür",
-      "carbon_emission": 2900,
-      "desc": "Yüksek enerji yoğunluklu fosil yakıt.",
-      "rating": "Önerilmeyen",
-      "properties": {
-        "energy": {
-          "calorific_value": "6000-7000 kcal/kg",
-          "type": "Antrasit/Bitümlü"
-        }
-      }
-    },
-    {
-      "id": "ahsap_lamina",
-      "name": "Ahşap Lamina",
-      "material_class": "Ahşap Kaplama",
-      "carbon_emission": 650,
-      "desc": "Dekoratif ahşap kaplama malzemesi.",
-      "rating": "Önerilen",
-      "properties": {
-        "visual": {
-          "thickness": "0.5 - 2 mm",
-          "appearance": "Doğal ahşap dokusu"
+        "structure": {
+          "bonding_type": "Kovalent",
+            "crystal_structure": "Amorf",
+            "is_magnetic": false
+          },
+          "electrical": {
+            "electrical_conductivity": 0.0,
+            "dielectric_strength": 0,
+            "conductivity_iacs": 0.0
+          },
+          "magnetic": {
+            "permeability": 1,
+            "coercivity": 0,
+            "saturation_magnetization": 0,
+            "is_magnetic": false
+          }
+          }
         },
-        "application": {
-          "method": "Mobilya yüzey kaplama"
-        }
-      }
-    },
-    {
-      "id": "portland",
-      "name": "Portland Çimento",
-      "material_class": "Çimento",
-      "carbon_emission": 900,
-      "desc": "Genel amaçlı çimento.",
-      "rating": "Önerilen",
-      "properties": {
-        "chemical": {
-          "type": "CEM I",
-          "hydration": "Su ile reaksiyona girer"
+        {
+          "id": "ic_boya",
+          "name": "İç Cephe Boyası",
+          "material_class": "Boyalar",
+          "rating": "Çok Önerilen",
+          "image": "https://images.unsplash.com/photo-1578500494198-246f612d03b3?auto=format&fit=crop&q=80&w=600",
+          "desc": "Akrilik iç mekan boyası.",
+          "carbon_emission": 1.8,
+          "processing_state": "Sıvı",
+          "properties": {
+          "mechanical": {
+            "compressive_strength": 0,
+            "tensile_strength": 0.8,
+            "elastic_modulus": 0.08,
+            "ductility": 120,
+            "hardness": 0,
+            "toughness": 0
+          },
+          "physical": {
+            "density": 1100,
+            "thermal_conductivity": 0.25,
+            "melting_point": 0,
+            "electrical_resistivity": 1000000
+          },
+          "chemical": {
+            "carbon_content": 55,
+            "corrosion_resistance": 7
+          },
+          "environmental": {
+            "recyclability": 0,
+            "embodied_energy": 35,
+            "corrosion_resistance": "Orta"
+          },
+          "structure": {
+            "bonding_type": "Kovalent",
+            "crystal_structure": "Amorf",
+            "is_magnetic": false
+          },
+          "electrical": {
+            "electrical_conductivity": 0.0,
+            "dielectric_strength": 0,
+            "conductivity_iacs": 0.0
+          },
+          "magnetic": {
+            "permeability": 1,
+            "coercivity": 0,
+            "saturation_magnetization": 0,
+            "is_magnetic": false
+          }
+          }
         },
-        "mechanical": {
-          "setting_time": "Başlangıç > 45 dk"
-        }
-      }
+      
+{
+  "id": "aluminum",
+  "name": "Alüminyum",
+  "material_class": "Metal",
+  "rating": "Önerilen",
+  "image": "https://images.unsplash.com/photo-1518779578993-ec3579faa4c3?auto=format&fit=crop&q=80&w=600",
+  "desc": "Hafif, korozyona dayanıklı konstrüksiyon metali.",
+  "carbon_emission": 8.1,
+  "processing_state": "Ekstrüde",
+  "properties": {
+    "mechanical": {
+      "yield_strength": 95,
+      "tensile_strength": 155,
+      "elastic_modulus": 69,
+      "ductility": 12,
+      "hardness": 30,
+      "toughness": 25
     },
-    {
-      "id": "rapid",
-      "name": "Hızlı Kürlenen Çimento",
-      "material_class": "Çimento",
-      "carbon_emission": 1100,
-      "desc": "Kısa sürede sertleşir.",
-      "rating": "Az Önerilen",
-      "properties": {
-        "mechanical": {
-          "early_strength": "Yüksek",
-          "setting_time": "Çok kısa (Tamir harçları)"
-        }
-      }
+    "physical": {
+      "density": 2700,
+      "thermal_conductivity": 205,
+      "melting_point": 660,
+      "electrical_resistivity": 0.000026
     },
-    {
-      "id": "tas_kirec",
-      "name": "Taş Kireç",
-      "material_class": "Kireç",
-      "carbon_emission": 800,
-      "desc": "Yapı malzemesi olarak kullanılır.",
-      "rating": "Önerilen",
-      "properties": {
-        "chemical": {
-          "composition": "Kalsiyum Oksit (CaO)",
-          "reaction": "Söndürülünce ısı açığa çıkar"
-        },
-        "usage": {
-          "area": "Sıva ve harç yapımı"
-        }
-      }
+    "chemical": {
+      "carbon_content": 0,
+      "corrosion_resistance": 8
+    },
+    "environmental": {
+      "recyclability": 95,
+      "embodied_energy": 85,
+      "corrosion_resistance": "Yüksek"
+    },
+    "structure": {
+      "bonding_type": "Metalik",
+      "crystal_structure": "FCC",
+      "is_magnetic": false
+    },
+    "electrical": {
+      "electrical_conductivity": 37.8,
+      "dielectric_strength": 0,
+      "conductivity_iacs": 37
+    },
+    "magnetic": {
+      "permeability": 1,
+      "coercivity": 0,
+      "saturation_magnetization": 0,
+      "is_magnetic": false
     }
-  ]
+  }
+},
+{
+  "id": "copper",
+  "name": "Bakır",
+  "material_class": "Metal",
+  "rating": "Önerilen",
+  "image": "https://images.unsplash.com/photo-1528805362306-1338e0d3b6d4?auto=format&fit=crop&q=80&w=600",
+  "desc": "Yüksek iletkenlikli elektrik ve sıhhi tesisat malzemesi.",
+  "carbon_emission": 3.9,
+  "processing_state": "Çekilmiş",
+  "properties": {
+    "mechanical": {
+      "yield_strength": 70,
+      "tensile_strength": 220,
+      "elastic_modulus": 110,
+      "ductility": 40,
+      "hardness": 35,
+      "toughness": 30
+    },
+    "physical": {
+      "density": 8960,
+      "thermal_conductivity": 385,
+      "melting_point": 1085,
+      "electrical_resistivity": 0.0000017
+    },
+    "chemical": {
+      "carbon_content": 0,
+      "corrosion_resistance": 7
+    },
+    "environmental": {
+      "recyclability": 100,
+      "embodied_energy": 50,
+      "corrosion_resistance": "Orta"
+    },
+    "structure": {
+      "bonding_type": "Metalik",
+      "crystal_structure": "FCC",
+      "is_magnetic": false
+    },
+    "electrical": {
+      "electrical_conductivity": 58,
+      "dielectric_strength": 0,
+      "conductivity_iacs": 100
+    },
+    "magnetic": {
+      "permeability": 1,
+      "coercivity": 0,
+      "saturation_magnetization": 0,
+      "is_magnetic": false
+    }
+  }
+},
+{
+  "id": "recycled_plastic",
+  "name": "Geri Dönüştürülmüş Plastik",
+  "material_class": "Polimer",
+  "rating": "Önerilen",
+  "image": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&q=80&w=600",
+  "desc": "Atık plastikten üretilmiş yapı elemanları ve panel malzemesi.",
+  "carbon_emission": 0.9,
+  "processing_state": "Enjeksiyon",
+  "properties": {
+    "mechanical": {
+      "compressive_strength": 25,
+      "tensile_strength": 30,
+      "elastic_modulus": 2,
+      "ductility": 50,
+      "hardness": 20,
+      "toughness": 15
+    },
+    "physical": {
+      "density": 950,
+      "thermal_conductivity": 0.2,
+      "melting_point": 180,
+      "electrical_resistivity": 1000000
+    },
+    "chemical": {
+      "carbon_content": 60,
+      "corrosion_resistance": 8
+    },
+    "environmental": {
+      "recyclability": 90,
+      "embodied_energy": 8,
+      "corrosion_resistance": "Yüksek"
+    },
+    "structure": {
+      "bonding_type": "Kovalent",
+      "crystal_structure": "Amorf",
+      "is_magnetic": false
+    },
+    "electrical": {
+      "electrical_conductivity": 0.0,
+      "dielectric_strength": 0,
+      "conductivity_iacs": 0.0
+    },
+    "magnetic": {
+      "permeability": 1,
+      "coercivity": 0,
+      "saturation_magnetization": 0,
+      "is_magnetic": false
+    }
+  }
+},
+{
+  "id": "bamboo",
+  "name": "Bambu",
+  "material_class": "Ahşap",
+  "rating": "Çok Önerilen",
+  "image": "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&q=80&w=600",
+  "desc": "Hızlı büyüyen, sürdürülebilir yapı ve kaplama malzemesi.",
+  "carbon_emission": 0.2,
+  "processing_state": "Kurutulmuş",
+  "properties": {
+    "mechanical": {
+      "compressive_strength": 60,
+      "tensile_strength": 120,
+      "elastic_modulus": 18,
+      "ductility": 8,
+      "hardness": 45,
+      "toughness": 25
+    },
+    "physical": {
+      "density": 600,
+      "thermal_conductivity": 0.12,
+      "melting_point": 0,
+      "electrical_resistivity": 100000
+    },
+    "chemical": {
+      "carbon_content": 45,
+      "corrosion_resistance": 6
+    },
+    "environmental": {
+      "recyclability": 100,
+      "embodied_energy": 1,
+      "corrosion_resistance": "Orta"
+    },
+    "structure": {
+      "bonding_type": "Kovalent",
+      "crystal_structure": "Kristal",
+      "is_magnetic": false
+    },
+    "electrical": {
+      "electrical_conductivity": 0.0,
+      "dielectric_strength": 0,
+      "conductivity_iacs": 0.0
+    },
+    "magnetic": {
+      "permeability": 1,
+      "coercivity": 0,
+      "saturation_magnetization": 0,
+      "is_magnetic": false
+    }
+  }
+},
+{
+  "id": "fiber_cement",
+  "name": "Fiber Çimento",
+  "material_class": "Cephe",
+  "rating": "Önerilen",
+  "image": "https://images.unsplash.com/photo-1532634896-26909d0d0a3b?auto=format&fit=crop&q=80&w=600",
+  "desc": "Çimento ve lif karışımı dayanıklı cephe ve levha malzemesi.",
+  "carbon_emission": 0.7,
+  "processing_state": "Preslenmiş",
+  "properties": {
+    "mechanical": {
+      "compressive_strength": 40,
+      "tensile_strength": 8,
+      "elastic_modulus": 10,
+      "ductility": 1,
+      "hardness": 70,
+      "toughness": 10
+    },
+    "physical": {
+      "density": 1400,
+      "thermal_conductivity": 0.28,
+      "melting_point": 0,
+      "electrical_resistivity": 100000
+    },
+    "chemical": {
+      "carbon_content": 2,
+      "corrosion_resistance": 9
+    },
+    "environmental": {
+      "recyclability": 60,
+      "embodied_energy": 12,
+      "corrosion_resistance": "Yüksek"
+    },
+    "structure": {
+      "bonding_type": "İyonik/Kovalent",
+      "crystal_structure": "Amorf",
+      "is_magnetic": false
+    },
+    "electrical": {
+      "electrical_conductivity": 0.01,
+      "dielectric_strength": 0,
+      "conductivity_iacs": 0.001
+    },
+    "magnetic": {
+      "permeability": 1,
+      "coercivity": 0,
+      "saturation_magnetization": 0,
+      "is_magnetic": false
+    }
+  }
+}
+]
 }

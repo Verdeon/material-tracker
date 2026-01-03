@@ -3,11 +3,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-        <title>VMT - Katalog</title>
+        <title>VMT - Malzeme Listesi</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />        <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="icon" href="img/favicon.png" type="image/png">
         <meta name="description" content="VMT, farklı malzeme sınıflarındaki inşaat malzemelerinin neden olduğu karbon emisyonlarını sistemli bir şekilde ölçmenize, karşılaştırmanıza ve sürdürülebilir seçimler yapmanıza yardımcı olan dijital bir izleme aracıdır.">
@@ -77,7 +76,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
-                        <span class="font-semibold" id="active-material_class">Malzeme Sınıfları</span>
+                        
                     </div>
                     <div class="absolute left-0 top-full w-60 bg-white shadow-lg rounded-b-lg hidden group-hover:block z-50">
                         <ul id="material_class-buttons" class="py-2 text-gray-700">
@@ -87,7 +86,7 @@
                 </div>
                 <ul class="flex flex-wrap">
                     <li><a href="index.html" class="block py-4 px-4 hover:bg-green-700 font-medium">Ana Sayfa</a></li>
-                    <li><a href="materials-listing.html" class="block py-4 px-4 hover:bg-green-700">Katalog</a></li>
+                    <li><a href="materials-listing.html" class="block py-4 px-4 hover:bg-green-700">Malzeme Listesi</a></li>
                     <li><a href="#" class="block py-4 px-4 hover:bg-green-700">Hakkımızda</a></li>
                     <li><a href="#" class="block py-4 px-4 hover:bg-green-700">İletişim</a></li>
                 </ul>
@@ -96,10 +95,150 @@
     </nav>
 
     <main id="materials-listing-page" class="py-8"> <div class="container mx-auto px-4">
+        
+        <a href="index.html" class="text-sm text-gray-500 hover:text-green-600 mb-0">Ana Sayfa</a>
+        <p class="inline-block text-sm text-gray-500 mb-0">&gt;</p>
+        <a href="materials-listing.html" class="text-sm text-gray-500 hover:text-green-600 mb-0">Malzeme Listesi</a>
 
-            <section id="material-list-container" class="py-4"> <div id="material-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    </div>
-            </section>
+        <p class="text-sm text-right text-green-800 mr-6 mb-0" id="result-count">X adet ürün gösteriliyor</p>
+
+        <div class="container mx-auto px-4 py-8 flex flex-col md:flex-row gap-8">
+    
+    <aside class="w-full md:w-1/4 flex-shrink-0">
+        <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-200 sticky top-24 max-h-[85vh] overflow-y-auto ">
+            <div class="flex justify-between items-center mb-4">
+                <i class="fas fa-filter text-gray-700"></i>
+                <button id="reset-filters-btn" class="text-xs text-red-500 hover:underline">Temizle</button>
+            </div>
+
+            <div class="mb-4 border-b pb-4">
+                <h4 class="font-bold text-sm text-gray-700 mb-2">Malzeme Sınıfı</h4>
+                <div id="sidebar-category-filters" class="space-y-2"></div>
+            </div>
+
+            <div class="mb-6 border-b border-gray-100 pb-4">
+    <h4 class="font-bold text-xs text-gray-400 uppercase tracking-wider mb-3">Atomik & Kristal Yapı</h4>
+    
+    <div class="mb-3">
+        <label class="text-[10px] text-gray-500 font-semibold mb-1 block">Bağ Türü</label>
+        <select id="filter-bonding" class="w-full bg-gray-50 border border-gray-200 rounded px-2 py-1 text-sm focus:outline-none focus:border-green-500 filter-input">
+            <option value="">Tümü</option>
+            <option value="Metalik">Metalik</option>
+            <option value="İyonik">İyonik</option>
+            <option value="Kovalent">Kovalent</option>
+            <option value="VanDerWaals">Van der Waals</option>
+            <option value="Karışık">Karışık</option>
+        </select>
+    </div>
+
+    <div>
+        <label class="text-[10px] text-gray-500 font-semibold mb-1 block">Kristal Yapı</label>
+        <select id="filter-crystal" class="w-full bg-gray-50 border border-gray-200 rounded px-2 py-1 text-sm focus:outline-none focus:border-green-500 filter-input">
+            <option value="">Tümü</option>
+            <option value="FCC">YMK (FCC)</option>
+            <option value="BCC">HMK (BCC)</option>
+            <option value="HCP">SDP (HCP)</option>
+            <option value="Amorf">Amorf (Camsı)</option>
+            <option value="YarıKristal">Yarı Kristal</option>
+        </select>
+    </div>
+</div>
+
+<div class="mb-6 border-b border-gray-100 pb-4">
+    <h4 class="font-bold text-xs text-gray-400 uppercase tracking-wider mb-3">Mekanik & İşlem</h4>
+    
+    <div class="mb-3">
+        <label class="text-[10px] text-gray-500 font-semibold mb-1 block">Min Sertlik (Vickers - HV)</label>
+        <input type="number" id="min-hardness" placeholder="Örn: 150" class="w-full bg-gray-50 border border-gray-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-green-500 filter-input">
+    </div>
+
+    <div>
+        <label class="text-[10px] text-gray-500 font-semibold mb-1 block">İşlem Durumu</label>
+        <select id="filter-treatment" class="w-full bg-gray-50 border border-gray-200 rounded px-2 py-1 text-sm focus:outline-none focus:border-green-500 filter-input">
+            <option value="">Farketmez</option>
+            <option value="Tavlanmış">Tavlanmış (Annealed)</option>
+            <option value="SuVerilmiş">Su Verilmiş (Quenched)</option>
+            <option value="Yaşlandırılmış">Yaşlandırılmış (Aged)</option>
+            <option value="Sinterlenmiş">Sinterlenmiş</option>
+        </select>
+    </div>
+</div>
+
+<div class="mb-6 border-b border-gray-100 pb-4">
+    <h4 class="font-bold text-xs text-gray-400 uppercase tracking-wider mb-3">Elektrik & Manyetizma</h4>
+    
+    <div class="mb-3">
+        <label class="text-[10px] text-gray-500 font-semibold mb-1 block">Min İletkenlik (% IACS)</label>
+        <input type="number" id="min-conductivity" placeholder="Örn: 50" class="w-full bg-gray-50 border border-gray-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-green-500 filter-input">
+    </div>
+
+    <div class="flex items-center gap-2">
+        <input type="checkbox" id="filter-magnetic" class="form-checkbox text-green-600 rounded border-gray-300 filter-input">
+        <span class="text-sm text-gray-600">Manyetik olsun</span>
+    </div>
+</div>
+
+<div class="mb-6 border-b border-gray-100 pb-4">
+    <h4 class="font-bold text-xs text-gray-400 uppercase tracking-wider mb-3">Ortam Dayanımı</h4>
+    
+    <div class="flex items-center gap-3">
+        <label class="text-sm text-gray-600">Korozyon Direnci:</label>
+        <select id="filter-corrosion" class="flex-1 bg-gray-50 border border-gray-200 rounded px-2 py-1 text-sm focus:outline-none focus:border-green-500 filter-input">
+            <option value="">Tümü</option>
+            <option value="Yüksek">Yüksek</option>
+            <option value="Orta">Orta</option>
+            <option value="Düşük">Düşük</option>
+        </select>
+    </div>
+</div>
+
+            <div class="mb-4 border-b pb-4">
+                <h4 class="font-bold text-sm text-gray-700 mb-2">Mukavemet (MPa)</h4>
+                <div class="flex gap-2">
+                    <input type="number" onchange="applyFilters()" id="min-strength" placeholder="Min" class="w-full bg-gray-50 border border-gray-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-green-500 filter-input transition pl-4">
+                    <span class="text-gray-400 px-1 py-2 pl-1">-</span>
+                    <input type="number" onchange="applyFilters()" id="max-strength" placeholder="Max" class="w-full bg-gray-50 border border-gray-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-green-500 filter-input transition pl-4">
+                </div>
+            </div>
+
+            <div class="mb-4 border-b pb-4">
+                <h4 class="font-bold text-sm text-gray-700 mb-2">Max Emisyon (g CO₂)</h4>
+                <input type="range" value="100" onchange="applyFilters()" id="max-carbon" min="0" max="50" step="2" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-green-600 filter-input" oninput="document.getElementById('carbon-val').innerText = this.value">
+                <div class="text-right text-xs text-green-600 font-bold mt-1">
+                    <span id="carbon-val">50</span> kg ve altı
+                </div>
+            </div>
+
+            <div class="mb-4 border-b border-gray-100 pb-4">
+                <h4 class="font-bold text-xs text-gray-700 uppercase tracking-wider mb-3">Yoğunluk (kg/m³)</h4>
+                <div class="relative">
+                    <input type="number" id="min-density" onchange="applyFilters()" placeholder="Min Yoğunluk" class="w-full bg-gray-50 border border-gray-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-green-500 filter-input transition pl-8">
+                    <span class="absolute left-3 top-3 text-gray-400 text-xs"><i class="fas fa-cube"></i></span>
+                </div>
+            </div>
+
+            <div class="mb-4 border-b border-gray-100 pb-4">
+                <h4 class="font-bold text-xs text-gray-700 uppercase tracking-wider mb-3">Max Isıl İletkenlik (W/mK)</h4>
+                <div class="relative">
+                    <input type="number" onchange="applyFilters()" id="max-thermal" placeholder="Örn: 0.05" step="0.01" class="w-full bg-gray-50 border border-gray-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-green-500 filter-input transition pl-8">
+                    <span class="absolute left-3 top-3 text-gray-400 text-xs"><i class="fas fa-temperature-low"></i></span>
+                </div>
+                <p class="text-[10px] text-gray-400 mt-1">Daha düşük değer = Daha iyi yalıtım</p>
+            </div>
+
+            <div class="mb-2 border-b border-gray-100 pb-4">
+                <h4 class="font-bold text-xs text-gray-700 uppercase tracking-wider mb-3">Min Geri Dönüşüm (%)</h4>
+                <div class="flex items-center gap-3">
+                    <input type="range" value="0" onchange="applyFilters()" id="min-recycle" min="0" max="100" step="10" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-green-600 filter-input" oninput="document.getElementById('recycle-val').innerText = '%' + this.value">
+                    <span id="recycle-val" class="text-xs font-bold text-green-600 w-8 text-right">%0</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+        <div class="flex-1">
+         <div id="material-cards-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            </div>
         </div>
     </main>
 
@@ -132,7 +271,7 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Hızlı Bağlantılar</h4>
                     <ul class="space-y-2">
-                        <li><a href="materials-listing.html" class="text-gray-400 hover:text-white transition duration-300">Katalog</a></li>
+                        <li><a href="materials-listing.html" class="text-gray-400 hover:text-white transition duration-300">Malzeme Listesi</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Hakkımızda</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">İletişim</a></li>
                         <li><a href="index.html#Newsletter" class="text-gray-400 hover:text-white transition duration-300">Abonelik</a></li>

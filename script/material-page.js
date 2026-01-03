@@ -53,100 +53,102 @@ fetch("materials.json")
     document.getElementById("material-rating").innerHTML = document.getElementById("material-rating");
 
     function renderTabs(material) {
-      // Yıldız Değerlendirmesi
-      let materialRating = '';
-      const ratingMap = { 'Çok Önerilen': 5, 'Önerilen': 4, 'Az Önerilen': 3, 'Önerilmeyen': 2, 'Hiç Önerilmeyen': 1 };
-      const numberOfStars = ratingMap[material.rating] || 0;
+        // Yıldız Değerlendirmesi
+        let materialRating = '';
+        const ratingMap = { 'Çok Önerilen': 5, 'Önerilen': 4, 'Az Önerilen': 3, 'Önerilmeyen': 2, 'Hiç Önerilmeyen': 1 };
+        const numberOfStars = ratingMap[material.rating] || 0;
 
-      for (let i = 0; i < 5; i++) {
-        if (i < numberOfStars) {
-          materialRating += `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-          </svg>`;
-        } else {
-          materialRating += `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300" viewBox="0 0 20 20" fill="currentColor">
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-          </svg>`;
+        for (let i = 0; i < 5; i++) {
+            if (i < numberOfStars) {
+                materialRating += `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>`;
+            } else {
+                materialRating += `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>`;
+            }
         }
-      }
-      document.getElementById("material-rating").innerHTML = materialRating;
-    
-    // Veri güvenliği (Boş gelirse hata vermesin)
-    const props = material.properties || {};
-    const mech = props.mechanical || {};
-    const phys = props.physical || {};
-    const chem = props.chemical || {};
-    const env = props.environmental || {};
+        document.getElementById("material-rating").innerHTML = materialRating;
 
-    // 1. Mekanik Özellikler Tablosu
-    document.getElementById('mechanical').innerHTML = `
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                <h4 class="font-bold text-gray-800 mb-4 border-b pb-2">Mukavemet Değerleri</h4>
-                ${createRow('Akma Dayanımı', mech.yield_strength, 'Elastik şekil değiştirmenin bittiği sınır.')}
-                ${createRow('Çekme Dayanımı', mech.tensile_strength, 'Kopmadan önceki maksimum yük.')}
-                ${createRow('Elastisite Modülü', mech.elastic_modulus, 'Malzemenin rijitliği (E).')}
+        const props = material.properties || {};
+        const mech = props.mechanical || {};
+        const phys = props.physical || {};
+        const chem = props.chemical || {};
+        const env = props.environmental || {};
+        const struct = props.structure || {};
+        const elec = props.electrical || {};
+
+        document.getElementById('mechanical').innerHTML = `
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h4 class="font-bold text-gray-800 mb-4 border-b pb-2">Mukavemet Değerleri</h4>
+                    ${createRow('Akma Dayanımı', mech.yield_strength ? `${mech.yield_strength} MPa` : '', 'Elastik şekil değiştirmenin bittiği sınır.')}
+                    ${createRow('Çekme Dayanımı', mech.tensile_strength ? `${mech.tensile_strength} MPa` : '', 'Kopmadan önceki maksimum yük.')}
+                    ${createRow('Elastisite Modülü', mech.elastic_modulus ? `${mech.elastic_modulus} GPa` : '', 'Malzemenin rijitliği (E).')}
+                    ${createRow('Basınç Dayanımı', mech.compressive_strength ? `${mech.compressive_strength} MPa` : '', 'Sıkıştırmaya karşı direnç.')}
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h4 class="font-bold text-gray-800 mb-4 border-b pb-2">Diğer Özellikler</h4>
+                    ${createRow('Süneklik', mech.ductility ? `${mech.ductility}%` : '', 'Kopma uzaması (%).')}
+                    ${createRow('Sertlik (HV)', mech.hardness_vickers ? `${mech.hardness_vickers}` : '', 'Vickers sertlik değeri.')}
+                    ${createRow('Tokluk', mech.toughness ? `${mech.toughness}` : '', 'Enerji yutma kapasitesi.')}
+                </div>
             </div>
-            <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                <h4 class="font-bold text-gray-800 mb-4 border-b pb-2">Diğer Özellikler</h4>
-                ${createRow('Süneklik', mech.ductility, 'Kopma uzaması (%).')}
-                ${createRow('Sertlik', mech.hardness, 'Batmaya karşı direnç.')}
-                ${createRow('Tokluk', mech.toughness, 'Enerji yutma kapasitesi.')}
+            <p class="text-xs text-gray-400 mt-4">*Bu değerler standart test koşulları içindir.</p>
+        `;
+
+        document.getElementById('physical').innerHTML = `
+            <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                <h4 class="font-bold text-blue-900 mb-4 border-b border-blue-200 pb-2">Fiziksel Parametreler</h4>
+                ${createRow('Yoğunluk', phys.density ? `${phys.density} kg/m³` : '', 'Birim hacim ağırlığı.')}
+                ${createRow('Erime Noktası', phys.melting_point ? `${phys.melting_point}°C` : '', 'Sıvı fazına geçiş sıcaklığı.')}
+                ${createRow('Isıl İletkenlik', phys.thermal_conductivity ? `${phys.thermal_conductivity} W/m·K` : '', 'Isıyı iletme hızı.')}
+                ${createRow('Elektrik Direnci', phys.electrical_resistivity ? `${phys.electrical_resistivity} Ω·m` : '', 'Elektrik akımına karşı direnç.')}
             </div>
-        </div>
-        <p class="text-xs text-gray-400 mt-4">*Bu değerler standart test koşulları içindir.</p>
-    `;
+        `;
 
-    // 2. Fiziksel Özellikler Tablosu
-    document.getElementById('physical').innerHTML = `
-        <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
-            <h4 class="font-bold text-blue-900 mb-4 border-b border-blue-200 pb-2">Fiziksel Parametreler</h4>
-            ${createRow('Yoğunluk', phys.density, 'Birim hacim ağırlığı.')}
-            ${createRow('Erime Noktası', phys.melting_point, 'Sıvı fazına geçiş sıcaklığı.')}
-            ${createRow('Isıl İletkenlik', phys.thermal_conductivity, 'Isıyı iletme hızı.')}
-            ${createRow('Elektrik Direnci', phys.electrical_resistivity, 'Elektrik akımına karşı direnç.')}
-        </div>
-    `;
+        document.getElementById('chemical').innerHTML = `
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-purple-50 p-6 rounded-xl border border-purple-100">
+                    <h4 class="font-bold text-purple-900 mb-4 border-b border-purple-200 pb-2">Kimyasal Bileşim</h4>
+                    ${createRow('Karbon Oranı', chem.carbon_content ? `%${chem.carbon_content}` : '', 'Sertliği belirleyen ana unsur.')}
+                    ${createRow('Krom İçeriği', chem.chromium_content ? `%${chem.chromium_content}` : '', 'Korozyon direnci sağlayan element.')}
+                    ${createRow('Nikel İçeriği', chem.nickel_content ? `%${chem.nickel_content}` : '', 'Darbe direnci arttırır.')}
+                    ${createRow('Molibden İçeriği', chem.molybdenum_content ? `%${chem.molybdenum_content}` : '', 'Yüksek sıcaklıkta mukavemeti arttırır.')}
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-gray-200">
+                    <h4 class="font-bold text-gray-800 mb-4 border-b pb-2">Yapı & Özellikler</h4>
+                    ${createRow('Kristal Yapı', struct.crystal_structure || '', 'Atom dizilişi (BCC/FCC).')}
+                    ${createRow('Bağ Tipi', struct.bonding_type || '', 'Atomlar arası bağlama türü.')}
+                    ${createRow('Manyetik', struct.is_magnetic ? 'Evet' : 'Hayır', 'Manyetik özellikleri.')}
+                    ${createRow('Korozyon Direnci', chem.corrosion_resistance ? `${chem.corrosion_resistance}/10` : '', 'Korozyona karşı direnç seviyesi.')}
+                </div>
+            </div>
+        `;
 
-    // 3. Kimyasal ve Yapısal (Ders notu mantığı burada)
-    let phaseInfo = "";
-    if (material.material_class === "Metal" && chem.carbon_content) {
-        if (chem.carbon_content < 0.77) phaseInfo = "Hipoeutektoid Çelik (Ferrit + Perlit)";
-        else if (chem.carbon_content == 0.77) phaseInfo = "Eutektoid Çelik (Perlit)";
-        else phaseInfo = "Hipereutektoid Çelik (Sementit + Perlit)";
+        document.getElementById('environmental').innerHTML = `
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-green-50 p-6 rounded-xl border border-green-200">
+                    <div class="text-4xl mb-2">🌱</div>
+                    <h4 class="font-bold text-green-800 mb-4">Sürdürülebilirlik</h4>
+                    <p class="text-green-700 mb-2">Geri Dönüştürülebilirlik: <strong>%${env.recyclability || 'Bilinmiyor'}</strong></p>
+                    <div class="bg-white px-4 py-2 rounded border border-green-100 mt-3">
+                        <span class="block text-xs text-gray-500 uppercase font-bold">Gömülü Enerji</span>
+                        <span class="text-2xl font-bold text-green-600">${env.embodied_energy || '-'} MJ/kg</span>
+                    </div>
+                </div>
+                <div class="bg-yellow-50 p-6 rounded-xl border border-yellow-200">
+                    <div class="text-4xl mb-2">⚡</div>
+                    <h4 class="font-bold text-yellow-800 mb-4">Elektrik Özellikleri</h4>
+                    ${createRow('Elektrik İletkenliği', elec.electrical_conductivity ? `${elec.electrical_conductivity} % IACS` : '', 'Gümüşe göre yüzde olarak.')}
+                    ${createRow('İletkenlik (IACS)', elec.conductivity_iacs ? `${elec.conductivity_iacs}%` : '', 'Uluslararası bakır standart karşılaştırması.')}
+                </div>
+            </div>
+        `;
+
+        setupTabClickLogic();
     }
-
-    document.getElementById('chemical').innerHTML = `
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-purple-50 p-6 rounded-xl border border-purple-100">
-                <h4 class="font-bold text-purple-900 mb-4 border-b border-purple-200 pb-2">Mikroyapı</h4>
-                ${createRow('Karbon Oranı', chem.carbon_content ? `%${chem.carbon_content}` : '-', 'Sertliği belirleyen ana unsur.')}
-                ${createRow('Kristal Yapı', chem.crystal_structure, 'Atom dizilişi (BCC/FCC).')}
-                ${createRow('Faz Yapısı', chem.microstructure, phaseInfo)}
-            </div>
-            <div class="bg-white p-6 rounded-xl border border-gray-200">
-                <h4 class="font-bold text-gray-800 mb-4">Korozyon & Bileşim</h4>
-                <p class="text-gray-600 mb-2"><strong>Direnç:</strong> ${chem.corrosion_resistance || 'Belirtilmemiş'}</p>
-                <p class="text-sm text-gray-500">Not: Demir esaslı malzemeler neme karşı korunmalıdır.</p>
-            </div>
-        </div>
-    `;
-
-    // 4. Çevresel Etki Tablosu
-    document.getElementById('environmental').innerHTML = `
-        <div class="bg-green-50 p-6 rounded-xl border border-green-200 text-center">
-            <div class="text-4xl mb-2">🌱</div>
-            <h4 class="font-bold text-green-800 text-xl mb-2">Sürdürülebilirlik Raporu</h4>
-            <p class="text-green-700 mb-4">Bu malzeme <strong>${env.recyclability || 'Bilinmiyor'}</strong> oranında geri dönüştürülebilir.</p>
-            <div class="inline-block bg-white px-6 py-3 rounded-full shadow-sm border border-green-100">
-                <span class="block text-xs text-gray-500 uppercase font-bold">Gömülü Enerji</span>
-                <span class="text-2xl font-bold text-green-600">${env.embodied_energy || '-'}</span>
-            </div>
-        </div>
-    `;
-
-    setupTabClickLogic();
-}
 
 // Yardımcı: Satır Oluşturucu
 function createRow(label, value, hint) {
