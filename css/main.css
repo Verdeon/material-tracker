@@ -1,10 +1,10 @@
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f9f9f9;
+            transition: 0.5s;
         }
         .material_class-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         .banner {
             background-image: url("../img/banner.png");

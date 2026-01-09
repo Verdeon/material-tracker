@@ -14,6 +14,24 @@
         <meta property="og:title" content="VMT - Verdeon Material Tracker">
     </head>
     <body>
+
+    <!-- Page Loader -->
+    <div id="page-loader" class="fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center transition-opacity duration-500">
+    
+        <div class="relative w-20 h-20">
+            <div class="absolute inset-0 border-4 border-gray-100 rounded-full"></div>
+            <div class="absolute inset-0 border-4 border-t-green-600 border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
+            
+            <div class="absolute inset-0 flex items-center justify-center">
+                <i class="fa-solid fa-helmet-safety text-yellow-500 text-2xl animate-pulse"></i>
+            </div>
+        </div>
+
+        <h2 class="mt-6 text-gray-800 font-bold tracking-widest text-sm animate-pulse">
+            YÜKLENİYOR
+        </h2>
+    </div>
+
     <!-- Top Bar -->
 <div class="bg-green-700 text-white py-2">
     <div class="container mx-auto px-4 flex justify-between items-center">
@@ -93,7 +111,7 @@
     </section>
 
     <!-- Categories -->
-    <section class="py-12 bg-white">
+    <section class="py-12 bg-white transition duration-700"  id="class-selection-color">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-8">Malzeme Sınıfları</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -155,9 +173,9 @@
     </section>
 
     <!-- Featured Materials -->
-<section class="py-12 bg-gray-50">
+<section class="py-12">
     <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-8">Yüksek Performans Malzemeler</h2>
+        <h2 class="text-3xl font-bold text-center">Yüksek Performans Malzemeler</h2>
         <div id="popular-materials-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             </div>
     </div>
@@ -167,7 +185,7 @@
     <section class="py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-yellow-50 rounded-lg p-6 flex flex-col md:flex-row items-center">
+                <div class="bg-yellow-50 rounded-lg p-6 flex flex-col md:flex-row items-center" id="container-color-y">
                     <div class="md:w-1/2 mb-6 md:mb-0">
                         <h3 class="text-2xl font-bold mb-2">Doğa Dostu Betonlar</h3>
                         <p class="text-gray-600 mb-4">%20 daha az karbon ayak izi bırakır.</p>
@@ -178,7 +196,7 @@
                     </div>
                 </div>
                 
-                <div class="bg-blue-50 rounded-lg p-6 flex flex-col md:flex-row items-center">
+                <div class="bg-blue-50 rounded-lg p-6 flex flex-col md:flex-row items-center" id="container-color-b">
                     <div class="md:w-1/2 mb-6 md:mb-0">
                         <h3 class="text-2xl font-bold mb-2">Doğa Dostu Camlar</h3>
                         <p class="text-gray-600 mb-4">%30 daha az karbon ayak izi bırakır.</p>
@@ -193,7 +211,7 @@
     </section>
 
     <!-- Features -->
-    <section class="py-12 bg-gray-50 cursor-default">
+    <section class="py-12 cursor-default">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="bg-white p-6 rounded-lg shadow-md flex items-center hover:bg-gray-50">

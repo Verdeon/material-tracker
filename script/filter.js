@@ -217,14 +217,28 @@ function applyFilters(updateUrl = true) {
 // --- KARTLARI ÇİZME (Görsel Tasarım) ---
 function renderMaterials(materialsToRender) {
     const countLabel = document.getElementById('result-count') || document.getElementById('filtered-count');
-    if (countLabel) countLabel.textContent = `${materialsToRender.length} malzeme bulundu`;
+    if (countLabel) countLabel.textContent = materialsToRender.length === 0 ? `Malzeme Bulunamadı` : `${materialsToRender.length} malzeme bulundu`;
 
     const container = document.getElementById('material-cards-container');
     if (!container) return;
     container.innerHTML = '';
 
     if (materialsToRender.length === 0) {
-        container.innerHTML = '<p class="text-center text-gray-600 col-span-full py-10">Eşleşen malzeme bulunamadı.</p>';
+        container.innerHTML = `
+    <div class="col-span-full flex flex-col items-center justify-center py-12 text-center">
+        <div class="relative mb-4">
+            <i class="fa-solid fa-helmet-safety text-6xl text-yellow-500"></i>
+            <span class="absolute -top-2 -right-2 bg-gray-100 rounded-full p-1 border border-gray-200">
+                <i class="fa-solid fa-question text-lg text-gray-500 w-6 h-6 flex items-center justify-center"></i>
+            </span>
+        </div>
+        <h3 class="text-lg font-bold text-gray-700 mb-1">Aradığın Malzemeyi Bulamadık</h3>
+        <p class="text-gray-500 text-sm">Farklı anahtar kelimelerle aramayı deneyebilirsin.</p>
+        <button onclick="window.location.href='materials-listing.html'" class="mt-4 text-green-600 hover:text-green-700 font-medium text-sm underline">
+            Tüm listeye dön
+        </button>
+    </div>
+`;
         return;
     }
 
@@ -260,7 +274,6 @@ function renderMaterials(materialsToRender) {
         let mClass = (material.material_class || "").toLowerCase();
         const mClassClean = mClass.replaceAll('ç', 'c').replaceAll('ğ', 'g').replaceAll('ı', 'i').replaceAll('ö', 'o').replaceAll('ş', 's').replaceAll('ü', 'u');
         const materialImg = `./img/${material.name}.png`;
-        const classImg = `./img/${mClassClean}.png`;
 
         const cardHTML = `
         <div class="material-card bg-white rounded-xl shadow-sm hover:shadow-lg transition border border-gray-100 overflow-hidden group flex flex-col h-full">
@@ -283,7 +296,7 @@ function renderMaterials(materialsToRender) {
                 <div class="flex justify-between items-center border-t pt-3 mt-2">
                     <div class="flex flex-col">
                         <span class="text-[10px] uppercase text-gray-400 font-bold">Emisyon</span>
-                        <span class="text-green-600 font-bold text-sm">🌱 ${material.carbon_emission || material.carbon || 0} kg</span>
+                        <span class="text-green-600 font-bold text-sm">🌱 ${material.carbon_emission || material.carbon || 0} kg CO₂</span>
                     </div>
                     <div class="flex gap-2 items-center">
                         <div class="flex items-center bg-gray-100 rounded-lg p-1">
@@ -452,7 +465,7 @@ function resetFilters() {
         document.getElementById('min-recycle').value = 0;
         document.getElementById('recycle-val').innerText = '%0';
     }
-    
+
     if (document.getElementById('filter-magnetic')) document.getElementById('filter-magnetic').checked = false;
 
     window.history.pushState({}, '', window.location.pathname);

@@ -6,7 +6,7 @@ let allMaterials = [];
 // --- SAYFA YÜKLENDİĞİNDE (ANA GİRİŞ NOKTASI) ---
 document.addEventListener('DOMContentLoaded', function() {
     console.log("🚀 Çekirdek Sistem Başlatılıyor...");
-
+    
     fetch("materials.json")
         .then(res => {
             if (!res.ok) throw new Error("JSON yüklenemedi.");
@@ -123,7 +123,7 @@ function setupDetailPageLogic() {
                 const quantityToAdd = parseInt(document.getElementById('quantity')?.value || '1', 10);
                 if (quantityToAdd > 0) {
                     addToWarehouse(material.id, material.material_class, quantityToAdd, material.name, material.description || material.desc, material.carbon || material.carbon_emission);
-                    alert(`${quantityToAdd} adet ${material.name} eklendi!`);
+                    //(`${quantityToAdd} adet ${material.name} eklendi!`);
                 } else {
                     alert('Lütfen miktar seçin.');
                 }
@@ -131,3 +131,37 @@ function setupDetailPageLogic() {
         }
     }
 }
+
+// --- Renkler (index.html için) ---
+    const mainSection = document.getElementById('class-selection-color');
+    const cards = document.querySelectorAll('.material_class-card');
+    if (mainSection && cards.length > 0) {
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const cardColor = window.getComputedStyle(card).backgroundColor;
+                
+                mainSection.style.backgroundColor = cardColor;
+            });
+            card.addEventListener('mouseleave', function() {
+                mainSection.style.backgroundColor = ''; 
+            });
+        });
+    }
+
+    var body = document.body;
+
+    const containerColorY = document.getElementById('container-color-y');
+        containerColorY.addEventListener('mouseenter', function() {
+            body.style.backgroundColor = '#FFFDE7'; 
+        });
+        containerColorY.addEventListener('mouseleave', function() {
+            body.style.backgroundColor = '#f9f9f9'; 
+        });
+
+    const containerColorB = document.getElementById('container-color-b');
+        containerColorB.addEventListener('mouseenter', function() {
+            body.style.backgroundColor = '#eff6ff'; 
+        });
+        containerColorB.addEventListener('mouseleave', function() {
+            body.style.backgroundColor = '#f9f9f9'; 
+        });

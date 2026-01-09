@@ -19,7 +19,11 @@ document.addEventListener('DOMContentLoaded', function () {
     container.innerHTML = ''; // İçeriği temizle
 
     if (warehouseItems.length === 0) {
-      container.innerHTML = '<p class=\"text-gray-600 text-center\">Henüz metraj hesabı için malzeme seçilmedi.</p>';
+      container.innerHTML = `<p class=\"text-gray-600 text-center\">Henüz metraj hesabı için malzeme seçilmedi.</p>
+      <div class="text-center mt-4">
+        <a href="materials-listing.html" class="text-green-600 hover:text-green-700 underline font-medium text-sm py-2 px-4 rounded inline-block transition duration-300">Malzemeleri İncele</a>
+      </div>
+      `;
       // Metraj boşaldığında da sepet sayısını güncelle
       if (typeof window.updateCartCountFromWarehouse === 'function') {
         window.updateCartCountFromWarehouse(); // <--- KRİTİK ÇAĞRI BURADA
@@ -33,13 +37,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
       
     let mClass = (item.material_class || "").toLowerCase();
-    const mClassClean = mClass.replaceAll('ç', 'c').replaceAll('ğ', 'g').replaceAll('ı', 'i').replaceAll('ö', 'o').replaceAll('ş', 's').replaceAll('ü', 'u');
-    const materialImg = `./img/${mClassClean}.png`;
+        const mClassClean = mClass.replaceAll('ç', 'c').replaceAll('ğ', 'g').replaceAll('ı', 'i').replaceAll('ö', 'o').replaceAll('ş', 's').replaceAll('ü', 'u');
+        const materialImg = `./img/${item.name}.png`;
 
       // item.image, item.name, item.desc gibi değerlerin undefined olmaması için kontroller eklendi
       card.innerHTML = `
         <div class="flex items-center gap-4">
-          <img src="${materialImg}" alt="${item.name || 'Malzeme Resmi'}" class="w-20 h-20 object-cover rounded">
+          <img src="${materialImg}" alt="${item.name}" class="w-20 h-20 object-cover rounded"
+                        onerror="this.onerror=function(){this.src='./img/favicon.png'; this.onerror=null;}; this.src='./img/${mClassClean}.png';" />
           <div>
             <a href="material-page.html?id=${item.id}"><h3 class="text-lg font-semibold">${item.name || 'Bilinmeyen Malzeme'}</h3></a>
             <p class="text-sm text-gray-500">${item.desc || 'Açıklama Yok'}</p>
@@ -49,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <button class="decrement-quantity bg-gray-200 text-gray-700 px-3 py-1 rounded-full hover:bg-gray-300">-</button>
           <input type="number" value="${item.quantity}" min="1" class="quantity-input w-16 text-center border rounded-md">
           <button class="increment-quantity bg-gray-200 text-gray-700 px-3 py-1 rounded-full hover:bg-gray-300">+</button>
-          <span class="font-semibold text-lg">${(item.carbon * item.quantity).toFixed(2) || '0.00'} kg</span>
+          <span class="font-semibold text-lg">${(item.carbon * item.quantity).toFixed(2) || '0.00'} kg CO₂</span>
           <button class="delete text-red-600 hover:text-red-800">Sil</button>
         </div>
       `;
@@ -92,25 +97,6 @@ document.addEventListener('DOMContentLoaded', function () {
           warehouseItems.splice(index, 1);
           saveItems(); // Malzeme silindiğinde metrajyu kaydet ve sepeti güncelle
           renderWarehouse(); // Metrajı yeniden render et (UI güncellemek için)
-        });
-      }
-
-      // --- Favori & Paylaş (Mevcut kodunuzdan kopyalandı, ilgili HTML elementlerinin varlığını kontrol edin) ---
-      // Eğer bu butonlar warehouse.html içinde yoksa bu kısımları silebilirsiniz.
-      const favoriteButton = card.querySelector('.favorite');
-      if (favoriteButton) {
-        favoriteButton.addEventListener('click', () => {
-          alert('Favorilere eklendi (simülasyon)');
-        });
-      }
-
-      const shareButton = card.querySelector('.share');
-      if (shareButton) {
-        shareButton.addEventListener('click', () => {
-          const url = `${window.location.origin}/material-page.html?id=${item.id}&material_class=${item.material_class}`;
-          navigator.clipboard.writeText(url).then(() => {
-            alert('Bağlantı kopyalandı!');
-          });
         });
       }
 

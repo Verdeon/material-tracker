@@ -35,6 +35,25 @@ window.updateCarbonCountFromWarehouse = function () {
 
     const carbonDisplay = document.getElementById("total-carbon");
     if (carbonDisplay) {
-        carbonDisplay.textContent = `${totalCarbon.toFixed(2)}kg`;
+        carbonDisplay.textContent = `${totalCarbon.toFixed(2)}kg CO₂`;
     }
 };
+
+// --- LOADER YÖNETİMİ ---
+window.addEventListener('load', function() {
+    const loader = document.getElementById('page-loader');
+    
+    if (loader) {
+        // Minimum bekleme süresi ekleyelim (Çok hızlı yüklenirse bile loader görünsün)
+        setTimeout(() => {
+            // 1. Şeffaflaştır (Fade Out)
+            loader.classList.add('opacity-0');
+            
+            // 2. CSS transition (0.5s) bitince tamamen kaldır
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500); 
+            
+        }, 300); // Sayfa yüklendikten sonra en az 300ms daha bekle (Estetik için)
+    }
+});
