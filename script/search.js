@@ -60,22 +60,71 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Enter tuşu ile arama gönder
-  searchInput.addEventListener("keydown", e => {
-    if (e.key === "Enter") {
-        e.preventDefault();
-        const query = searchInput.value.trim();
-        if (query.length > 0) {
-            window.location.href = `materials-listing.html?search=${encodeURIComponent(query)}`;
-        }
-    }
-  });
+searchInput.addEventListener("keydown", e => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            
+            // 1. Arama terimini al ve küçült
+            const queryRaw = searchInput.value.trim();
+            const query = queryRaw.toLowerCase();
+
+            // Eğer boşsa direkt listeye at (Tümünü gösterir)
+            if (query.length === 0) {
+                window.location.href = "materials-listing.html";
+                return;
+            }
+
+            // 2. Arkaplanda Hızlı Arama Yap (Veri setin allMaterials içinde olmalı)
+            const matches = allMaterials.filter(material => {
+                const mName = material.name.toLowerCase();
+                const mDesc = (material.desc || "").toLowerCase();
+                // İsimde veya açıklamada geçiyor mu?
+                return mName.includes(query) || mDesc.includes(query);
+            });
+
+            // 3. Sonuç Sayısına Göre Yönlendir
+            if (matches.length === 1) {
+                // BİNGO! Tek sonuç bulundu -> Direkt Detay Sayfasına
+                console.log("Tek sonuç bulundu, yönlendiriliyor:", matches[0].name);
+                window.location.href = `material-page.html?id=${matches[0].id}`;
+            } else {
+                // 0 veya Birden fazla sonuç -> Liste Sayfasına (Parametre ile)
+                console.log(`${matches.length} sonuç bulundu, listeye gidiliyor.`);
+                window.location.href = `materials-listing.html?search=${encodeURIComponent(queryRaw)}`;
+            }
+          }
+        });
 
   searchButton.addEventListener("click", (e) => {
         e.preventDefault();
-        const query = searchInput.value.trim();
-        if (query.length > 0) {
-            window.location.href = `materials-listing.html?search=${encodeURIComponent(query)}`;
-        }
+            // 1. Arama terimini al ve küçült
+            const queryRaw = searchInput.value.trim();
+            const query = queryRaw.toLowerCase();
+
+            // Eğer boşsa direkt listeye at (Tümünü gösterir)
+            if (query.length === 0) {
+                window.location.href = "materials-listing.html";
+                return;
+            }
+
+            // 2. Arkaplanda Hızlı Arama Yap (Veri setin allMaterials içinde olmalı)
+            const matches = allMaterials.filter(material => {
+                const mName = material.name.toLowerCase();
+                const mDesc = (material.desc || "").toLowerCase();
+                // İsimde veya açıklamada geçiyor mu?
+                return mName.includes(query) || mDesc.includes(query);
+            });
+
+            // 3. Sonuç Sayısına Göre Yönlendir
+            if (matches.length === 1) {
+                // BİNGO! Tek sonuç bulundu -> Direkt Detay Sayfasına
+                console.log("Tek sonuç bulundu, yönlendiriliyor:", matches[0].name);
+                window.location.href = `material-page.html?id=${matches[0].id}`;
+            } else {
+                // 0 veya Birden fazla sonuç -> Liste Sayfasına (Parametre ile)
+                console.log(`${matches.length} sonuç bulundu, listeye gidiliyor.`);
+                window.location.href = `materials-listing.html?search=${encodeURIComponent(queryRaw)}`;
+            }
   });
 
   // Tıklama dışı sonuçları kapat

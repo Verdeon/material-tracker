@@ -55,7 +55,7 @@ fetch("materials.json")
     function renderTabs(material) {
         // Yıldız Değerlendirmesi
         let materialRating = '';
-        const ratingMap = { 'Çok Önerilen': 5, 'Önerilen': 4, 'Az Önerilen': 3, 'Önerilmeyen': 2, 'Hiç Önerilmeyen': 1 };
+        const ratingMap = { 'Yüksek Performans': 5, 'Önerilen': 4, 'Az Önerilen': 3, 'Düşük Dayanım': 2, 'Yetersiz': 1 };
         const numberOfStars = ratingMap[material.rating] || 0;
 
         for (let i = 0; i < 5; i++) {

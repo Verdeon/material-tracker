@@ -31,10 +31,20 @@ document.addEventListener('DOMContentLoaded', function () {
       const card = document.createElement('div');
       card.className = 'material-card bg-white shadow rounded-lg mb-2 p-4 flex justify-between items-center';
 
+      let materialImg = item.image || './img/banner.png';
+        const mClass = item.material_class;
+        if (mClass === "Tuğla") materialImg = "./img/Brick.svg";
+        else if (mClass === "Çimento") materialImg = "./img/Cement.svg";
+        else if (mClass === "Beton") materialImg = "./img/Concrete.svg";
+        else if (mClass === "Ahşap") materialImg = "./img/Wood.png";
+        else if (mClass === "Çelik") materialImg = "./img/Steel.svg";
+        else if (mClass === "Yalıtım") materialImg = "./img/Isolation.svg";
+        else if (mClass === "Cam") materialImg = "./img/Glass.svg";
+        else if (mClass === "Zemin") materialImg = "./img/Tile.png";
       // item.image, item.name, item.desc gibi değerlerin undefined olmaması için kontroller eklendi
       card.innerHTML = `
         <div class="flex items-center gap-4">
-          <img src="${item.image || 'placeholder.jpg'}" alt="${item.name || 'Malzeme Resmi'}" class="w-20 h-20 object-cover rounded">
+          <img src="${materialImg}" alt="${item.name || 'Malzeme Resmi'}" class="w-20 h-20 object-cover rounded">
           <div>
             <a href="material-page.html?id=${item.id}"><h3 class="text-lg font-semibold">${item.name || 'Bilinmeyen Malzeme'}</h3></a>
             <p class="text-sm text-gray-500">${item.desc || 'Açıklama Yok'}</p>
@@ -44,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <button class="decrement-quantity bg-gray-200 text-gray-700 px-3 py-1 rounded-full hover:bg-gray-300">-</button>
           <input type="number" value="${item.quantity}" min="1" class="quantity-input w-16 text-center border rounded-md">
           <button class="increment-quantity bg-gray-200 text-gray-700 px-3 py-1 rounded-full hover:bg-gray-300">+</button>
-          <span class="font-semibold text-lg">${(item.carbon * item.quantity).toFixed(2) || '0.00'} g</span>
+          <span class="font-semibold text-lg">${(item.carbon * item.quantity).toFixed(2) || '0.00'} kg</span>
           <button class="delete text-red-600 hover:text-red-800">Sil</button>
         </div>
       `;

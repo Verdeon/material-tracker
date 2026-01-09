@@ -74,9 +74,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // 1. Sidebar Sayaçlarını Güncelle
             updateSidebarCounts();
 
-            // 2. Navigasyon Butonlarını Oluştur
-            setupNavButtons();
-
             // 3. Eğer Listeleme Sayfasındaysak Başlat
             if (document.getElementById('materials-listing-page')) {
                 initializeListingPage();
@@ -98,36 +95,6 @@ function updateSidebarCounts() {
         const mClass = span.dataset.material_class;
         const count = allMaterials.filter(m => m.material_class === mClass).length;
         span.textContent = `${count} malzeme`;
-    });
-}
-
-function setupNavButtons() {
-    const container = document.getElementById('material_class-buttons');
-    if (!container) return;
-
-    container.innerHTML = ''; 
-    const urlParams = new URLSearchParams(window.location.search);
-    const activeClass = urlParams.get('material_class');
-
-    // "Tüm Malzeme Sınıfları"
-    const allButton = document.createElement('button');
-    allButton.textContent = 'Tüm Malzeme Sınıfları';
-    allButton.className = `material_class-button px-3 py-1 m-1 rounded cursor-pointer ${!activeClass ? 'bg-green-600 text-white' : 'bg-green-300 hover:bg-gray-500'}`;
-    allButton.addEventListener('click', () => { window.location.href = 'materials-listing.html'; });
-    container.appendChild(allButton);
-
-    const uniqueClasses = [...new Set(allMaterials.map(m => m.material_class))];
-    uniqueClasses.forEach(mClass => {
-        const button = document.createElement('button');
-        button.textContent = mClass;
-        // URL'de bu sınıf var mı kontrol et (virgüllü yapıyı destekler)
-        const isActive = activeClass && activeClass.split(',').includes(mClass);
-        
-        button.className = `material_class-button px-3 py-1 m-1 rounded cursor-pointer ${isActive ? 'bg-green-600 text-white' : 'bg-gray-200 hover:bg-gray-400'}`;
-        button.addEventListener('click', () => {
-            window.location.href = `materials-listing.html?material_class=${encodeURIComponent(mClass)}`;
-        });
-        container.appendChild(button);
     });
 }
 
@@ -179,12 +146,14 @@ function initializeListingPage() {
         classes.forEach(cls => {
             const checkbox = document.querySelector(`.category-filter[value="${decodeURIComponent(cls)}"]`);
             if (checkbox) checkbox.checked = true;
+            const listingLink = document.getElementById('listing-material_class');
+            listingLink.textContent = decodeURIComponent(cls);
         });
     }
 
     // Basit Inputlar (Text/Number) - HEPSİNİ BURAYA EKLE
     const inputIds = [
-        'min_strength', 'max_strength', 'min_density', 'max_thermal', 
+        'min_density', 'max_thermal', 
         'min_elasticity', 'min_hardness', 'min_conductivity'
     ];
     inputIds.forEach(id => {
@@ -243,13 +212,6 @@ function setupFilterListeners() {
 
     const resetBtn = document.getElementById('reset-filters-btn');
     if (resetBtn) resetBtn.addEventListener('click', resetFilters);
-    
-    const searchInput = document.getElementById('search-input');
-    if (searchInput) {
-        searchInput.addEventListener('keyup', (e) => {
-            if(e.key === 'Enter') applyFilters(true);
-        });
-    }
 }
 
 // --- ANA FİLTRELEME VE URL GÜNCELLEME MOTORU ---
@@ -258,8 +220,6 @@ function applyFilters(updateUrl = true) {
     const selectedClasses = Array.from(document.querySelectorAll('.category-filter:checked')).map(cb => cb.value);
     
     // Mevcut Sayısal Değerler
-    const minStrength = parseFloat(document.getElementById('min-strength')?.value) || 0;
-    const maxStrength = parseFloat(document.getElementById('max-strength')?.value) || 99999;
     const maxCarbon = parseFloat(document.getElementById('max-carbon')?.value) || 99999;
     const minDensity = parseFloat(document.getElementById('min-density')?.value) || 0;
     const maxThermal = parseFloat(document.getElementById('max-thermal')?.value) || 999; 
@@ -277,7 +237,9 @@ function applyFilters(updateUrl = true) {
     const filterCorrosion = document.getElementById('filter-corrosion')?.value || "";
 
     const searchTerm = document.getElementById('search-input')?.value.toLowerCase().trim() || "";
-
+    const listingLink = document.getElementById('listing-material_class');
+    listingLink.textContent = selectedClasses.length > 0 ? selectedClasses.join(' / ') : 'Tüm Malzemeler';
+    
     // 2. URL Güncelleme
     if (updateUrl) {
         const newUrl = new URL(window.location);
@@ -287,8 +249,6 @@ function applyFilters(updateUrl = true) {
         else newUrl.searchParams.delete('material_class');
 
         // Mevcut Filtreler URL
-        if (minStrength > 0) newUrl.searchParams.set('min_strength', minStrength); else newUrl.searchParams.delete('min_strength');
-        if (maxStrength < 99999) newUrl.searchParams.set('max_strength', maxStrength); else newUrl.searchParams.delete('max_strength');
         if (maxCarbon < 99999) newUrl.searchParams.set('max_carbon', maxCarbon); else newUrl.searchParams.delete('max_carbon');
         if (minDensity > 0) newUrl.searchParams.set('min_density', minDensity); else newUrl.searchParams.delete('min_density');
         if (maxThermal < 999) newUrl.searchParams.set('max_thermal', maxThermal); else newUrl.searchParams.delete('max_thermal');
@@ -328,7 +288,6 @@ function applyFilters(updateUrl = true) {
         const carbon = material.carbon_emission || material.carbon || 0;
 
         // Mevcut Kontroller
-        if (mProps.yield_strength !== undefined && (mProps.yield_strength < minStrength || mProps.yield_strength > maxStrength)) isValid = false;
         if (carbon > maxCarbon) isValid = false;
         if (pProps.density !== undefined && pProps.density < minDensity) isValid = false;
         if (pProps.thermal_conductivity !== undefined && pProps.thermal_conductivity > maxThermal) isValid = false;
@@ -498,7 +457,7 @@ function renderMaterials(materialsToRender) {
 
         // Yıldızlar
         let starsHtml = '';
-        const ratingMap = { 'Çok Önerilen': 5, 'Önerilen': 4, 'Az Önerilen': 3, 'Önerilmeyen': 2, 'Hiç Önerilmeyen': 1 };
+        const ratingMap = { 'Yüksek Performans': 5, 'Yüksek Dayanım': 4, 'Standart Kalite': 3, 'Düşük Dayanım': 2, 'Yetersiz': 1 };
         const stars = ratingMap[material.rating] || 0;
         for (let i = 0; i < 5; i++) {
             starsHtml += i < stars 
@@ -647,3 +606,10 @@ function populateDropdown(selectId, keyPath) {
     
     console.log(`✅ ${selectId} kutusu ${sortedValues.length} seçenekle dolduruldu.`);
 }
+
+// URL değiştiğinde (Geri/İleri butonları) filtreleri tekrar çalıştır
+window.addEventListener('popstate', function(event) {
+    if (document.getElementById('materials-listing-page')) {
+        initializeListingPage(); 
+    }
+});
