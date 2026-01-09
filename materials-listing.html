@@ -84,7 +84,9 @@
         
         <a href="materials-listing.html" class="text-sm text-gray-500 hover:text-green-600 mb-0">Malzeme Listesi</a>
         <p class="inline-block text-sm text-gray-500 mb-0">&gt;</p>
-        <a href="#" id="listing-material_class" class="text-sm text-gray-500 hover:text-green-600 mb-0">Tümü</a>
+        <div id="listing-breadcrumbs" class="text-sm text-gray-500 hover:text-green-600 mb-0 inline-block">
+            <a href="materials-listing.html" class="hover:text-green-600">Tüm Malzemeler</a>
+        </div>
 
         <p class="text-sm text-right text-green-800 mr-6 mb-0" id="result-count">X adet ürün gösteriliyor</p>
 
@@ -163,7 +165,7 @@
 
             <div class="mb-4 border-b pb-4">
                 <h4 class="font-bold text-sm text-gray-700 mb-2">Max Emisyon (g CO₂)</h4>
-                <input type="range" value="100" onchange="applyFilters()" id="max-carbon" min="0" max="10" step="0.5" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-green-600 filter-input" oninput="document.getElementById('carbon-val').innerText = this.value">
+                <input type="range" value="100" onchange="applyFilters()" id="max-carbon" min="0" max="10" step="0.1" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-green-600 filter-input" oninput="document.getElementById('carbon-val').innerText = this.value">
                 <div class="text-right text-xs text-green-600 font-bold mt-1">
                     <span id="carbon-val">10</span> kg ve altı
                 </div>
@@ -273,6 +275,7 @@
     <script src="script/script.js"></script>
     <script src="script/warehouse.js"></script>
     <script src="script/search.js"></script>
+    <script src="script/filter.js"></script>
     <script src="script/cookie-consent.js"></script>
 </body>
 </html>

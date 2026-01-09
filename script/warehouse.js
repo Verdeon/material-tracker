@@ -31,16 +31,11 @@ document.addEventListener('DOMContentLoaded', function () {
       const card = document.createElement('div');
       card.className = 'material-card bg-white shadow rounded-lg mb-2 p-4 flex justify-between items-center';
 
-      let materialImg = item.image || './img/banner.png';
-        const mClass = item.material_class;
-        if (mClass === "Tuğla") materialImg = "./img/Brick.svg";
-        else if (mClass === "Çimento") materialImg = "./img/Cement.svg";
-        else if (mClass === "Beton") materialImg = "./img/Concrete.svg";
-        else if (mClass === "Ahşap") materialImg = "./img/Wood.png";
-        else if (mClass === "Çelik") materialImg = "./img/Steel.svg";
-        else if (mClass === "Yalıtım") materialImg = "./img/Isolation.svg";
-        else if (mClass === "Cam") materialImg = "./img/Glass.svg";
-        else if (mClass === "Zemin") materialImg = "./img/Tile.png";
+      
+    let mClass = (item.material_class || "").toLowerCase();
+    const mClassClean = mClass.replaceAll('ç', 'c').replaceAll('ğ', 'g').replaceAll('ı', 'i').replaceAll('ö', 'o').replaceAll('ş', 's').replaceAll('ü', 'u');
+    const materialImg = `./img/${mClassClean}.png`;
+
       // item.image, item.name, item.desc gibi değerlerin undefined olmaması için kontroller eklendi
       card.innerHTML = `
         <div class="flex items-center gap-4">
