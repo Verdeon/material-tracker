@@ -552,3 +552,27 @@ function updateCardMetrajText(cardElement, materialId) {
         }
     }
 }
+
+// SIDEBAR AÇMA/KAPAMA MEKANİZMASI
+function toggleSidebar() {
+    const sidebar = document.getElementById('filter-sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    const body = document.body;
+
+    if (!sidebar || !overlay) return; // Hata almamak için kontrol
+
+    // Sidebar'ın gizli olup olmadığını kontrol et
+    const isHidden = sidebar.classList.contains('-translate-x-full');
+
+    if (isHidden) {
+        // AÇILIŞ
+        sidebar.classList.remove('-translate-x-full');
+        overlay.classList.remove('hidden');
+        body.classList.add('overflow-hidden'); // Arkadaki sayfa kaymasın
+    } else {
+        // KAPANIŞ
+        sidebar.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+        body.classList.remove('overflow-hidden');
+    }
+}
