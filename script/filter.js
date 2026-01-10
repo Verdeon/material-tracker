@@ -92,8 +92,19 @@ function setupFilterListeners() {
     if (resetBtn) resetBtn.addEventListener('click', resetFilters);
 }
 
+let filterTimeout;
+
 // --- ANA FİLTRELEME MOTORU ---
 function applyFilters(updateUrl = true) {
+
+    const container = document.getElementById('material-cards-container');
+    container.innerHTML = getSkeletonHTML(6); // 6 tane hayalet kart koy
+
+    // Varsa önceki bekleyen işlemi iptal et (Hızlı tıklama koruması)
+    if (filterTimeout) clearTimeout(filterTimeout);
+
+    // 2. YARIM SANİYE BEKLE VE GERÇEK İŞLEMİ YAP
+    filterTimeout = setTimeout(() => {
     // 1. Değerleri HTML'den Oku
     const selectedClasses = Array.from(document.querySelectorAll('.category-filter:checked')).map(cb => cb.value);
     
@@ -115,35 +126,57 @@ function applyFilters(updateUrl = true) {
     const searchTerm = document.getElementById('search-input')?.value.toLowerCase().trim() || "";
     const breadcrumbContainer = document.getElementById('listing-breadcrumbs');
 
-    if (breadcrumbContainer) {
-        // 1. Önce içini temizle
-        breadcrumbContainer.innerHTML = '';
+        if (breadcrumbContainer) {
+            breadcrumbContainer.innerHTML = '';
+            // DURUM 1: HİÇBİR ŞEY SEÇİLİ DEĞİLSE
+            if (selectedClasses.length === 0) {
+                const allLink = document.createElement('a');
+                allLink.textContent = "Tüm Malzemeler";
+                allLink.href = "#"; 
+                allLink.className = "text-sm transition cursor-pointer";
+                
+                // Tıklanınca sayfayı temizle (Zaten temiz ama garanti olsun)
+                allLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    document.querySelectorAll('.category-filter').forEach(cb => cb.checked = false);
+                    applyFilters(true);
+                });
 
-        if (selectedClasses.length === 0) {
-            // 2. Hiçbir şey seçili değilse standart linki koy
-            breadcrumbContainer.innerHTML = '<a href="materials-listing.html" class="hover:text-green-600 transition">Tüm Malzemeler</a>';
-        } else {
-            // 3. Seçili her kategori için ayrı link oluştur
-            selectedClasses.forEach((cls, index) => {
-                // Link Oluştur
-                const link = document.createElement('a');
-                link.textContent = cls;
-                // Sadece o sınıfa ait link veriyoruz:
-                link.href = `materials-listing.html?material_class=${encodeURIComponent(cls)}`;
-                link.className = "text-sm text-gray-500 hover:text-green-600 mb-0 inline-block";
+                breadcrumbContainer.appendChild(allLink);
+            } 
+            // DURUM 2: BİR ŞEYLER SEÇİLİYSE ("Tüm Malzemeler"i eklemiyoruz!)
+            else {
+                selectedClasses.forEach((cls, index) => {
+                    const link = document.createElement('a');
+                    link.textContent = cls;
+                    link.href = "#"; 
+                    link.className = "text-sm text-gray-500 hover:text-green-600 mb-0 inline-block cursor-pointer";
 
-                breadcrumbContainer.appendChild(link);
+                    // Tıklanınca: Diğerlerini sil, SADECE buna odaklan
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        // Hepsini sil
+                        document.querySelectorAll('.category-filter').forEach(cb => cb.checked = false);
+                        // Sadece bunu seç
+                        const targetCheckbox = document.querySelector(`.category-filter[value="${cls}"]`);
+                        if (targetCheckbox) targetCheckbox.checked = true;
+                        // Filtrele
+                        applyFilters(true);
+                    });
 
-                // Son eleman değilse araya "/" işareti koy
-                if (index < selectedClasses.length - 1) {
-                    const separator = document.createElement('span');
-                    separator.textContent = '/';
-                    separator.className = "text-gray-400 mx-2";
-                    breadcrumbContainer.appendChild(separator);
-                }
-            });
+                    breadcrumbContainer.appendChild(link);
+
+                    // Son eleman değilse araya "/" işareti koy
+                    if (index < selectedClasses.length - 1) {
+                        const separator = document.createElement('span');
+                        separator.textContent = '/';
+                        separator.className = "text-gray-400 mx-2";
+                        breadcrumbContainer.appendChild(separator);
+                    }
+                });
+            }
         }
-    }
+    
 
     // 2. URL Güncelleme
     if (updateUrl) {
@@ -212,12 +245,14 @@ function applyFilters(updateUrl = true) {
     });
 
     renderMaterials(filteredList);
+    }, 400); 
 }
 
 // --- KARTLARI ÇİZME (Görsel Tasarım) ---
 function renderMaterials(materialsToRender) {
     const countLabel = document.getElementById('result-count') || document.getElementById('filtered-count');
-    if (countLabel) countLabel.textContent = materialsToRender.length === 0 ? `Malzeme Bulunamadı` : `${materialsToRender.length} malzeme bulundu`;
+    const searchTerm = document.getElementById('search-input')?.value.trim();
+    if (countLabel) countLabel.textContent = materialsToRender.length === 0 ? `${searchTerm} bulunamadı` : `${materialsToRender.length} malzeme bulundu`;
 
     const container = document.getElementById('material-cards-container');
     if (!container) return;
@@ -241,7 +276,7 @@ function renderMaterials(materialsToRender) {
 `;
         return;
     }
-
+    
     const warehouse = JSON.parse(localStorage.getItem("warehouse")) || [];
 
     materialsToRender.forEach(material => {
@@ -261,8 +296,12 @@ function renderMaterials(materialsToRender) {
         tagsHtml += '</div>';
 
         const item = warehouse.find(w => w.id === material.id);
-        const metrajInfo = item ? `<p class="text-sm text-green-600 mt-1 font-bold">Metrajda ${item.quantity} adet var</p>` : `<p class="text-sm text-green-600 mt-1 h-5"></p>`;
-
+        const qty = item ? item.quantity : 0;
+        const metrajInfo = `
+<p class="text-xs text-green-600 font-bold mt-1 metraj-status h-5 flex items-center">
+    ${qty > 0 ? `Metrajda ${qty} kg var` : ''}
+</p>
+`;
         // Yıldızlar
         let starsHtml = '';
         const ratingMap = { 'Yüksek Performans': 5, 'Yüksek Dayanım': 4, 'Standart Kalite': 3, 'Düşük Dayanım': 2, 'Yetersiz': 1 };
@@ -293,7 +332,7 @@ function renderMaterials(materialsToRender) {
                         onerror="this.onerror=function(){this.src='./img/favicon.png'; this.onerror=null;}; this.src='./img/${mClassClean}.png';" />
                     </div>
                 </div>
-                <div class="flex justify-between items-center border-t pt-3 mt-2">
+                <div class="flex justify-between items-center border-t pt-3">
                     <div class="flex flex-col">
                         <span class="text-[10px] uppercase text-gray-400 font-bold">Emisyon</span>
                         <span class="text-green-600 font-bold text-sm">🌱 ${material.carbon_emission || material.carbon || 0} kg CO₂</span>
@@ -356,10 +395,11 @@ function setupCardEventListeners(materialsSource) {
                     input.value = 0;
                     input.classList.add('hidden');
                     card.querySelector('.quantity-decrement-btn').classList.add('hidden');
-                    applyFilters(); 
+                    showToast('Malzeme metraj listenize eklendi!', 'success');
+                    updateCardMetrajText(card, id);
                 }
             } else {
-                alert("Lütfen en az 1 adet seçin.");
+                showToast('Lütfen geçerli bir miktar giriniz.', 'error');
             }
         });
     });
@@ -457,8 +497,8 @@ function resetFilters() {
     document.querySelectorAll('.filter-input').forEach(el => el.value = '');
     
     if(document.getElementById('max-carbon')) {
-        document.getElementById('max-carbon').value = 50;
-        document.getElementById('carbon-val').innerText = '50';
+        document.getElementById('max-carbon').value = 10;
+        document.getElementById('carbon-val').innerText = '10';
     }
 
     if(document.getElementById('min-recycle')) {
@@ -478,3 +518,37 @@ window.addEventListener('popstate', function() {
         initializeListingPage(); 
     }
 });
+
+function updateCardMetrajText(cardElement, materialId) {
+    // 1. Depodaki son durumu çek
+    // (localStorage anahtarın 'warehouse' mu 'warehouseItems' mı kontrol et)
+    const warehouse = JSON.parse(localStorage.getItem('warehouse') || '[]');
+    
+    // 2. Bu malzemenin toplam adedini bul
+    const item = warehouse.find(i => i.id == materialId);
+    const totalQty = item ? item.quantity : 0;
+
+    // 3. Kartın içindeki yazı alanını bul (Adım 1'de eklediğimiz class)
+    const statusText = cardElement.querySelector('.metraj-status');
+
+    // 4. Yazıyı Güncelle
+    if (statusText) {
+        if (totalQty > 0) {
+            statusText.innerHTML = `Metrajda ${totalQty} kg var`;
+            statusText.classList.remove('hidden'); // Eğer gizliyse aç
+            statusText.classList.add('text-green-600', 'font-bold'); // Renk ver
+        } else {
+            statusText.innerHTML = ''; // Yoksa temizle
+        }
+    } else {
+        // Eğer o element yoksa (ilk renderda boş geldiyse), manuel oluşturup ekleyelim
+        // (Genelde description'ın altına eklemek mantıklıdır)
+        const descElement = cardElement.querySelector('p.text-gray-500'); // Açıklama p'sini bul
+        if (descElement && totalQty > 0) {
+            const newStatus = document.createElement('p');
+            newStatus.className = "text-xs mt-2 text-green-600 font-bold metraj-status";
+            newStatus.innerHTML = `Metrajda ${totalQty} kg var`;
+            descElement.after(newStatus); // Açıklamanın altına ekle
+        }
+    }
+}
